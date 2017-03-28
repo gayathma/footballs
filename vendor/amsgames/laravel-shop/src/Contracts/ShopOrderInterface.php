@@ -140,7 +140,7 @@ interface ShopOrderInterface
      *
      * @return bool
      */
-    public function is($statusCode);
+    public function isStatus($statusCode);
 
     /**
      * Creates the order's transaction.

@@ -135,6 +135,8 @@ Route::group(['prefix' => $adminUrl, 'middleware' => ['web', 'coaster.admin'], '
 
     Route::post('adminsearch', ['uses' => 'AdminSearchController@search', 'as' => $routeNamePrefix . 'adminsearch']);
 
+    Route::get('orders', ['uses' => 'OrdersController@getIndex', 'as' => $routeNamePrefix . 'orders']);
+
 });
 
 // catch invalid admin routes
