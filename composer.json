@@ -1,0 +1,46 @@
+{
+    "name": "web-feet/coastercms",
+    "description": "Coaster CMS",
+    "license": "GPLv3",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Neil Jennings",
+            "email": "neil@web-feet.co.uk"
+        },
+        {
+            "name": "Daniel Chadwick",
+            "email": "dan@web-feet.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*",
+        "web-feet/coasterframework": "5.3.*"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.1"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": []
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php vendor/web-feet/coasterframework/updateAssets"
+        ],
+        "post-install-cmd": [
+            "php vendor/web-feet/coasterframework/updateAssets"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
