@@ -13,7 +13,6 @@
     
 
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-    <link href="/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="{!! PageBuilder::css('akslider') !!}" rel="stylesheet">
     <link href="{!! PageBuilder::css('donate') !!}" rel="stylesheet">
     <link href="{!! PageBuilder::css('theme') !!}" rel="stylesheet">
