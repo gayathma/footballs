@@ -30,6 +30,7 @@
 @yield('scripts')
 
 {!! PageBuilder::block('footer_html', ['source' => true]) !!}
+    </div>
 
 </body>
 </html>
