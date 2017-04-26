@@ -15,8 +15,16 @@
 
 
 <script src="{!! PageBuilder::js('jquery') !!}"></script>
+<script src="{!! PageBuilder::js('bootstrap.min') !!}"></script>
+
+    <script src="{!! PageBuilder::js('three.min') !!}"></script>
+<script src="{!! PageBuilder::js('app') !!}"></script>
+<script src="{!! PageBuilder::js('TrackballControls') !!}"></script>
+<script src="{!! PageBuilder::js('pantone-match-system') !!}"></script>
+<script src="{!! PageBuilder::js('logic') !!}"></script>
 <script src="{!! PageBuilder::js('uikit') !!}"></script>
-<script src="{!! PageBuilder::js('SimpleCounter') !!}"></script>
+
+
 <script src="{!! PageBuilder::js('components/grid') !!}"></script>
 <script src="{!! PageBuilder::js('components/slider') !!}"></script>
 <script src="{!! PageBuilder::js('components/slideshow') !!}"></script>

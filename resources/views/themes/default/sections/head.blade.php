@@ -16,6 +16,8 @@
     <link href="{!! PageBuilder::css('akslider') !!}" rel="stylesheet">
     <link href="{!! PageBuilder::css('donate') !!}" rel="stylesheet">
     <link href="{!! PageBuilder::css('theme') !!}" rel="stylesheet">
+
+    <link href="{!! PageBuilder::css('editor') !!}" rel="stylesheet">
     <script type='text/javascript' src='../../ajax.googleapis.com/ajax/libs/mootools/1.3.1/mootools-yui-compressed.js'></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
