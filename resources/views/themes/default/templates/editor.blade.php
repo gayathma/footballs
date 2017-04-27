@@ -15,14 +15,10 @@
     
 
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-    <link href="{!! PageBuilder::css('akslider') !!}" rel="stylesheet">
-    <link href="{!! PageBuilder::css('donate') !!}" rel="stylesheet">
-    <link href="{!! PageBuilder::css('theme') !!}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
     <link href="{!! PageBuilder::css('editor') !!}" rel="stylesheet">
-    <script type='text/javascript' src='../../ajax.googleapis.com/ajax/libs/mootools/1.3.1/mootools-yui-compressed.js'></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+  
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,15 +33,15 @@
         <div class="loader"></div>
     </div>
 
-    <div class="over-wrap">
+ 
 
        
 
 
-<section id="second">
+
   
-<div class="uk-width-1-1 uk-row-first">
-                <div class="uk-panel">
+<div class="container-fluid">
+                <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12 ball-selector">
                 <p>Choose your preferred design</p>
                 <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast"/>
@@ -88,12 +84,10 @@
 
    </div>
     
-<div class="uk-width-1-1 uk-row-first">
-                <div class="uk-panel">
+
 <div class="canvas-holder">
 </div>
-</div>
-</div>
+
 <div id="labelHolder">
     <label id="lblStatus">Select a Football</label>
 </div>
@@ -349,31 +343,19 @@
 </footer>
 
 
-<script src="{!! PageBuilder::js('jquery') !!}"></script>
-<script src="{!! PageBuilder::js('bootstrap.min') !!}"></script>
-
+<script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="{!! PageBuilder::js('three.min') !!}"></script>
 <script src="{!! PageBuilder::js('app') !!}"></script>
 <script src="{!! PageBuilder::js('TrackballControls') !!}"></script>
 <script src="{!! PageBuilder::js('pantone-match-system') !!}"></script>
 <script src="{!! PageBuilder::js('logic') !!}"></script>
-<script src="{!! PageBuilder::js('uikit') !!}"></script>
 
 
-<script src="{!! PageBuilder::js('components/grid') !!}"></script>
-<script src="{!! PageBuilder::js('components/slider') !!}"></script>
-<script src="{!! PageBuilder::js('components/slideshow') !!}"></script>
-<script src="{!! PageBuilder::js('components/slideset') !!}"></script>
-<script src="{!! PageBuilder::js('components/sticky') !!}"></script>
-<script src="{!! PageBuilder::js('components/lightbox') !!}"></script>
-<script src="{!! PageBuilder::js('isotope.pkgd.min') !!}"></script>
-
-<script src="{!! PageBuilder::js('theme') !!}"></script>
-
-@yield('scripts')
-
-{!! PageBuilder::block('footer_html', ['source' => true]) !!}
-    </div>
 
 </body>
 </html>
