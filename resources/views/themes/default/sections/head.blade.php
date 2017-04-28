@@ -8,7 +8,7 @@
     <meta name="description" content="{!! PageBuilder::block('meta_description', ['meta' => true]) !!}">
     <meta name="keywords" content="{!! PageBuilder::block('meta_keywords', ['meta' => true]) !!}">
 
-  	<meta name="revisit-after" content="7 days">
+    <meta name="revisit-after" content="7 days">
 
     
 
