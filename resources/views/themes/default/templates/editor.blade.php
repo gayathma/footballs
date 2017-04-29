@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
     <link href="{!! PageBuilder::css('editor') !!}" rel="stylesheet">
+     <link href="{!! PageBuilder::css('introjs.min') !!}" rel="stylesheet">
   
 
     <!--[if lt IE 9]>
@@ -42,15 +43,17 @@
   
 <div class="container-fluid">
                 <div class="row">
-<div class="col-md-12 col-sm-12 col-xs-12 ball-selector">
+<div class="col-md-12 col-sm-12 col-xs-12 ball-selector" >
+
                 <p>Choose your preferred design</p>
-                <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast"/>
+                <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast" data-intro='Hello There, Get started with your design by selecting a football.'/>
                 <img src="/themes/default/img/flame.png" onclick="flame()" class="bttn flame"/>
                 <img src="/themes/default/img/prem.png" onclick="prem()" class="bttn prem"/>
                 <img src="/themes/default/img/swerve.png" onclick="swerve()" class="bttn swerve"/>
                 <img src="/themes/default/img/world.png" onclick="world()" class="bttn world"/>
                 <img src="/themes/default/img/premium.png" onclick="premium()" class="bttn premium"/>
-            </div>
+                </div>
+           
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                     
@@ -58,17 +61,17 @@
 
                         <div class="form-group">
                             
-                            <button class="btn btn-success btn-sm"  onclick="showColor()">Main Colour</button>
-                            <button class="btn btn-success btn-sm"  onclick="showColor2()">Secondary Colour</button>
-                            <label class="btn btn-success btn-file logoSelect btn-sm">Add Primary Logo <input id="logo1" type="file" hidden ></label>
+                            <button class="btn btn-success btn-sm"  onclick="showColor()" data-intro='Select the primary colour.'>Main Colour</button>
+                            <button class="btn btn-success btn-sm"  onclick="showColor2()" data-intro='Select the secondary colour.'>Secondary Colour</button>
+                            <label class="btn btn-success btn-file logoSelect btn-sm" data-intro='You can add a logo and make sure to upload it in PNG format for best results.'>Add Primary Logo <input id="logo1" type="file" hidden ></label>
                             <label class="btn btn-success btn-file logoSelect btn-sm">Add Secondary Logo<input id="logo2" type="file" hidden ></label>
-                            <button class="btn btn-success textSelect btn-sm" onclick="addText(0)">Enter Primary Text</button>
+                            <button class="btn btn-success textSelect btn-sm" onclick="addText(0)" data-intro='Or you can add a text.'>Enter Primary Text</button>
                             <button class="btn btn-success textSelect btn-sm" onclick="addText(1)">Enter Secondary Text</button>
                             <!--<button id="logoSelect" class="btn btn-success btn-sm"  onclick="showLogoModal()">Add Logo</button>
                             <button id="textSelect" class="btn btn-success btn-sm"  onclick="showTextModal()">Add Text</button>-->
-                            <button class="btn btn-success btn-sm"  id="reset">Reset Options</button>
-                            <button class="btn btn-success btn-sm"  onclick="player.centerBall()">Center Ball</button>
-                            <!-- <button class="btn btn-success btn-sm"  onclick="placeOrder()">Place Order</button> -->
+                            <button class="btn btn-success btn-sm"  id="reset" data-intro='You can always start fresh by resetting'>Reset Options</button>
+                            <button class="btn btn-success btn-sm"  onclick="player.centerBall()" data-intro='Get a better view by centering out'>Center Ball</button>
+                            <button class="btn btn-success btn-sm"  onclick="placeOrder()" data-intro='If you happy with it place the order'>Place Order</button>
                             
                         </div>
                     </div>
@@ -131,9 +134,17 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
+                <div class="form-group text-left">
+                    <label for="exampleInputEmail2">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="ex : Richard Phillip" required>
+                </div>
+                <div class="form-group text-left">
+                    <label for="exampleInputEmail2">Team Name</label>
+                    <input type="text" class="form-control" id="team" placeholder="ex : Rowdies U12’s" required>
+                </div>
+                <div class="form-group text-left">
                     <label for="exampleInputEmail2">Email</label>
-                    <input type="email" class="form-control" id="emailAdd" placeholder="jane.doe@example.com" required>
+                    <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
                 </div>
 
             </div>
@@ -327,20 +338,7 @@
 </section>
 
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-7">
-                <p class="dupa">&copy; {!! date("Y") !!} {!! PageBuilder::block('footer_left') !!} | A <a href="http://coastercms.org" target="_blank">Coaster CMS</a> website | <a href="#toptop">Back to top</a></p>
-            </div>
-            <div class="col-sm-5">
-                <p class="text-right">E-mail: <a href="mailto:{!! PageBuilder::block('email') !!}">{!! PageBuilder::block('email') !!}</a> | Phone: +44 {!! str_replace(" ", "-", PageBuilder::block('phone')) !!} </p>
-            </div>
-        </div>
-        <!--/. row -->
-    </div>
-    <!-- /.container -->
-</footer>
+
 
 
 <script
@@ -354,6 +352,16 @@
 <script src="{!! PageBuilder::js('TrackballControls') !!}"></script>
 <script src="{!! PageBuilder::js('pantone-match-system') !!}"></script>
 <script src="{!! PageBuilder::js('logic') !!}"></script>
+<script src="{!! PageBuilder::js('intro.min') !!}"></script>
+
+<script type="text/javascript">
+    
+setTimeout(function(){
+    $('.preloader').hide();
+    introJs().start();
+},2000);
+
+</script>
 
 
 

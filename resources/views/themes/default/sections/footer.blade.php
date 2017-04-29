@@ -1,4 +1,4 @@
-<footer>
+<!--<footer>
     <div class="container">
         <div class="row">
             <div class="col-sm-7">
@@ -8,20 +8,56 @@
                 <p class="text-right">E-mail: <a href="mailto:{!! PageBuilder::block('email') !!}">{!! PageBuilder::block('email') !!}</a> | Phone: +44 {!! str_replace(" ", "-", PageBuilder::block('phone')) !!} </p>
             </div>
         </div>
-        <!--/. row -->
+       
     </div>
-    <!-- /.container -->
-</footer>
-
+  
+</footer>-->
+<div id="offcanvas" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar">
+                <ul class="uk-nav uk-nav-offcanvas">
+                    <li class="uk-parent uk-active"><a href="index-2.html">Home</a>
+                        <ul class="uk-nav-sub">
+                            <li><a class="yellow-scheme" href="index-2.html">Yellow Color Scheme</a>
+                            </li>
+                            <li><a class="blue-scheme" href="http://h-sportak.torbara.com/blue/index.html">Blue Color Scheme</a>
+                            </li>
+                            <li><a class="red-scheme" href="http://h-sportak.torbara.com/red/index.html">Red Color Scheme</a>
+                            </li>
+                            <li><a href="offline.html">Offline Page</a>
+                            </li>
+                            <li><a href="404.html">Error Page</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="uk-parent"><a href="#">Pages</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="players.html">Players</a>
+                            </li>
+                            <li><a href="gallery.html">Gallery</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent"><a href="match-list.html">Match</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="results.html">Results</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="news.html">News</a>
+                    </li>
+                    <li><a href="category.html">Shop</a>
+                    </li>
+                    <li><a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
 <script src="{!! PageBuilder::js('jquery') !!}"></script>
 <script src="{!! PageBuilder::js('bootstrap.min') !!}"></script>
 
-    <script src="{!! PageBuilder::js('three.min') !!}"></script>
-<script src="{!! PageBuilder::js('app') !!}"></script>
-<script src="{!! PageBuilder::js('TrackballControls') !!}"></script>
-<script src="{!! PageBuilder::js('pantone-match-system') !!}"></script>
-<script src="{!! PageBuilder::js('logic') !!}"></script>
+    
 <script src="{!! PageBuilder::js('uikit') !!}"></script>
 
 
