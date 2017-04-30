@@ -26,7 +26,7 @@
                                     <div class="uk-position-cover uk-flex-middle">
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
-                                                <h3>CREATE AWESOME<span>FOOTBALL DESIGNS</span></h3>
+                                                <h3>CREATE AWESOME<span> FOOTBALL DESIGNS</span></h3>
                                                 <div class="promo-sub">Just play. <span>Have fun.</span> Enjoy the game</div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>

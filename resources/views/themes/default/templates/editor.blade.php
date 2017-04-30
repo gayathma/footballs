@@ -45,7 +45,7 @@
                 <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12 ball-selector" >
 
-                <p>Choose your preferred design</p>
+                <p><button class="btn btn-success btn-sm" >Back</button>Choose your preferred design</p>
                 <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast" data-intro='Hello There, Get started with your design by selecting a football.'/>
                 <img src="/themes/default/img/flame.png" onclick="flame()" class="bttn flame"/>
                 <img src="/themes/default/img/prem.png" onclick="prem()" class="bttn prem"/>
