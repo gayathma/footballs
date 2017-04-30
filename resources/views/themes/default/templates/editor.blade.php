@@ -147,6 +147,11 @@
                     <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
                 </div>
 
+                <div class="form-group text-left">
+                    <label for="exampleInputEmail2">How many footballs needed ?</label>
+                    <input type="number" class="form-control" id="count" val="1" required>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-success" onclick="processOrder()">Order</button>
@@ -345,7 +350,7 @@
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="{!! PageBuilder::js('tether.min') !!}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="{!! PageBuilder::js('three.min') !!}"></script>
 <script src="{!! PageBuilder::js('app') !!}"></script>
