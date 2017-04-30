@@ -149,8 +149,21 @@
 
                 <div class="form-group text-left">
                     <label for="exampleInputEmail2">How many footballs needed ?</label>
-                    <input type="number" class="form-control" id="count" val="1" required>
+                    <input type="number" class="form-control" id="count" value="1" min="1" required>
                 </div>
+                <script type="text/javascript">
+                    var number = document.getElementById('count');
+
+                    // Listen for input event on numInput.
+                    number.onkeydown = function(e) {
+                        if(!((e.keyCode > 95 && e.keyCode < 106)
+                          || (e.keyCode > 47 && e.keyCode < 58) 
+                          || e.keyCode == 8)) {
+                            return false;
+                        }
+                    }
+
+                </script>
 
             </div>
             <div class="modal-footer">
