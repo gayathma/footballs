@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Amsgames\\LaravelShop\\MigrationCommand' => $vendorDir . '/amsgames/laravel-shop/src/Commands/MigrationCommand.php',
+    'CreateMyCustomProductsTable' => $baseDir . '/database/migrations/2017_04_30_231330_create_my_custom_products_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'GdReflectionLib' => $vendorDir . '/weotch/phpthumb/src/thumb_plugins/gd_reflection.inc.php',
     'GdThumb' => $vendorDir . '/weotch/phpthumb/src/GdThumb.inc.php',

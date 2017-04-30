@@ -1,5 +1,7 @@
 <?php
 
+Route::post('/process-order', 'CoasterCms\Http\Controllers\OrderProcessController@postOrder');
+
 // Files override to enable hosting secure docs
 Route::get('uploads/{file_path}', ['middleware' => ['web', 'auth'], function($file_path)
 {
@@ -16,3 +18,4 @@ Route::get('uploads/{file_path}', ['middleware' => ['web', 'auth'], function($fi
 
 // catch all (rest must be cms pages)
 Route::any('{other}', ['middleware' => ['web', 'coaster.pagebuilder.init'], 'uses' => 'CoasterCms\Http\Controllers\CmsController@generatePage'])->where('other', '.*');
+

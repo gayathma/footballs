@@ -129,47 +129,49 @@
 <div class="modal fade" id="confirmModal" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Confirm Order</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group text-left">
-                    <label for="exampleInputEmail2">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="ex : Richard Phillip" required>
+            <form method="POST"  id="order_form" name="order_form">
+                <input type="hidden" name="_token" id="order_tocken" value="{{ csrf_token() }}">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Confirm Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="form-group text-left">
-                    <label for="exampleInputEmail2">Team Name</label>
-                    <input type="text" class="form-control" id="team" placeholder="ex : Rowdies U12’s" required>
-                </div>
-                <div class="form-group text-left">
-                    <label for="exampleInputEmail2">Email</label>
-                    <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
-                </div>
+                <div class="modal-body">
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="ex : Richard Phillip" required>
+                    </div>
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Team Name</label>
+                        <input type="text" class="form-control" id="team" placeholder="ex : Rowdies U12’s" required>
+                    </div>
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Email</label>
+                        <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
+                    </div>
 
-                <div class="form-group text-left">
-                    <label for="exampleInputEmail2">How many footballs needed ?</label>
-                    <input type="number" class="form-control" id="count" value="1" min="1" required>
-                </div>
-                <script type="text/javascript">
-                    var number = document.getElementById('count');
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">How many footballs needed ?</label>
+                        <input type="number" class="form-control" id="count" value="1" min="1" required>
+                    </div>
+                    <script type="text/javascript">
+                        var number = document.getElementById('count');
 
-                    // Listen for input event on numInput.
-                    number.onkeydown = function(e) {
-                        if(!((e.keyCode > 95 && e.keyCode < 106)
-                          || (e.keyCode > 47 && e.keyCode < 58) 
-                          || e.keyCode == 8)) {
-                            return false;
+                        // Listen for input event on numInput.
+                        number.onkeydown = function(e) {
+                            if(!((e.keyCode > 95 && e.keyCode < 106)
+                              || (e.keyCode > 47 && e.keyCode < 58) 
+                              || e.keyCode == 8)) {
+                                return false;
+                            }
                         }
-                    }
 
-                </script>
-
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" onclick="processOrder()">Order</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-            </div>
+                    </script>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" onclick="processOrder()">Order</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
         </div>
     </div>
 </div>
