@@ -148,24 +148,43 @@
                         <label for="exampleInputEmail2">Email</label>
                         <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
                     </div>
-
-                    <div class="form-group text-left">
-                        <label for="exampleInputEmail2">How many footballs needed ?</label>
-                        <input type="number" class="form-control" id="count" value="1" min="1" required>
-                    </div>
-                    <script type="text/javascript">
-                        var number = document.getElementById('count');
-
-                        // Listen for input event on numInput.
-                        number.onkeydown = function(e) {
-                            if(!((e.keyCode > 95 && e.keyCode < 106)
-                              || (e.keyCode > 47 && e.keyCode < 58) 
-                              || e.keyCode == 8)) {
-                                return false;
-                            }
-                        }
-
+                    <script>
+                         var sizes=['size 3','size 4','size 5','Futsal'];
+                    var productDetails=<?php echo json_encode(\App\MyCustomProduct::all()) ;?>;
+                   
                     </script>
+                    <div class="form-group text-left">
+                    <div class="table-responsive">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th colspan="1">#</th>
+                                    <th colspan="2"><small>Size</small>
+                                        <select id="size" class="form-control"></select>
+                                    </th>
+                                    <th colspan="3"><small>Quality</small>
+                                         <select id="quality" class="form-control"></select>
+                                    </th>
+                                    <th colspan="1"><input type="number" class="form-control" id="count" value="1" min="1" required></th>
+                                    <th colspan="1"><button class="btn btn-successs" onclick="addItem()">Add</button></th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderBody">
+                               
+                            </tbody>
+
+                             <tfoot >
+                               <tr>
+                                   <td colspan="7">Total</td>
+                                    <td colspan="1" id="total"></td>
+                               </tr>
+                            </tfoot>
+                            
+                        </table>
+                        </div>
+                       
+                    </div>
+
             </form>
         </div>
         <div class="modal-footer">
