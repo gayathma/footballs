@@ -634,7 +634,6 @@ function blast(){
                     football.order=orderObject;
                     football._tocken = $('#order_tocken').val();
 
-
                     $.ajax({
                         url: "/process-order",
                         type: 'POST',

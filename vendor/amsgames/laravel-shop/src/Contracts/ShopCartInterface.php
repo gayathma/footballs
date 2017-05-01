@@ -152,7 +152,7 @@ interface ShopCartInterface
      *
      * @return Order
      */
-    public function placeOrder($statusCode = null);
+    public function placeOrder($array, $statusCode = null);
 
     /**
      * Whipes put cart
