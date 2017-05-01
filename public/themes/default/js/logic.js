@@ -10,7 +10,8 @@ var showColor,showColor2;
         var football={
             layer1color:'not selected any color for layer 1',
             layer2color:'not selected any color for layer 2',
-            logo:'no logo uploaded',
+            logo1:'no logo uploaded',
+            logo2:'no logo uploaded',
             screenshot1:'',
             screenshot2:'',
             email:'',
@@ -267,14 +268,16 @@ $('.colorContainer span').on('click',function(){
                 function onCropClick(v){
                     console.log(cropper['getCroppedCanvas'](cropImgData.option, cropImgData.secondOption));
                     var c=cropper['getCroppedCanvas'](cropImgData.option, cropImgData.secondOption).toDataURL('image/png');
-                    football.logo=c;
+                   
                     
                     
                     //$('#modal').modal('hide');
                     if(v==1){
+                        football.logo1=c;
                         logo1=c;
                         player.setLogo1(c);
                     }else if(v==2){
+                        football.logo2=c;
                         logo2=c;
                         player.setLogo2(c);
                     }
@@ -395,7 +398,8 @@ function clear(){
         var football={
             layer1color:'not selected any color for layer 1',
             layer2color:'not selected any color for layer 2',
-            logo:'no logo uploaded',
+            logo1:'no logo uploaded',
+            logo2:'no logo uploaded',
             screenshot1:'',
             screenshot2:'',
             email:'',
@@ -622,7 +626,7 @@ function blast(){
             if(validateEmail(email)){
 
                 $('#orderBody tr').each(function(){
-                    orderObject.push({id:$(this).find('td:nth-child(1)').text(),size:$(this).find('td:nth-child(2)').text(),quality:$(this).find('td:nth-child(3)').text(),quantity:$(this).find('td:nth-child(4)').text(),price:$(this).find('td:nth-child(5)').text().split('£')[1]});
+                    orderObject.push({id:$(this).find('td:nth-child(1)').text(),size:$(this).find('td:nth-child(2)').text(),quality:$(this).find('td:nth-child(3)').text(),quantity:$(this).find('td:nth-child(4)').text(),price:$(this).find('td:nth-child(5)').text().split('£')[1],itemId:$(this).find('td:nth-child(6)').text()});
                    
                 });
                 console.log(orderObject);
@@ -825,7 +829,7 @@ function blast(){
                                  
                                         var subtot=parseFloat(obj*count).toFixed(2);
                                         orderCount++;
-                                        $('#orderBody').append('<tr><td colspan="1">'+orderCount+'</td><td colspan="2">'+size+'</td><td colspan="3">'+quality+'</td><td colspan="1">'+count+'</td><td colspan="1">£'+subtot+'</td><td><span class="rm">X</span></td></tr>');
+                                        $('#orderBody').append('<tr><td colspan="1">'+orderCount+'</td><td colspan="2">'+size+'</td><td colspan="3">'+quality+'</td><td colspan="1">'+count+'</td><td colspan="1">£'+subtot+'</td><td style="display:none">'+value.id+'</td><td><span class="rm">X</span></td></tr>');
                                         total+=parseFloat(subtot);
                                         total=parseFloat(total);
                                         $('#total').text('£'+total.toFixed(2));
