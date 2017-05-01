@@ -584,9 +584,11 @@ function blast(){
                     
                     //$('#modal').modal('hide');
                     if(v==1){
+                        football.logo1=res;
                         logo1=res;
                         player.setLogo1(res);
                     }else if(v==2){
+                        football.logo2=res;
                         logo2=res;
                         player.setLogo2(res);
                     }
