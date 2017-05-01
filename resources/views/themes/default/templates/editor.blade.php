@@ -148,6 +148,30 @@
                         <label for="exampleInputEmail2">Email</label>
                         <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
                     </div>
+                    <hr/>
+                     <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Size</label>
+                        <select id="size" class="form-control"></select>
+                       
+                    </div>
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Quality</label>
+                        <select id="quality" class="form-control"></select>
+                       
+                    </div>
+                      <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Quantity</label>
+                        <input type="number" class="form-control" id="count" value="1" min="1" required>
+                       
+                    </div>
+                     <div class="form-group text-left">
+                      <input type="button" class="btn btn-successs btn-sm" onclick="addItem()" style="float:right" value="Add"/>
+                       
+                    </div>
+
+                    
+                       
+                        
                     <script>
                          var sizes=['size 3','size 4','size 5','Futsal'];
                     var productDetails=<?php echo json_encode(\App\MyCustomProduct::all()) ;?>;
@@ -155,18 +179,19 @@
                     </script>
                     <div class="form-group text-left">
                     <div class="table-responsive">
-                        <table class="table ">
+                        <table class="table">
+                         <col width=100><col width=100><col width=100>
                             <thead>
                                 <tr>
                                     <th colspan="1">#</th>
                                     <th colspan="2"><small>Size</small>
-                                        <select id="size" class="form-control"></select>
+                                       
                                     </th>
                                     <th colspan="3"><small>Quality</small>
-                                         <select id="quality" class="form-control"></select>
+                                         
                                     </th>
-                                    <th colspan="1"><input type="number" class="form-control" id="count" value="1" min="1" required></th>
-                                    <th colspan="1"><button class="btn btn-successs" onclick="addItem()">Add</button></th>
+                                    <th colspan="1"></th>
+                                    <th colspan="1"></th>
                                 </tr>
                             </thead>
                             <tbody id="orderBody">
