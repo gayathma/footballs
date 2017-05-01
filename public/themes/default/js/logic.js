@@ -617,14 +617,38 @@ function blast(){
     }
     
     var orderObject=[];
+    var orderComplete={
+        orderId:'',
+        token:''
+    }
     var handler = StripeCheckout.configure({
       key: 'pk_test_IcokALwnlUd6TW0z542x65vj',
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       token: function(token) {
-        console.log(token);
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
+        orderComplete.token=token.id;
+        $.ajax({
+                        url: "/complete-order",
+                        type: 'POST',
+                        cache: false,
+                        contentType: "application/x-www-form-urlencoded",
+                        data: JSON.stringify(orderComplete),
+                        success: function (msg) {
+                            console.log(msg);
+                            $('#confirmModal').modal('hide');
+                            // Open Checkout with further options:
+                           
+                              
+                             // e.preventDefault();
+                            //alert("Order successfully placed. A confirmation email is sent to given email address.");
+
+                        },
+                        error:function(msg){
+                            console.log(msg);
+                             $('#confirmModal').modal('hide');
+                            alert("error occured. Try again later.");
+                        }
+                    });
       }
     });
 
@@ -666,16 +690,23 @@ function blast(){
                         data: JSON.stringify(football),
                         success: function (msg) {
                             console.log(msg);
-                            $('#confirmModal').modal('hide');
+                            //$('#confirmModal').modal('hide');
                             // Open Checkout with further options:
-
-                              handler.open({
+                            var json=JSON.parse(msg);
+                            var tot=json.tot;
+                            if(json.status){
+                               orderComplete.orderId=json.order_id;
+                               handler.open({
                                 name: '1v1 Limited',
                                 description: '1v1 bespoke footballs',
                                 zipCode: true,
                                 currency: 'gbp',
-                                amount: parseFloat(JSON.parse(msg).tot) //replace this with server tot
-                              });
+                                amount: tot //replace this with server tot
+                              }); 
+                           }else{
+                                alert("error occured. Try again later.");
+                           }
+                              
                              // e.preventDefault();
                             //alert("Order successfully placed. A confirmation email is sent to given email address.");
 

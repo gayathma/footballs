@@ -124,7 +124,7 @@ class OrderProcessController extends Controller
         }
 
 
-        return json_encode(array('tot' => $total, 'status' => $status, 'order_id' =>$order->id ));
+        return json_encode(array('tot' => $total*100, 'status' => $status, 'order_id' =>$order->id ));
 
 
     }
