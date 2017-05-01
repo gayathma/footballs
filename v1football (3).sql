@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 01, 2017 at 08:38 PM
+-- Generation Time: May 01, 2017 at 10:47 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -1273,7 +1273,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2017-05-01 11:22:17', '2017-05-01 11:22:17');
+(1, 3, '2017-05-01 14:51:37', '2017-05-01 14:51:37');
 
 -- --------------------------------------------------------
 
@@ -1342,6 +1342,16 @@ CREATE TABLE `items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `user_id`, `cart_id`, `order_id`, `size_id`, `sku`, `price`, `tax`, `shipping`, `currency`, `quantity`, `class`, `reference_id`, `created_at`, `updated_at`) VALUES
+(1, 3, NULL, 3, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-01 15:15:52', '2017-05-01 15:15:52'),
+(2, 3, NULL, 3, 2, 'Training', '49.98', '0.00', '0.00', 'GBP', 2, 'App\\MyCustomProduct', '1', '2017-05-01 15:15:52', '2017-05-01 15:15:52'),
+(3, 3, NULL, 4, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-01 15:16:50', '2017-05-01 15:16:50'),
+(4, 3, NULL, 4, 2, 'Training', '49.98', '0.00', '0.00', 'GBP', 2, 'App\\MyCustomProduct', '1', '2017-05-01 15:16:50', '2017-05-01 15:16:50');
 
 -- --------------------------------------------------------
 
@@ -1507,9 +1517,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '5_3_15_0_update_menu_items', 1),
 (53, '5_3_23_0_add_estimote_support', 1),
 (54, '5_3_5_0_add_search_action', 1),
-(62, '2017_04_27_052548_shop_setup_tables', 2),
-(63, '2017_04_30_231330_create_my_custom_products_table', 2),
-(64, '2017_05_01_170751_add_column_for_order_table', 3);
+(65, '2017_04_27_052548_shop_setup_tables', 2),
+(66, '2017_04_30_231330_create_my_custom_products_table', 2),
+(67, '2017_05_01_170751_add_column_for_order_table', 2);
 
 -- --------------------------------------------------------
 
@@ -1562,16 +1572,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `team_name`, `statusCode`, `created_at`, `updated_at`) VALUES
-(1, 1, 'dsadsad', 'pending', '2017-05-01 12:33:26', '2017-05-01 12:33:26'),
-(2, 1, 'dsadsad', 'pending', '2017-05-01 12:33:51', '2017-05-01 12:33:51'),
-(3, 1, 'dsadsad', 'pending', '2017-05-01 12:34:33', '2017-05-01 12:34:33'),
-(4, 1, 'dsadsad', 'pending', '2017-05-01 12:39:36', '2017-05-01 12:39:36'),
-(5, 1, 'dsadsad', 'pending', '2017-05-01 12:41:20', '2017-05-01 12:41:20'),
-(6, 1, 'dsadsad', 'pending', '2017-05-01 12:46:11', '2017-05-01 12:46:11'),
-(7, 1, 'dsadsad', 'pending', '2017-05-01 12:51:20', '2017-05-01 12:51:20'),
-(8, 1, 'dsadsad', 'pending', '2017-05-01 12:52:39', '2017-05-01 12:52:39'),
-(9, 1, 'dsadsad', 'pending', '2017-05-01 12:58:08', '2017-05-01 12:58:08'),
-(10, 1, 'dsadsad', 'pending', '2017-05-01 12:59:04', '2017-05-01 12:59:04');
+(3, 3, 'sdfdfdf', 'pending', '2017-05-01 15:15:52', '2017-05-01 15:15:52'),
+(4, 3, 'sdfdfdf', 'pending', '2017-05-01 15:16:50', '2017-05-01 15:16:50');
 
 -- --------------------------------------------------------
 
@@ -2254,7 +2256,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `active`, `password`, `email`, `name`, `role_id`, `remember_token`, `tmp_code`, `tmp_code_created`, `blog_login`, `page_states`, `created_at`, `updated_at`) VALUES
-(1, 1, '$2y$10$Cs6VtHBSzfG3/j4gIv8.bOeWzaqHqY5n6Ph43fP5urD5wFDUq25fK', 'gayathma3@gmail.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2017-04-06 02:11:26', '2017-04-06 02:11:26'),
+(1, 1, '$2y$10$Cs6VtHBSzfG3/j4gIv8.bOeWzaqHqY5n6Ph43fP5urD5wFDUq25fK', 'gayathma3@gmail.com', NULL, 1, 'P3es7ETF3yxFQiMa4h8TRLcuZl4KPAqeX2GM0wKj7rxpGhVHi13jWva5Am5R', NULL, NULL, NULL, NULL, '2017-04-06 02:11:26', '2017-05-01 15:10:51'),
 (3, 1, '$2y$10$.eDUthVut6jcH08PeKGC2ORJ7n5gwRKBB59XxP8Cwrh2uP2oKnEki', 'shamaingdd@yahoo.com', 'fsdf', 5, NULL, NULL, NULL, NULL, NULL, '2017-04-30 17:14:37', '2017-04-30 17:14:37');
 
 -- --------------------------------------------------------
@@ -2476,8 +2478,8 @@ ALTER TABLE `form_submissions`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `items_sku_cart_id_unique` (`sku`,`cart_id`),
-  ADD UNIQUE KEY `items_sku_order_id_unique` (`sku`,`order_id`),
+  ADD UNIQUE KEY `items_sku_cart_id_size_id_unique` (`sku`,`cart_id`,`size_id`),
+  ADD UNIQUE KEY `items_sku_order_id_size_id_unique` (`sku`,`order_id`,`size_id`),
   ADD KEY `items_cart_id_foreign` (`cart_id`),
   ADD KEY `items_user_id_sku_index` (`user_id`,`sku`),
   ADD KEY `items_user_id_sku_cart_id_index` (`user_id`,`sku`,`cart_id`),
@@ -2773,7 +2775,7 @@ ALTER TABLE `form_submissions`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `item_size`
 --
@@ -2798,7 +2800,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `my_custom_products`
 --
@@ -2808,7 +2810,7 @@ ALTER TABLE `my_custom_products`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pages`
 --

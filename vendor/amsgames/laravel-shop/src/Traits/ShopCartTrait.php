@@ -76,7 +76,7 @@ trait ShopCartTrait
     {
         if (!is_array($item) && !$item->isShoppable) return;
         // Get item
-        $cartItem = $this->getItem(is_array($item) ? $item['sku'] : $item->sku);
+        $cartItem = $this->getItemCustom(is_array($item) ? $item['sku'] : $item->sku, $size_id);
         // Add new or sum quantity
         if (empty($cartItem)) {
             $reflection = null;
@@ -305,6 +305,23 @@ trait ShopCartTrait
         $className  = Config::get('shop.item');
         $item       = new $className();
         return $item->where('sku', $sku)
+            ->where('cart_id', $this->attributes['id'])
+            ->first();
+    }
+
+    /**
+     * Retrieves item from cart;
+     *
+     * @param string $sku SKU of item.
+     *
+     * @return mixed
+     */
+    private function getItemCustom($sku, $size_id)
+    {
+        $className  = Config::get('shop.item');
+        $item       = new $className();
+        return $item->where('sku', $sku)
+            ->where('size_id', $size_id)
             ->where('cart_id', $this->attributes['id'])
             ->first();
     }

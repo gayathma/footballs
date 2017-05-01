@@ -40,9 +40,6 @@ class CreateMyCustomProductsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('items', function (Blueprint $table) {
-            $table->integer('size_id')->after('order_id');
-        });
     }
 
     /**
@@ -54,12 +51,5 @@ class CreateMyCustomProductsTable extends Migration
     {
          Schema::drop('my_custom_products');
          Schema::drop('item_size');
-
-         if (Schema::hasColumn('items', 'size_id')) {
-            Schema::table('items', function(Blueprint $table)
-            {
-                 $table->dropColumn('size_id');
-            });
-        }
     }
 }

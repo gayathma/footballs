@@ -161,7 +161,8 @@ trait ShopCalculationsTrait
         $this->shopCalculations = DB::table($this->table)
             ->select([
                 DB::raw('sum(' . Config::get('shop.item_table') . '.quantity) as itemCount'),
-                DB::raw('sum(' . Config::get('shop.item_table') . '.price * ' . Config::get('shop.item_table') . '.quantity) as totalPrice'),
+                DB::raw('sum(' . Config::get('shop.item_table') . '.price)  as totalPrice'),
+                //DB::raw('sum(' . Config::get('shop.item_table') . '.price * ' . Config::get('shop.item_table') . '.quantity) as totalPrice'),
                 DB::raw('sum(' . Config::get('shop.item_table') . '.tax * ' . Config::get('shop.item_table') . '.quantity) as totalTax'),
                 DB::raw('sum(' . Config::get('shop.item_table') . '.shipping * ' . Config::get('shop.item_table') . '.quantity) as totalShipping')
             ])
