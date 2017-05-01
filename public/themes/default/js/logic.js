@@ -626,7 +626,7 @@ function blast(){
             if(validateEmail(email)){
 
                 $('#orderBody tr').each(function(){
-                    orderObject.push({id:$(this).find('td:nth-child(1)').text(),size:$(this).find('td:nth-child(2)').text(),quality:$(this).find('td:nth-child(3)').text(),quantity:$(this).find('td:nth-child(4)').text(),price:$(this).find('td:nth-child(5)').text().split('£')[1],itemId:$(this).find('td:nth-child(6)').text()});
+                    orderObject.push({id:$(this).find('td:nth-child(1)').text(),size:$(this).find('td:nth-child(2)').attr('value'),quality:$(this).find('td:nth-child(3)').text(),quantity:$(this).find('td:nth-child(4)').text(),price:$(this).find('td:nth-child(5)').text().split('£')[1],itemId:$(this).find('td:nth-child(6)').text()});
                    
                 });
                 console.log(orderObject);
@@ -807,6 +807,7 @@ function blast(){
     function addItem(){
         var quality=$('#quality').val();
         var size=$('#size').val();
+        var sizeLabel=$('#size option:selected').text();
         var count=$('#count').val();
 
         $.each(productDetails, function( index, value ) {
@@ -829,7 +830,7 @@ function blast(){
                                  
                                         var subtot=parseFloat(obj*count).toFixed(2);
                                         orderCount++;
-                                        $('#orderBody').append('<tr><td colspan="1">'+orderCount+'</td><td colspan="2">'+size+'</td><td colspan="3">'+quality+'</td><td colspan="1">'+count+'</td><td colspan="1">£'+subtot+'</td><td style="display:none">'+value.id+'</td><td><span class="rm">X</span></td></tr>');
+                                        $('#orderBody').append('<tr><td colspan="1">'+orderCount+'</td><td colspan="2" value="'+size+'">'+sizeLabel+'</td><td colspan="3">'+quality+'</td><td colspan="1">'+count+'</td><td colspan="1">£'+subtot+'</td><td style="display:none">'+value.id+'</td><td><span class="rm">X</span></td></tr>');
                                         total+=parseFloat(subtot);
                                         total=parseFloat(total);
                                         $('#total').text('£'+total.toFixed(2));
