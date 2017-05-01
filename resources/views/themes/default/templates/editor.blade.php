@@ -151,7 +151,12 @@
                     <hr/>
                      <div class="form-group text-left">
                         <label for="exampleInputEmail2">Size</label>
-                        <select id="size" class="form-control"></select>
+                        <?php $sizes = \App\Size::all(); ?>
+                        <select id="size" class="form-control">
+                            <?php  foreach ($sizes as  $size):?>
+                                <option value="<?php echo $size->id;?>"><?php echo $size->size;?></option>
+                            <?php endforeach;;?>
+                        </select>
                        
                     </div>
                     <div class="form-group text-left">

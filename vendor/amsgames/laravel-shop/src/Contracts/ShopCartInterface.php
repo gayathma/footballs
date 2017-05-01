@@ -35,7 +35,7 @@ interface ShopCartInterface
      * @param mixed $item     Item to add, can be an Store Item, a Model with ShopItemTrait or an array.
      * @param int   $quantity Item quantity in cart.
      */
-    public function add($item, $quantity = 1, $quantityReset = self::QUANTITY_ADDITION);
+    public function add($item, $quantity = 1, $price, $size_id, $quantityReset = self::QUANTITY_ADDITION);
 
     /**
      * Removes an item from the cart or decreases its quantity.

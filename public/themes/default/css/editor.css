@@ -1,0 +1,277 @@
+
+		
+		#edit {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			padding: 8px;
+			text-decoration: none;
+			background-color: #fff;
+			color: #555;
+			opacity: 0.5;
+		}
+		#edit:hover {
+			opacity: 1;
+		}
+
+		label{
+			margin-bottom: 0px!important;
+		}
+
+		.ball-selector{
+			    padding: 0px!important;
+		}
+
+		.tp-pd{
+			padding-top: 10px;
+		}
+
+		.top-holder{
+			position: absolute;
+			width: 100%;
+
+			background: #eeeeee;
+			z-index: 2;
+			text-align: center;
+			display: inline-table;
+		}
+
+		.pd-left{
+			padding-left: 1.8vh!important;
+   		
+		}
+
+		.bttn{
+			width: 7vh;
+			margin-right: 2px;
+		}
+
+		.form-group{
+			text-align: center;
+		}
+		#labelHolder {
+			text-align:center;
+			vertical-align:middle;
+			width: 100%;
+			height: 100%;
+
+		}
+
+		.ball-selector{
+			text-align: center;
+		}
+		#labelHolder #lblStatus {
+			margin: auto;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			color: black;
+
+
+		}
+
+		.container-fluid{
+			background-color: #ffffff;
+		}
+
+		#image{
+			width: 400px;
+			height: 400px;
+		}
+
+		select{
+			width: 60%;
+		}
+
+		#textCanvas{
+			border: 2px solid #d8d8d8;
+		}
+
+		.select2-container {
+			margin-bottom: 15px;
+		}
+		.select2-container span.pantone-color-block {
+			width: 30px;
+			margin-right: 5px;
+			padding-left: 5%;
+			border-radius: 3px;
+			border: 1px solid #808080;
+		}
+		.select2-container--default.pallete .pantone-color-block {
+			padding-right: 1.5em;
+			border-radius: 3px;
+			border: 1px solid rgba(0,0,0,0.5);
+			margin-right: 0.75em;
+		}
+		.select2-container--default.pallete .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+			position: relative;
+		}
+		.select2-container--default.pallete .select2-selection--multiple .select2-selection__rendered .select2-selection__choice__remove {
+			position: relative;
+			z-index: 1;
+		}
+		.select2-container--default.pallete .select2-selection--multiple .select2-selection__rendered .pantone-color-block {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			hieght: 100%;
+			border: 0;
+			padding: 0;
+			margin: 0;
+			z-index: 0;
+		}
+
+
+		.btn-group-sm>.btn, .btn-sm{
+			border-radius: 0px!important;
+		}
+		.select2-container--default.pallete .select2-selection--multiple .select2-selection__rendered .pantone-color-name {
+			padding-right: 5px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.tool-panel{
+			width: 100%;
+			background: #eeeeee;
+			z-index: 90000;
+			text-align: center;
+			margin-top: 15px;
+			margin-bottom: 10px;
+			display: inline-table;
+		}
+
+		.btn-sm{
+			font-size: .775rem!important;
+		}
+
+		.lb-pd{
+			padding: 5px;
+		}
+
+		.colorContainer,.colorContainer2{
+			margin: 0 auto!important;
+		}
+
+		.txt-center{
+			text-align: center;
+		}
+
+
+
+		#image {
+			max-width: 100%; /* This rule is very important, please do not ignore this! */
+		}
+
+		.btn-success:hover {
+			color: #fff!important;
+			background-color: #000000!important;
+			border-color: #000000!important;
+		}
+		.btn-success {
+			color: #000!important;
+			background-color: #ffffff!important;
+			border-color: #000000!important;
+		}
+
+		.btn-st{
+			width: 4vh;
+		}
+
+		.colorblk{
+			width: 6vh;
+			height: 6vh;
+			display: block;
+		}
+
+		.selectedfb{
+			border-radius: 34px;
+    		border: 1px dashed #000000;
+		}
+
+		.addBtn{
+			background-color: black!important;
+    		color: white!important;
+		}
+		
+.canvas-holder{
+			margin-top: -80px;
+		}
+
+		body{
+			    overflow: hidden;
+		}
+
+		.preloader {
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+.preloader .loader {
+  margin: -30px 0 0 -30px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: url("../img/logo-loader.png") 50% 50% no-repeat #d6d6d6;
+  animation-name: spin;
+  animation-duration: 1200ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text-left{
+	text-align: left;
+}
+
+.table thead th{
+	    padding: 3px!important;
+}
+
+.rm{
+	    padding: 4px;
+    border-radius: 3px;
+    background: black;
+    color: white;
+}
+
+#orderBody tr td{
+	font-size: .8em;
+
+}

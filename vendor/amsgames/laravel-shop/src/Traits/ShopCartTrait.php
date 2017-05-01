@@ -38,9 +38,9 @@ trait ShopCartTrait
         parent::boot();
 
         static::deleting(function($user) {
-            if (!method_exists(Config::get('auth.model'), 'bootSoftDeletingTrait')) {
-                $user->items()->sync([]);
-            }
+            if (!method_exists(Config::get('auth.providers.users.model'), 'bootSoftDeletingTrait')) {
+                 $user->items()->sync([]);
+             }
 
             return true;
         });
@@ -53,7 +53,7 @@ trait ShopCartTrait
      */
     public function user()
     {
-        return $this->belongsTo(Config::get('auth.model'), 'user_id');
+        return $this->belongsTo(config('auth.providers.users.model'), 'user_id');
     }
 
     /**
@@ -72,7 +72,7 @@ trait ShopCartTrait
      * @param mixed $item     Item to add, can be an Store Item, a Model with ShopItemTrait or an array.
      * @param int   $quantity Item quantity in cart.
      */
-    public function add($item, $quantity = 1, $quantityReset = false)
+    public function add($item, $quantity = 1, $price, $size_id, $quantityReset = false )
     {
         if (!is_array($item) && !$item->isShoppable) return;
         // Get item
@@ -83,11 +83,13 @@ trait ShopCartTrait
             if (is_object($item)) {
                 $reflection = new \ReflectionClass($item);
             }
+
             $cartItem = call_user_func( Config::get('shop.item') . '::create', [
                 'user_id'       => $this->user->shopId,
                 'cart_id'       => $this->attributes['id'],
+                'size_id'       => $size_id,
                 'sku'           => is_array($item) ? $item['sku'] : $item->sku,
-                'price'         => is_array($item) ? $item['price'] : $item->price,
+                'price'         => is_array($item) ? $item['price'] : $price,
                 'tax'           => is_array($item) 
                                     ? (array_key_exists('tax', $item)
                                         ?   $item['tax']
@@ -109,8 +111,9 @@ trait ShopCartTrait
                 'currency'      => Config::get('shop.currency'),
                 'quantity'      => $quantity,
                 'class'         => is_array($item) ? null : $reflection->getName(),
-                'reference_id'  => is_array($item) ? null : $item->shopId,
+                'reference_id'  => is_array($item) ? null : $item->shopId
             ]);
+
         } else {
             $cartItem->quantity = $quantityReset 
                 ? $quantity 

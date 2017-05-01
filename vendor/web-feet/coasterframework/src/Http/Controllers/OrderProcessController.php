@@ -20,7 +20,7 @@ use Request;
 use Response;
 use Hash;
 use View;
-
+use Auth;
 
 class OrderProcessController extends Controller
 {
@@ -70,11 +70,22 @@ class OrderProcessController extends Controller
 
             $user = User::where('email', $email) -> first();
         }
-        
-        $cart = Cart::current();
-        $cart->add(MyCustomProduct::find(1), $data['count']);
 
-        $order = $cart->placeOrder();
+        Auth::setUser($user);
+        if(Auth::user()) {
+            $order = $data['order'];
+
+            dd($order);die;
+
+            $shopItem = MyCustomProduct::find(1);
+            Auth::setUser($user);
+            $cart = Cart::current();
+
+            $cart->add($shopItem, 24.00, 1, $data['count']);
+            $order = $cart->placeOrder();
+        }
+
+        //$order = $cart->placeOrder();
 
         // define('UPLOAD_DIR', tempdir());
 

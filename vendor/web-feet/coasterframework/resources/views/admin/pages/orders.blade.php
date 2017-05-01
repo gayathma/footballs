@@ -28,7 +28,7 @@
                 <td>{!! count($order->items) !!}</td>
                 <td>{!! $order->getDisplayTotalPriceAttribute() !!}</td>
                 <td>{!! count($order->items) !!}</td>
-                <td>{!! $order->created_at !!}</td>
+                <td>{!! DateTimeHelper::display($order->created_at) !!}</td>
                 @if ($can_edit || $can_delete)
                     <td data-uid="{!! $order->id !!}">
                         @if ($can_edit)
@@ -36,7 +36,7 @@
                         @endif
                         @if ($can_delete)
                             <i class="glyphicon glyphicon-remove itemTooltip" title="Remove Order"
-                               data-name="{!! $order->email !!}"></i>
+                               data-name="{!! $order->id !!}"></i>
                         @endif
                     </td>
                 @endif
@@ -52,14 +52,9 @@
 
         $(document).ready(function () {
 
-            watch_for_delete('.glyphicon-remove', 'user', function (el) {
-                var user_id = el.parent().attr('data-uid');
-                if (user_id == {!! Auth::user()->id !!}) {
-                    alert('Can\'t delete your own account');
-                    return false;
-                } else {
-                    return 'user_' + user_id;
-                }
+            watch_for_delete('.glyphicon-remove', 'order', function (el) {
+                var order_id = el.parent().attr('data-uid');
+                    return 'order_' + order_id;
             });
         });
 

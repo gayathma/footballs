@@ -48,7 +48,7 @@ class ShopItemModel extends Model implements ShopItemInterface
      *
      * @var string
      */
-    protected $fillable = ['user_id', 'cart_id', 'shop_id', 'sku', 'price', 'tax', 'shipping', 'currency', 'quantity', 'class', 'reference_id'];
+    protected $fillable = ['user_id', 'cart_id', 'size_id', 'shop_id', 'sku', 'price', 'tax', 'shipping', 'currency', 'quantity', 'class', 'reference_id'];
 
     /**
      * Creates a new instance of the model.
@@ -68,7 +68,7 @@ class ShopItemModel extends Model implements ShopItemInterface
      */
     public function user()
     {
-        return $this->belongsTo(Config::get('auth.model'), 'user_id');
+        return $this->belongsTo(config('auth.providers.users.model'), 'user_id');
     }
 
     /**
