@@ -5,7 +5,7 @@ use CoasterCms\Helpers\Cms\Page\Path;
 use CoasterCms\Http\Controllers\AdminController as Controller;
 use CoasterCms\Models\AdminLog;
 use CoasterCms\Models\Page;
-use App\Order;
+use App\Size;
 use Request;
 use Response;
 use View;
@@ -18,7 +18,7 @@ class SizesController extends Controller
 
     public function getIndex()
     {
-        $sizes = Order::all();
+        $sizes = Size::all();
         $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item');
         $this->layoutData['content'] = View::make('coaster::pages.sizes', array('sizes' => $sizes, 'can_add' => Auth::action('sizes.add'), 'can_delete' => Auth::action('sizes.delete'), 'can_edit' => Auth::action('sizes.edit')));
     }

@@ -18,7 +18,7 @@ class OrdersController extends Controller
 
     public function getIndex()
     {
-        $orders = Order::all();
+        $orders = Order::orderBy('id', 'desc')->paginate(10);
         $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item');
         $this->layoutData['content'] = View::make('coaster::pages.orders', array('orders' => $orders, 'can_delete' => Auth::action('orders.delete'), 'can_edit' => Auth::action('orders.edit')));
     }

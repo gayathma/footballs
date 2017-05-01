@@ -79,10 +79,10 @@ class OrderProcessController extends Controller
             Auth::setUser($user);
             $cart = Cart::current();
 
-            // foreach ($orders as $order) {
-            //     $shopItem = MyCustomProduct::find($order['quality']);
-            //     $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
-            // }           
+            foreach ($orders as $order) {
+                $shopItem = MyCustomProduct::find($order['itemId']);
+                $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
+            }           
 
             
             $order = $cart->placeOrder([
@@ -94,8 +94,12 @@ class OrderProcessController extends Controller
             $this->saveImages($data['screenshot1'], $folder);
             $this->saveImages($data['screenshot2'], $folder);
 
-            if(!is_null($data['logo']) && $data['logo']!='no logo uploaded'){
-                $this->saveImages($data['logo'], $folder);
+            if(!is_null($data['logo1']) && $data['logo1']!='no logo uploaded'){
+                $this->saveImages($data['logo1'], $folder);
+            }
+
+            if(!is_null($data['logo2']) && $data['logo2']!='no logo uploaded'){
+                $this->saveImages($data['logo2'], $folder);
             }
 
             $this->writeFootballData($data, $folder);
@@ -136,9 +140,11 @@ die;
 
     function writeFootballData($data, $folder){
 
-        $current  = "Layer one color : ".$data['layer1color']."\r\n";
+        $current = "Customer Name : ".$data['name']."\r\n";
+        $current .= "Customer email : ".$data['email']."\r\n";
+        $current .= "Team Name : ".$data['team']."\r\n";
+        $current .= "Layer one color : ".$data['layer1color']."\r\n";
         $current .= "Layer two color : ".$data['layer2color']."\r\n";
-        $current .= "Order email : ".$data['email']."\r\n";
         $current .= "Design selected : ".$data['design']."\r\n";
 
         Storage::disk('uploads')->put($folder.'/'.'details.txt', $current);

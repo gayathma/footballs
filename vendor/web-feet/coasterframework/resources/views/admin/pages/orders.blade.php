@@ -46,6 +46,11 @@
         @endforeach
         </tbody>
     </table>
+    <div class="text-center">
+                @if(isset($orders))
+                    {!! $orders->render() !!}
+                @endif
+            </div>
 </div>
 
 @section('scripts')
