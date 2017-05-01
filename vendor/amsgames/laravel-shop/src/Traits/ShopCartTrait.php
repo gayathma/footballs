@@ -118,6 +118,7 @@ trait ShopCartTrait
             $cartItem->quantity = $quantityReset 
                 ? $quantity 
                 : $cartItem->quantity + $quantity;
+            $cartItem->price = $cartItem->price + $price; 
             $cartItem->save();
         }
         $this->resetCalculations();
