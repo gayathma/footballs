@@ -21,6 +21,7 @@ use Response;
 use Hash;
 use View;
 use Auth;
+use Storage;
 
 class OrderProcessController extends Controller
 {
@@ -53,6 +54,7 @@ class OrderProcessController extends Controller
     public function postOrder(Request $request)
     {
 
+
         $data = json_decode($request::getContent(),true);
 
         //Find User or Create New User
@@ -77,18 +79,29 @@ class OrderProcessController extends Controller
             Auth::setUser($user);
             $cart = Cart::current();
 
-            foreach ($orders as $order) {
-                $shopItem = MyCustomProduct::find($order['quality']);
-                $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
-            }           
+            // foreach ($orders as $order) {
+            //     $shopItem = MyCustomProduct::find($order['quality']);
+            //     $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
+            // }           
 
             
             $order = $cart->placeOrder([
                     'team_name' => $data['team']
                 ]);
+
+            $folder = 'footballs/order_'.$order->id;
+
+            $this->saveImages($data['screenshot1'], $folder);
+            $this->saveImages($data['screenshot2'], $folder);
+
+            if(!is_null($data['logo']) && $data['logo']!='no logo uploaded'){
+                $this->saveImages($data['logo'], $folder);
+            }
+
+            $this->writeFootballData($data, $folder);
+die;
         }
 
-        //$order = $cart->placeOrder();
 
         // define('UPLOAD_DIR', tempdir());
 
@@ -111,54 +124,24 @@ class OrderProcessController extends Controller
 
     }
 
-    function saveScreenshot($screenshot){
+    private function saveImages($img, $folder){
 
-        $img = $screenshot;
         $img = str_replace('data:image/png;base64,', '', $img);
         $img = str_replace(' ', '+', $img);
         $data = base64_decode($img);
-        $file = UPLOAD_DIR . '/'. uniqid() . '.png';
-        $success = file_put_contents($file, $data);
-    //print $success ? $file : 'Unable to save the file.';
-    }
-
-    function saveLogo($logo){
-
-        $img = $logo;
-        $img = str_replace('data:image/png;base64,', '', $img);
-        $img = str_replace(' ', '+', $img);
-        $data = base64_decode($img);
-        $file = UPLOAD_DIR . '/'.uniqid() . '.png';
-        $success = file_put_contents($file, $data);
-    //print $success ? $file : 'Unable to save the file.';
-    }
-
-    function tempdir() {
-
-
-        $name = uniqid();
-        $dir = 'orders/' . $name;
-        if(!file_exists($dir)) {
-
-            if(mkdir($dir) === true) {
-                return $dir;
-            }
-        }
-        return tempdir();
+        Storage::disk('uploads')->put($folder.'/'. uniqid() . '.png', $data);
+        return true;
     }
 
 
-    function writeFotballData($data){
+    function writeFootballData($data, $folder){
 
         $current  = "Layer one color : ".$data['layer1color']."\r\n";
         $current .= "Layer two color : ".$data['layer2color']."\r\n";
         $current .= "Order email : ".$data['email']."\r\n";
         $current .= "Design selected : ".$data['design']."\r\n";
 
-        $fp = fopen(UPLOAD_DIR . "/details.txt","wb");
-        fwrite($fp,$current);
-        fclose($fp);
-
+        Storage::disk('uploads')->put($folder.'/'.'details.txt', $current);
 
     }
 

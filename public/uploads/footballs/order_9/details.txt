@@ -1,0 +1,4 @@
+Layer one color : not selected any color for layer 1
+Layer two color : not selected any color for layer 2
+Order email : gayathma3@gmail.com
+Design selected : blast

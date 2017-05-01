@@ -11,6 +11,7 @@
         <tr>
             <th>#</th>
             <th>Customer</th>
+            <th>Team Name</th>
             <th>No of Items</th>
             <th>Total Amount</th>
             <th>Status</th>
@@ -25,6 +26,7 @@
             <tr id="order_{!! $order->id !!}">
                 <td>{!! $order->id !!}</td>
                 <td>{!! $order->user->name !!}</td>
+                <td>{!! $order->team_name !!}</td>
                 <td>{!! count($order->items) !!}</td>
                 <td>{!! $order->getDisplayTotalPriceAttribute() !!}</td>
                 <td>{!! count($order->items) !!}</td>

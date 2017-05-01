@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 28, 2017 at 10:17 PM
+-- Generation Time: May 01, 2017 at 08:38 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -123,7 +123,8 @@ INSERT INTO `admin_actions` (`id`, `controller_id`, `action`, `inherit`, `edit_b
 (78, 8, 'name', -1, 0, 'Set Alias', NULL, '2017-04-06 02:10:40', '2017-04-06 02:10:40'),
 (79, 3, 'edit', 0, 0, 'Edit Group Settings', NULL, '2017-04-06 02:10:40', '2017-04-06 02:10:40'),
 (80, 18, 'index', -1, 0, 'Ajax Search', NULL, '2017-04-06 02:10:50', '2017-04-06 02:10:50'),
-(81, 19, 'index', 0, 0, 'Show All Orders', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
+(81, 19, 'index', 0, 0, 'Show All Orders', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
+(82, 20, 'index', 0, 0, 'Show All Item Sizes', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,8 @@ INSERT INTO `admin_controllers` (`id`, `controller`, `role_name`, `role_order`, 
 (16, 'themes', 'Themes', 3, 2, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
 (17, 'search', 'Search log', 4, 3, '2017-04-06 02:10:40', '2017-04-06 02:10:40'),
 (18, 'adminsearch', 'Admin Search', 0, 2, '2017-04-06 02:10:50', '2017-04-06 02:10:50'),
-(19, 'orders', 'Orders', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
+(19, 'orders', 'Orders', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
+(20, 'sizes', 'Sizes', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
 
 -- --------------------------------------------------------
 
@@ -200,7 +202,8 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 (13, 1, 'Menu Item ''Contact &raquo; Thank You'' added to ''Main Menu''', '2017-03-28 11:54:42', '2017-03-28 11:54:42'),
 (14, 1, 'Menu Item ''Contact &raquo; Thank You'' deleted from ''Main Menu''', '2017-03-28 11:54:58', '2017-03-28 11:54:58'),
 (15, 1, 'Menu Item ''Contact'' added to ''Main Menu''', '2017-03-28 11:55:10', '2017-03-28 11:55:10'),
-(16, 1, 'Menu Item ''Contact'' deleted from ''Main Menu''', '2017-03-28 12:34:14', '2017-03-28 12:34:14');
+(16, 1, 'Menu Item ''Contact'' deleted from ''Main Menu''', '2017-03-28 12:34:14', '2017-03-28 12:34:14'),
+(17, 1, 'Order # ''3'' deleted', '2017-04-30 22:29:27', '2017-04-30 22:29:27');
 
 -- --------------------------------------------------------
 
@@ -234,8 +237,9 @@ INSERT INTO `admin_menu` (`id`, `action_id`, `parent`, `order`, `icon`, `item_na
 (7, 39, 0, 7, 'fa fa-user', 'Users', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
 (8, 43, 0, 8, 'fa fa-bullhorn', 'Roles', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
 (9, 62, 0, 9, 'fa fa-tint', 'Theme', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
-(10, 64, 9, 9, 'fa fa-bluetooth-b', 'Beacons', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
-(11, 81, 0, 2, 'fa fa-shopping-cart', 'Orders', NULL, NULL, NULL);
+(10, 64, 0, 9, 'fa fa-bluetooth-b', 'Beacons', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
+(11, 81, 0, 2, 'fa fa-shopping-cart', 'Orders', NULL, NULL, NULL),
+(14, 82, 0, 2, 'fa fa-th-large', 'Item Sizes', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -261,7 +265,8 @@ INSERT INTO `backups` (`id`, `log_id`, `primary_id`, `model`, `data`, `created_a
 (1, 11, 2, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:2;s:7:"menu_id";i:1;s:7:"page_id";s:1:"2";s:5:"order";i:2;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-04-24 04:44:30";s:10:"updated_at";s:19:"2017-04-24 04:44:30";}s:11:"\0*\0original";a:8:{s:2:"id";i:2;s:7:"menu_id";i:1;s:7:"page_id";s:1:"2";s:5:"order";i:2;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-04-24 04:44:30";s:10:"updated_at";s:19:"2017-04-24 04:44:30";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-04-28 02:59:43', '2017-04-28 02:59:43'),
 (2, 12, 4, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:4;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:3;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-04-24 04:44:30";s:10:"updated_at";s:19:"2017-04-24 04:44:30";}s:11:"\0*\0original";a:8:{s:2:"id";i:4;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:3;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-04-24 04:44:30";s:10:"updated_at";s:19:"2017-04-24 04:44:30";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-04-28 02:59:46', '2017-04-28 02:59:46'),
 (3, 14, 8, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:8;s:7:"menu_id";i:1;s:7:"page_id";s:1:"5";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:24:42";s:10:"updated_at";s:19:"2017-03-28 17:24:42";}s:11:"\0*\0original";a:8:{s:2:"id";i:8;s:7:"menu_id";i:1;s:7:"page_id";s:1:"5";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:24:42";s:10:"updated_at";s:19:"2017-03-28 17:24:42";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-03-28 11:54:58', '2017-03-28 11:54:58'),
-(4, 16, 9, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:25:10";s:10:"updated_at";s:19:"2017-03-28 17:25:10";}s:11:"\0*\0original";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:25:10";s:10:"updated_at";s:19:"2017-03-28 17:25:10";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-03-28 12:34:14', '2017-03-28 12:34:14');
+(4, 16, 9, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:25:10";s:10:"updated_at";s:19:"2017-03-28 17:25:10";}s:11:"\0*\0original";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:1:"3";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-03-28 17:25:10";s:10:"updated_at";s:19:"2017-03-28 17:25:10";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-03-28 12:34:14', '2017-03-28 12:34:14'),
+(5, 17, 3, '\\App\\Order', 'O:9:"App\\Order":24:{s:8:"\0*\0table";s:6:"orders";s:11:"\0*\0fillable";a:2:{i:0;s:7:"user_id";i:1;s:10:"statusCode";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:5:{s:2:"id";i:3;s:7:"user_id";i:1;s:10:"statusCode";s:7:"pending";s:10:"created_at";s:19:"2017-05-01 03:11:39";s:10:"updated_at";s:19:"2017-05-01 03:11:39";}s:11:"\0*\0original";a:5:{s:2:"id";i:3;s:7:"user_id";i:1;s:10:"statusCode";s:7:"pending";s:10:"created_at";s:19:"2017-05-01 03:11:39";s:10:"updated_at";s:19:"2017-05-01 03:11:39";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:60:"\0Amsgames\\LaravelShop\\Models\\ShopOrderModel\0shopCalculations";N;}', '2017-04-30 22:29:27', '2017-04-30 22:29:27');
 
 -- --------------------------------------------------------
 
@@ -1263,6 +1268,13 @@ CREATE TABLE `cart` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2017-05-01 11:22:17', '2017-05-01 11:22:17');
+
 -- --------------------------------------------------------
 
 --
@@ -1318,6 +1330,7 @@ CREATE TABLE `items` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `cart_id` bigint(20) UNSIGNED DEFAULT NULL,
   `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `size_id` int(11) NOT NULL,
   `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` decimal(20,2) NOT NULL,
   `tax` decimal(20,2) NOT NULL DEFAULT '0.00',
@@ -1329,6 +1342,29 @@ CREATE TABLE `items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item_size`
+--
+
+CREATE TABLE `item_size` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `item_size`
+--
+
+INSERT INTO `item_size` (`id`, `size`, `created_at`, `updated_at`) VALUES
+(1, 'Size 3', NULL, NULL),
+(2, 'Size 4', NULL, NULL),
+(3, 'Size 5', NULL, NULL),
+(4, 'Futsal', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1471,7 +1507,40 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '5_3_15_0_update_menu_items', 1),
 (53, '5_3_23_0_add_estimote_support', 1),
 (54, '5_3_5_0_add_search_action', 1),
-(55, '2017_04_27_052548_shop_setup_tables', 2);
+(62, '2017_04_27_052548_shop_setup_tables', 2),
+(63, '2017_04_30_231330_create_my_custom_products_table', 2),
+(64, '2017_05_01_170751_add_column_for_order_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `my_custom_products`
+--
+
+CREATE TABLE `my_custom_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `1_2_price` decimal(20,2) NOT NULL,
+  `3_4_price` decimal(20,2) NOT NULL,
+  `5_9_price` decimal(20,2) NOT NULL,
+  `10_15_price` decimal(20,2) NOT NULL,
+  `16_24_price` decimal(20,2) NOT NULL,
+  `25_49_price` decimal(20,2) NOT NULL,
+  `50_5000_price` decimal(20,2) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `my_custom_products`
+--
+
+INSERT INTO `my_custom_products` (`id`, `product_name`, `sku`, `1_2_price`, `3_4_price`, `5_9_price`, `10_15_price`, `16_24_price`, `25_49_price`, `50_5000_price`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'Training', 'Training', '24.99', '22.99', '15.99', '12.99', '11.99', '10.99', '9.99', 1, NULL, NULL),
+(2, 'Match', 'Match', '29.99', '24.99', '17.99', '15.99', '14.99', '13.99', '12.99', 1, NULL, NULL),
+(3, 'Elite', 'Elite', '34.99', '28.99', '22.99', '18.99', '17.99', '15.99', '14.99', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1482,10 +1551,27 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
+  `team_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `statusCode` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `team_name`, `statusCode`, `created_at`, `updated_at`) VALUES
+(1, 1, 'dsadsad', 'pending', '2017-05-01 12:33:26', '2017-05-01 12:33:26'),
+(2, 1, 'dsadsad', 'pending', '2017-05-01 12:33:51', '2017-05-01 12:33:51'),
+(3, 1, 'dsadsad', 'pending', '2017-05-01 12:34:33', '2017-05-01 12:34:33'),
+(4, 1, 'dsadsad', 'pending', '2017-05-01 12:39:36', '2017-05-01 12:39:36'),
+(5, 1, 'dsadsad', 'pending', '2017-05-01 12:41:20', '2017-05-01 12:41:20'),
+(6, 1, 'dsadsad', 'pending', '2017-05-01 12:46:11', '2017-05-01 12:46:11'),
+(7, 1, 'dsadsad', 'pending', '2017-05-01 12:51:20', '2017-05-01 12:51:20'),
+(8, 1, 'dsadsad', 'pending', '2017-05-01 12:52:39', '2017-05-01 12:52:39'),
+(9, 1, 'dsadsad', 'pending', '2017-05-01 12:58:08', '2017-05-01 12:58:08'),
+(10, 1, 'dsadsad', 'pending', '2017-05-01 12:59:04', '2017-05-01 12:59:04');
 
 -- --------------------------------------------------------
 
@@ -2168,7 +2254,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `active`, `password`, `email`, `name`, `role_id`, `remember_token`, `tmp_code`, `tmp_code_created`, `blog_login`, `page_states`, `created_at`, `updated_at`) VALUES
-(1, 1, '$2y$10$Cs6VtHBSzfG3/j4gIv8.bOeWzaqHqY5n6Ph43fP5urD5wFDUq25fK', 'gayathma3@gmail.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2017-04-06 02:11:26', '2017-04-06 02:11:26');
+(1, 1, '$2y$10$Cs6VtHBSzfG3/j4gIv8.bOeWzaqHqY5n6Ph43fP5urD5wFDUq25fK', 'gayathma3@gmail.com', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2017-04-06 02:11:26', '2017-04-06 02:11:26'),
+(3, 1, '$2y$10$.eDUthVut6jcH08PeKGC2ORJ7n5gwRKBB59XxP8Cwrh2uP2oKnEki', 'shamaingdd@yahoo.com', 'fsdf', 5, NULL, NULL, NULL, NULL, NULL, '2017-04-30 17:14:37', '2017-04-30 17:14:37');
 
 -- --------------------------------------------------------
 
@@ -2398,6 +2485,12 @@ ALTER TABLE `items`
   ADD KEY `items_reference_id_index` (`reference_id`);
 
 --
+-- Indexes for table `item_size`
+--
+ALTER TABLE `item_size`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
@@ -2420,6 +2513,14 @@ ALTER TABLE `menu_items`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `my_custom_products`
+--
+ALTER TABLE `my_custom_products`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `my_custom_products_product_name_unique` (`product_name`),
+  ADD KEY `my_custom_products_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `orders`
@@ -2597,27 +2698,27 @@ ALTER TABLE `user_roles_page_actions`
 -- AUTO_INCREMENT for table `admin_actions`
 --
 ALTER TABLE `admin_actions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT for table `admin_controllers`
 --
 ALTER TABLE `admin_controllers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `backups`
 --
 ALTER TABLE `backups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
@@ -2657,7 +2758,7 @@ ALTER TABLE `block_video_cache`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `coupons`
 --
@@ -2673,6 +2774,11 @@ ALTER TABLE `form_submissions`
 --
 ALTER TABLE `items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `item_size`
+--
+ALTER TABLE `item_size`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `languages`
 --
@@ -2692,12 +2798,17 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+--
+-- AUTO_INCREMENT for table `my_custom_products`
+--
+ALTER TABLE `my_custom_products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -2807,7 +2918,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
@@ -2839,6 +2950,12 @@ ALTER TABLE `cart`
 ALTER TABLE `items`
   ADD CONSTRAINT `items_cart_id_foreign` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `my_custom_products`
+--
+ALTER TABLE `my_custom_products`
+  ADD CONSTRAINT `my_custom_products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
