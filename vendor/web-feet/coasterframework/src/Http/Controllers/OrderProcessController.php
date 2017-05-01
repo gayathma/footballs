@@ -81,7 +81,7 @@ class OrderProcessController extends Controller
 
             foreach ($orders as $order) {
                 $shopItem = MyCustomProduct::find($order['itemId']);
-                $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
+                $cart->add($shopItem, $order['quantity'], $order['price'], $order['size'] );
             }           
 
             
