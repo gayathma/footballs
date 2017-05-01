@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="logo" href="{{ route('coaster.admin') }}">
-                <img src="{{ URL::to(config('coaster::admin.public')) }}/app/img/logo.png" alt="Coaster CMS"/>
+                <img src="{{ URL::to(config('coaster::admin.public')) }}/app/img/logo.png" alt="1V1Footballs"/>
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -43,7 +43,7 @@
 
 @if (!empty($sections_menu))
     <nav class="navbar navbar-inverse subnav navbar-fixedg-top">
-        <div class="container">
+        <div class="navbar navbar-inverse subnav navbar-fixedg-top">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2"
                         aria-expanded="false" aria-controls="navbar">

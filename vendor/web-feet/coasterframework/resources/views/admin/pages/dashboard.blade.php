@@ -7,15 +7,12 @@
             <div class="row">
                 <div class="col-md-7">
                     <h2>Hi <strong>{{ Auth::user()->getName() }}!</strong></h2>
-                    <p>Welcome {{ $firstTimer?'':'back ' }}to the Coaster CMS control panel.</p>
+                    <p>Welcome {{ $firstTimer?'':'back ' }}to the 1V1Footballs control panel.</p>
                     <p>Click on the pages menu item to start editing page specific content, or for content on more than one page go to site-wide content.</p>
                 </div>
                 <div class="col-md-5 text-center">
                     <a href="{{ route('coaster.admin.account') }}" class="btn btn-default" style="margin-top:30px;">
                         <i class="fa fa-lock"></i>  &nbsp; Account settings
-                    </a>
-                    <a href="{{ config('coaster::admin.help_link') }}" class="btn btn-default" style="margin-top:30px;">
-                        <i class="fa fa-life-ring"></i>  &nbsp; Help Docs
                     </a>
                 </div>
             </div>
@@ -72,20 +69,7 @@
         </div>
     </div>
     @endif
-    <div class="col-md-{{ $searchLogNumber ?'6':'12' }}">
-        <div class="well well-home well-blog">
-            <h3><i class="fa fa-rss" aria-hidden="true"></i> Latest from the Coaster Cms blog</h3>
-            @if (!$coasterPosts->isEmpty())
-                @foreach($coasterPosts as $coasterPost)
-                    <h4><a href="{{ $coasterPost->link }}" target="_blank">{{ $coasterPost->title->rendered }}</a></h4>
-                    <p>{{ CoasterCms\Helpers\Cms\StringHelper::cutString(strip_tags($coasterPost->content->rendered), $searchLogNumber?200:400) }}</p>
-                @endforeach
-            @else
-                <p>Error connecting to blog.</p>
-            @endif
-            <p><a class="btn btn-default" href="{{ $coasterBlog }}" target="_blank">Visit our blog</a></p>
-        </div>
-    </div>
+
 </div>
 
 <div class="row">

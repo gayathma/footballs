@@ -21,10 +21,10 @@ class AdminMenu
                 'link' => URL::to('/') . '" target="_blank',
                 'icon' => 'fa fa-tv'
             ],
-            'Help' => [
-                'link' => config('coaster::admin.help_link') . '" target="_blank',
-                'icon' => 'fa fa-life-ring'
-            ]
+            // 'Help' => [
+            //     'link' => config('coaster::admin.help_link') . '" target="_blank',
+            //     'icon' => 'fa fa-life-ring'
+            // ]
         ];
 
 
