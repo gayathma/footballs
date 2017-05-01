@@ -213,16 +213,7 @@
                         </div>
                        
                     </div>
-                    <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-amount="999"
-    data-name="Stripe.com"
-    data-description="Widget"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto"
-    data-zip-code="true">
-  </script>
+                 
 
             </form>
         </div>
@@ -429,8 +420,10 @@
 <script src="{!! PageBuilder::js('app') !!}"></script>
 <script src="{!! PageBuilder::js('TrackballControls') !!}"></script>
 <script src="{!! PageBuilder::js('pantone-match-system') !!}"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
 <script src="{!! PageBuilder::js('logic') !!}"></script>
 <script src="{!! PageBuilder::js('intro.min') !!}"></script>
+
 
 <script type="text/javascript">
     

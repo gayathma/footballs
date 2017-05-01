@@ -617,6 +617,24 @@ function blast(){
     }
     
     var orderObject=[];
+    var handler = StripeCheckout.configure({
+      key: 'pk_test_IcokALwnlUd6TW0z542x65vj',
+      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+      locale: 'auto',
+      token: function(token) {
+        console.log(token);
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    
+
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function() {
+      handler.close();
+    });
+
 
     function processOrder(){
         orderObject=[];
@@ -649,7 +667,16 @@ function blast(){
                         success: function (msg) {
                             console.log(msg);
                             $('#confirmModal').modal('hide');
-                            alert("Order successfully placed. A confirmation email is sent to given email address.");
+                            // Open Checkout with further options:
+                              handler.open({
+                                name: '1v1 Limited',
+                                description: '1v1 bespoke footballs',
+                                zipCode: true,
+                                currency: 'gbp',
+                                amount: 2000 //replace this with server tot
+                              });
+                              e.preventDefault();
+                            //alert("Order successfully placed. A confirmation email is sent to given email address.");
 
                         },
                         error:function(msg){
