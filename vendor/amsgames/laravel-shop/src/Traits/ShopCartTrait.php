@@ -258,12 +258,13 @@ trait ShopCartTrait
      *
      * @return Order
      */
-    public function placeOrder($statusCode = null)
+    public function placeOrder($array, $statusCode = null)
     {
         if (empty($statusCode)) $statusCode = Config::get('shop.order_status_placement');
         // Create order
         $order = call_user_func( Config::get('shop.order') . '::create', [
             'user_id'       => $this->user_id,
+            'team_name'       => $array['team_name'],
             'statusCode'    => $statusCode
         ]);
         // Map cart items into order

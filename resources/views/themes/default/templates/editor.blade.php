@@ -155,7 +155,7 @@
                         <select id="size" class="form-control">
                             <?php  foreach ($sizes as  $size):?>
                                 <option value="<?php echo $size->id;?>"><?php echo $size->size;?></option>
-                            <?php endforeach;;?>
+                            <?php endforeach;?>
                         </select>
                        
                     </div>
@@ -178,7 +178,6 @@
                        
                         
                     <script>
-                         var sizes=['size 3','size 4','size 5','Futsal'];
                     var productDetails=<?php echo json_encode(\App\MyCustomProduct::all()) ;?>;
                    
                     </script>

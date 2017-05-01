@@ -73,16 +73,19 @@ class OrderProcessController extends Controller
 
         Auth::setUser($user);
         if(Auth::user()) {
-            $order = $data['order'];
-
-            dd($order);die;
-
-            $shopItem = MyCustomProduct::find(1);
+            $orders = $data['order'];
             Auth::setUser($user);
             $cart = Cart::current();
 
-            $cart->add($shopItem, 24.00, 1, $data['count']);
-            $order = $cart->placeOrder();
+            foreach ($orders as $order) {
+                $shopItem = MyCustomProduct::find($order['quality']);
+                $cart->add($shopItem, $order['price'],  $order['size'], $order['quantity']);
+            }           
+
+            
+            $order = $cart->placeOrder([
+                    'team_name' => $data['team']
+                ]);
         }
 
         //$order = $cart->placeOrder();

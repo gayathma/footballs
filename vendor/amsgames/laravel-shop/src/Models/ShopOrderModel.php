@@ -35,7 +35,7 @@ class ShopOrderModel extends Model implements ShopOrderInterface
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'statusCode'];
+    protected $fillable = ['user_id', 'team_name', 'statusCode'];
 
     /**
      * Creates a new instance of the model.
