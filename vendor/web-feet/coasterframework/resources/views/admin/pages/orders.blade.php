@@ -27,7 +27,15 @@
                 <td>{!! $order->id !!}</td>
                 <td>{!! $order->user->name !!}</td>
                 <td>{!! $order->team_name !!}</td>
-                <td>{!! count($order->items) !!}</td>
+                <td>
+                    <?php 
+                    $count  = 0;
+                    foreach ($order->items as $item):
+                        $count += $item->quantity;
+                    ?>
+                    <?php endforeach;?>
+                    <?php echo $count;?>
+                </td>
                 <td>{!! $order->getDisplayTotalPriceAttribute() !!}</td>
                 <td>
                     <?php if($order->isStatus('in_creation')):?>
