@@ -139,6 +139,8 @@ Route::group(['prefix' => $adminUrl, 'middleware' => ['web', 'coaster.admin'], '
     Route::get('orders/edit/{orderId?}/{action?}', ['uses' => 'OrdersController@getEdit', 'as' => $routeNamePrefix . 'orders.edit'])->where(['orderId' => '\w+', 'action' => '\w+']);
     Route::post('orders/edit/{orderId?}/{action?}', ['uses' => 'OrdersController@postEdit', 'as' => $routeNamePrefix . 'orders.edit.post'])->where(['orderId' => '\w+', 'action' => '\w+']);
     Route::post('orders/delete/{orderId?}', ['uses' => 'OrdersController@postDelete', 'as' => $routeNamePrefix . 'orders.delete']);
+    Route::get('orders/download/{orderId?}/{action?}', ['uses' => 'OrdersController@getDownload', 'as' => $routeNamePrefix . 'orders.download'])->where(['orderId' => '\w+', 'action' => '\w+']);
+
 
     Route::get('sizes', ['uses' => 'SizesController@getIndex', 'as' => $routeNamePrefix . 'sizes']);
     Route::get('sizes/edit/{sizeId?}/{action?}', ['uses' => 'SizesController@getEdit', 'as' => $routeNamePrefix . 'sizes.edit'])->where(['sizeId' => '\w+', 'action' => '\w+']);

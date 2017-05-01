@@ -66,6 +66,16 @@ class ShopItemModel extends Model implements ShopItemInterface
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+    public function size()
+    {
+        return $this->belongsTo('App\Size', 'size_id');
+    }
+
+    /**
+     * Many-to-Many relations with the user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function user()
     {
         return $this->belongsTo(config('auth.providers.users.model'), 'user_id');

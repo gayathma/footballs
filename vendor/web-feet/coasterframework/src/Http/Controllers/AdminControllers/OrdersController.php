@@ -23,6 +23,23 @@ class OrdersController extends Controller
         $this->layoutData['content'] = View::make('coaster::pages.orders', array('orders' => $orders, 'can_delete' => Auth::action('orders.delete'), 'can_edit' => Auth::action('orders.edit')));
     }
 
+    public function getEdit($orderId = 0, $action = null)
+    {
+        $order = Order::find($orderId);
+        $authUser = Auth::user();
+        if (!empty($order)) {
+                if ($authUser->role->admin) {
+                    $can_edit = true;
+                } else {
+                    $can_edit = false;
+                }
+                $this->layoutData['content'] = View::make('coaster::pages.orders.edit', array('order' => $order, 'can_edit' => $can_edit));
+        
+        } else {
+            $this->layoutData['content'] = 'Order not found';
+        }
+    }
+
 
     public function postDelete($orderId = 0)
     {
@@ -32,6 +49,20 @@ class OrdersController extends Controller
         }
 
         return Response::make($error, 500);
+    }
+
+    public function getDownload($orderId = 0, $action = null)
+    {
+        $zipname = storage_path('app').'/footballzip/order_'.$orderId.'.zip';
+        $name = 'order_'.$orderId.'.zip';
+        $headers = array(
+          'Content-Type' => 'application/zip',
+          'Content-Disposition' => sprintf('attachment; filename="%s"', $name),
+          'Content-Length' => sizeof($name),
+          );
+
+        return Response::download($zipname, $name, $headers);
+
     }
 
     

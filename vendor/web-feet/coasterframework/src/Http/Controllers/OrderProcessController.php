@@ -22,6 +22,7 @@ use Hash;
 use View;
 use Auth;
 use Storage;
+use ZipArchive;
 
 class OrderProcessController extends Controller
 {
@@ -103,7 +104,20 @@ class OrderProcessController extends Controller
             }
 
             $this->writeFootballData($data, $folder);
-die;
+
+            //Zip File Creation
+            $path = storage_path('app').'/footballzip/';
+            $zip = new ZipArchive;
+            $zip->open($path.'order_'.$order->id.'.zip', ZipArchive::CREATE);
+            foreach ( glob( public_path().'/uploads/'.$folder.'/*') as $fileName )
+            {
+                    $file = basename( $fileName );
+                    $zip->addFile(public_path().'/uploads/'.$folder.'/'.$file, $file );
+            }
+            $zip->close();
+
+            //$this->doZip($folder);
+
         }
 
 
@@ -170,7 +184,7 @@ die;
 
     }
 
-    function doZip(){
+    function doZip($folder){
     // Get real path for our folder
         $rootPath = UPLOAD_DIR;
 
