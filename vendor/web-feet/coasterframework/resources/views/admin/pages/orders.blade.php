@@ -29,7 +29,26 @@
                 <td>{!! $order->team_name !!}</td>
                 <td>{!! count($order->items) !!}</td>
                 <td>{!! $order->getDisplayTotalPriceAttribute() !!}</td>
-                <td>{!! count($order->items) !!}</td>
+                <td>
+                    <?php if($order->isStatus('in_creation')):?>
+                        <span class="in_creation"> In Creation</span>
+                    <?php endif;?>
+                    <?php if($order->isStatus('pending')):?>
+                        <span class="pending"> Pending</span>
+                    <?php endif;?>
+                    <?php if($order->isStatus('in_process')):?>
+                        <span class="in_process"> In Process</span>
+                    <?php endif;?>
+                    <?php if($order->isStatus('completed')):?>
+                        <span class="completed"> Completed</span>
+                    <?php endif;?>
+                    <?php if($order->isStatus('failed')):?>
+                        <span class="failed"> Failed</span>
+                    <?php endif;?>
+                    <?php if($order->isStatus('canceled')):?>
+                        <span class="canceled"> Canceled</span>
+                    <?php endif;?>
+                </td>
                 <td>{!! DateTimeHelper::display($order->created_at) !!}</td>
                 @if ($can_edit || $can_delete)
                     <td data-uid="{!! $order->id !!}">
