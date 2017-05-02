@@ -2,6 +2,9 @@
 
 Route::post('/process-order', 'CoasterCms\Http\Controllers\OrderProcessController@postOrder');
 
+Route::post('/payment', 'CoasterCms\Http\Controllers\OrderProcessController@postPayment');
+
+
 // Files override to enable hosting secure docs
 Route::get('uploads/{file_path}', ['middleware' => ['web', 'auth'], function($file_path)
 {

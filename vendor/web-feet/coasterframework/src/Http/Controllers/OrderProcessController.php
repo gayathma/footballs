@@ -124,9 +124,22 @@ class OrderProcessController extends Controller
         }
 
 
-        return json_encode(array('tot' => $total, 'status' => $status));
+        return json_encode(array('tot' => $total, 'status' => $status, 'order_id' =>$order->id ));
 
 
+    }
+
+    public function postPayment(Request $request)
+    {
+        $data = json_decode($request::getContent(),true);
+
+        $order = Order::find($data['order_id']);
+
+        $transaction = $order->placeTransaction(
+                $gateway                = 'my_gateway',
+                $transactionId  = 55555,
+                $detail                 = 'Custom transaction 55555'
+        );
     }
 
     private function saveImages($img, $folder){
