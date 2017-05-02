@@ -135,12 +135,14 @@ class OrderProcessController extends Controller
 
         $order = Order::find($data['orderId']);
 
+        \Stripe\Stripe::setApiKey(Config::get('shop.stripe_sk'));
+
         $tocken = $data['token'];
         $amount = $data['tot'];
         $email = $data['email'];
         $emailCheck = \Stripe\Customer::where('email', $email)->value('email');
 
-        \Stripe\Stripe::setApiKey(Config::get('shop.stripe_sk'));
+        
 
         // If the email doesn't exist in the database create new customer and user record
         if (!isset($emailCheck)) {
