@@ -1,0 +1,6 @@
+Customer Name : asdad
+Customer email : asdsd@asdsad.com
+Team Name : asdasd
+Layer one color : not selected any color for layer 1
+Layer two color : not selected any color for layer 2
+Design selected : blast

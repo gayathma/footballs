@@ -668,14 +668,15 @@ function blast(){
                             console.log(msg);
                             $('#confirmModal').modal('hide');
                             // Open Checkout with further options:
+
                               handler.open({
                                 name: '1v1 Limited',
                                 description: '1v1 bespoke footballs',
                                 zipCode: true,
                                 currency: 'gbp',
-                                amount: 2000 //replace this with server tot
+                                amount: parseFloat(JSON.parse(msg).tot) //replace this with server tot
                               });
-                              e.preventDefault();
+                             // e.preventDefault();
                             //alert("Order successfully placed. A confirmation email is sent to given email address.");
 
                         },

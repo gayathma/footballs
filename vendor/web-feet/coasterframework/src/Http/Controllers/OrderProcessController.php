@@ -75,6 +75,9 @@ class OrderProcessController extends Controller
         }
 
         Auth::setUser($user);
+        $status = false;
+        $total = 0;
+
         if(Auth::user()) {
             $orders = $data['order'];
             Auth::setUser($user);
@@ -82,6 +85,7 @@ class OrderProcessController extends Controller
 
             foreach ($orders as $order) {
                 $shopItem = MyCustomProduct::find($order['itemId']);
+                $total += $order['price'];
                 $cart->add($shopItem, $order['quantity'], $order['price'], $order['size']);
             }           
 
@@ -115,11 +119,12 @@ class OrderProcessController extends Controller
                     $zip->addFile(public_path().'/uploads/'.$folder.'/'.$file, $file );
             }
             $zip->close();
+            $status = true;
 
         }
 
 
-        echo 'success';
+        return json_encode(array('tot' => $total, 'status' => $status));
 
 
     }
