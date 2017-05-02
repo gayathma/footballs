@@ -138,6 +138,9 @@ class OrderProcessController extends Controller
 
         \Stripe\Stripe::setApiKey(Config::get('shop.stripe_sk'));
 
+
+\Stripe\Customer::retrieve("cus_Aa7qTjGOlenp4G");
+
         $tocken = $data['token'];
         $amount = $data['tot'];
         $email = $data['email'];
