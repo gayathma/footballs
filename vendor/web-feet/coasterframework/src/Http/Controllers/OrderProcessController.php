@@ -1,5 +1,6 @@
 <?php namespace CoasterCms\Http\Controllers;
 
+use Illuminate\Support\Facades\Config;
 use CoasterCms\Events\Cms\GeneratePage\LoadedPageResponse;
 use CoasterCms\Events\Cms\GeneratePage\LoadErrorTemplate;
 use CoasterCms\Events\Cms\GeneratePage\LoadPageTemplate;
