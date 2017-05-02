@@ -2,7 +2,7 @@
 
 Route::post('/process-order', 'CoasterCms\Http\Controllers\OrderProcessController@postOrder');
 
-Route::post('/payment', 'CoasterCms\Http\Controllers\OrderProcessController@postPayment');
+Route::post('/complete-order', 'CoasterCms\Http\Controllers\OrderProcessController@postPayment');
 
 
 // Files override to enable hosting secure docs

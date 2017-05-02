@@ -43,6 +43,7 @@ class ComposerStaticInit955b656285415d2735ffcb0bbbcd5d3a
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\ClassLoader\\' => 30,
             'SuperClosure\\' => 13,
+            'Stripe\\' => 7,
         ),
         'R' => 
         array (
@@ -165,6 +166,10 @@ class ComposerStaticInit955b656285415d2735ffcb0bbbcd5d3a
         'SuperClosure\\' => 
         array (
             0 => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -320,7 +325,9 @@ class ComposerStaticInit955b656285415d2735ffcb0bbbcd5d3a
     );
 
     public static $classMap = array (
+        'AddColumnForOrderTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_01_170751_add_column_for_order_table.php',
         'Amsgames\\LaravelShop\\MigrationCommand' => __DIR__ . '/..' . '/amsgames/laravel-shop/src/Commands/MigrationCommand.php',
+        'CreateMyCustomProductsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_30_231330_create_my_custom_products_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'GdReflectionLib' => __DIR__ . '/..' . '/weotch/phpthumb/src/thumb_plugins/gd_reflection.inc.php',
         'GdThumb' => __DIR__ . '/..' . '/weotch/phpthumb/src/GdThumb.inc.php',

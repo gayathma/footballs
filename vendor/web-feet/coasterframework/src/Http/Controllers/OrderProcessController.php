@@ -135,11 +135,57 @@ class OrderProcessController extends Controller
 
         $order = Order::find($data['order_id']);
 
+        $tocken = $data['token'];
+        $amount = $data['amount'];
+        $email = $data['email'];
+        $emailCheck = \Stripe\Customer::where('email', $email)->value('email');
+
+        \Stripe\Stripe::setApiKey(Config::get('shop.stripe_sk'));
+
+        // If the email doesn't exist in the database create new customer and user record
+        if (!isset($emailCheck)) {
+            // Create a new Stripe customer
+            try {
+                $customer = \Stripe\Customer::create([
+                    'source' => $token,
+                    'email' => $email
+                ]);
+            } catch (\Stripe\Error\Card $e) {
+                return $e->getMessage();
+            }
+
+            $customerID = $customer->id;
+
+        } else {
+            $customerID = \Stripe\Customer::find('email', $email)->value('id');
+        }
+
+        // Charging the Customer with the selected amount
+        try {
+            $charge = \Stripe\Charge::create([
+                'amount' => $amount,
+                'currency' => 'gbp',
+                'customer' => $customerID,
+                'metadata' => [
+                        'order_id' => $order->id
+                    ]
+                ]);
+        } catch (\Stripe\Error\Card $e) {
+            return $e->getMessage();
+        }
+
+        // Create purchase record in the database
+
         $transaction = $order->placeTransaction(
-                $gateway                = 'my_gateway',
-                $transactionId  = 55555,
-                $detail                 = 'Custom transaction 55555'
+                $gateway                = 'stripe',
+                $tocken                 = $tocken,
+                $transactionId          = $charge->id,
+                $detail                 = 'Stripe Customer ID:'.$customerID
         );
+
+        return redirect()->route('order')
+            ->with('successful', 'Your purchase was successful!');
+
     }
 
     private function saveImages($img, $folder){
