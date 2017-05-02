@@ -151,7 +151,7 @@ class OrderProcessController extends Controller
                     'email' => $email
                 ]);
             } catch (\Stripe\Error\Card $e) {
-                return $e->getMessage();
+                return json_encode(['status'=>'error', 'message'=> $e->getMessage()]);
             }
 
             $customerID = $customer->id;
@@ -171,7 +171,7 @@ class OrderProcessController extends Controller
                     ]
                 ]);
         } catch (\Stripe\Error\Card $e) {
-            return $e->getMessage();
+            return json_encode(['status'=>'error', 'message'=> $e->getMessage()]);
         }
 
         // Create purchase record in the database
@@ -183,8 +183,7 @@ class OrderProcessController extends Controller
                 $detail                 = 'Stripe Customer ID:'.$customerID
         );
 
-        return redirect()->route('order')
-            ->with('successful', 'Your purchase was successful!');
+        return json_encode(['status'=>'successful', 'message'=> 'Your purchase was successful!']);
 
     }
 
