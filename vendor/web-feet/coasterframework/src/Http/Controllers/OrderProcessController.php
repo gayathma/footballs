@@ -133,10 +133,10 @@ class OrderProcessController extends Controller
     {
         $data = json_decode($request::getContent(),true);
 
-        $order = Order::find($data['order_id']);
+        $order = Order::find($data['orderId']);
 
         $tocken = $data['token'];
-        $amount = $data['amount'];
+        $amount = $data['tot'];
         $email = $data['email'];
         $emailCheck = \Stripe\Customer::where('email', $email)->value('email');
 
