@@ -619,14 +619,19 @@ function blast(){
     var orderObject=[];
     var orderComplete={
         orderId:'',
-        token:''
+        token:'',
+        email:'',
+        tot:''
     }
     var handler = StripeCheckout.configure({
       key: 'pk_test_IcokALwnlUd6TW0z542x65vj',
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       token: function(token) {
+        console.log(token);
         orderComplete.token=token.id;
+        orderComplete.email=token.email;
+
         $.ajax({
                         url: "/complete-order",
                         type: 'POST',
@@ -693,15 +698,16 @@ function blast(){
                             //$('#confirmModal').modal('hide');
                             // Open Checkout with further options:
                             var json=JSON.parse(msg);
-                            var tot=json.tot;
+                            
                             if(json.status){
                                orderComplete.orderId=json.order_id;
+                               orderComplete.tot=json.tot;
                                handler.open({
                                 name: '1v1 Limited',
                                 description: '1v1 bespoke footballs',
                                 zipCode: true,
                                 currency: 'gbp',
-                                amount: tot //replace this with server tot
+                                amount: orderComplete.tot //replace this with server tot
                               }); 
                            }else{
                                 alert("error occured. Try again later.");
