@@ -116,27 +116,9 @@ class OrderProcessController extends Controller
             }
             $zip->close();
 
-            //$this->doZip($folder);
-
         }
 
 
-        // define('UPLOAD_DIR', tempdir());
-
-        // if(isset($data['data']['screenshot'])){
-        //     saveScreenshot($data['data']['screenshot']);
-        // }
-
-        // if(isset($data['data']['logo'])){
-
-        //     saveLogo($data['data']['logo']);
-        // }
-
-        // writeFotballData($data['data']);
-        // //doZip();
-
-        // Zip(UPLOAD_DIR, UPLOAD_DIR.'/file.zip');
-        // sendeamilConfirmation($data['data'],explode("/",UPLOAD_DIR)[1]);
         echo 'success';
 
 
@@ -184,85 +166,7 @@ class OrderProcessController extends Controller
 
     }
 
-    function doZip($folder){
-    // Get real path for our folder
-        $rootPath = UPLOAD_DIR;
-
-    // Initialize archive object
-        $zip = new ZipArchive();
-        $zip->open(UPLOAD_DIR.'/file.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
-
-    // Create recursive directory iterator
-        /** @var SplFileInfo[] $files */
-        $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($rootPath),
-            RecursiveIteratorIterator::LEAVES_ONLY
-            );
-
-        foreach ($files as $name => $file)
-        {
-    // Skip directories (they would be added automatically)
-            if (!$file->isDir())
-            {
-        // Get real and relative path for current file
-                $filePath = $file->getRealPath();
-                $relativePath = substr($filePath, strlen($rootPath) + 1);
-
-        // Add current file to archive
-                $zip->addFile($filePath, $relativePath);
-            }
-        }
-
-    // Zip archive will be created only after closing object
-        $zip->close();
-
-
-    }
-
-    function Zip($source, $destination)
-    {
-        if (!extension_loaded('zip') || !file_exists($source)) {
-            return false;
-        }
-
-        $zip = new ZipArchive();
-        if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
-            return false;
-        }
-
-        $source = str_replace('\\', '/', realpath($source));
-
-        if (is_dir($source) === true)
-        {
-            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
-
-            foreach ($files as $file)
-            {
-                $file = str_replace('\\', '/', $file);
-
-            // Ignore "." and ".." folders
-                if( in_array(substr($file, strrpos($file, '/')+1), array('.', '..')) )
-                    continue;
-
-                $file = realpath($file);
-
-                if (is_dir($file) === true)
-                {
-                    $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-                }
-                else if (is_file($file) === true)
-                {
-                    $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
-                }
-            }
-        }
-        else if (is_file($source) === true)
-        {
-            $zip->addFromString(basename($source), file_get_contents($source));
-        }
-
-        return $zip->close();
-    }
+    
 
     
 
