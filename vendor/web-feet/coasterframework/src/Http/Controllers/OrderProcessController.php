@@ -14,6 +14,7 @@ use CoasterCms\Models\PageVersionSchedule;
 use Exception;
 use CoasterCms\Models\User;
 use Illuminate\Routing\Controller;
+use App\Share;
 use App\Order;
 use App\Cart;
 use App\MyCustomProduct;
@@ -97,15 +98,15 @@ class OrderProcessController extends Controller
 
             $folder = 'footballs/order_'.$order->id;
 
-            $this->saveImages($data['screenshot1'], $folder);
-            $this->saveImages($data['screenshot2'], $folder);
+            $this->saveImages($data['screenshot1'], $folder.'/'. uniqid() . '.png');
+            $this->saveImages($data['screenshot2'], $folder.'/'. uniqid() . '.png');
 
             if(!is_null($data['logo1']) && $data['logo1']!='no logo uploaded'){
-                $this->saveImages($data['logo1'], $folder);
+                $this->saveImages($data['logo1'], $folder.'/'. uniqid() . '.png');
             }
 
             if(!is_null($data['logo2']) && $data['logo2']!='no logo uploaded'){
-                $this->saveImages($data['logo2'], $folder);
+                $this->saveImages($data['logo2'], $folder.'/'. uniqid() . '.png');
             }
 
             $this->writeFootballData($data, $folder);
@@ -197,19 +198,46 @@ class OrderProcessController extends Controller
                 $gateway                = 'stripe',
                 $token                  = $token,
                 $transactionId          = $charge->id,
-                $detail                 = 'Stripe Customer ID:'.$customerID
+                $detail                 = $customerID
         );
 
         return json_encode(['status'=>'successful', 'message'=> 'Your purchase was successful!']);
 
     }
 
+    public function postShare(Request $request)
+    {
+        $data = json_decode($request::getContent(),true);
+
+        $share = Share::create([
+                'layer_one_color' => $data['layer1color'],
+                'layer_two_color' => $data['layer2color'],
+                'logo_one' => 'logo1.png',
+                'logo_two' => 'logo2.png',
+                'design' => $data['design']
+            ]);
+
+        $folder = 'share/sh_'.$share->id;
+
+        if(!is_null($data['logo1']) && $data['logo1']!='no logo uploaded'){
+            $this->saveImages($data['logo1'], $folder.'/logo1.png');
+        }
+
+        if(!is_null($data['logo2']) && $data['logo2']!='no logo uploaded'){
+            $this->saveImages($data['logo2'], $folder.'/logo2.png');
+        }
+
+        return redirect()->route('/share?token='.$share->id);
+    }
+
+
+
     private function saveImages($img, $folder){
 
         $img = str_replace('data:image/png;base64,', '', $img);
         $img = str_replace(' ', '+', $img);
         $data = base64_decode($img);
-        Storage::disk('uploads')->put($folder.'/'. uniqid() . '.png', $data);
+        Storage::disk('uploads')->put($folder, $data);
         return true;
     }
 

@@ -10,6 +10,7 @@ return array(
     'AddColumnForUserTable' => $baseDir . '/database/migrations/2017_05_03_022024_add_column_for_user_table.php',
     'Amsgames\\LaravelShop\\MigrationCommand' => $vendorDir . '/amsgames/laravel-shop/src/Commands/MigrationCommand.php',
     'CreateMyCustomProductsTable' => $baseDir . '/database/migrations/2017_04_30_231330_create_my_custom_products_table.php',
+    'CreateShareTable' => $baseDir . '/database/migrations/2017_05_03_032650_create_share_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'GdReflectionLib' => $vendorDir . '/weotch/phpthumb/src/thumb_plugins/gd_reflection.inc.php',
     'GdThumb' => $vendorDir . '/weotch/phpthumb/src/GdThumb.inc.php',

@@ -38,7 +38,14 @@
                     <?php endforeach;?>
                     <?php echo $count;?>
                 </td>
-                <td>{!! $order->getDisplayTotalPriceAttribute() !!}</td>
+                <td>
+                    {!! $order->getDisplayTotalPriceAttribute() !!}
+                    <?php if(!is_null($order->transactions) && count($order->transactions) > 0):?>
+                        <span class="label type_link">Paid</span>
+                    <?php else: ?>
+                        <span class="label type_hidden">Not Paid</span>
+                    <?php endif;?>
+                </td>
                 <td>
                     <?php if($order->isStatus('in_creation')):?>
                         <span class="in_creation"> In Creation</span>
