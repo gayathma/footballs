@@ -72,7 +72,7 @@
                             <button class="btn btn-success btn-sm"  id="reset" data-intro='You can always start fresh by resetting'>Reset Options</button>
                             <button class="btn btn-success btn-sm"  onclick="player.centerBall()" data-intro='Get a better view by centering out'>Center Ball</button>
                             <button class="btn btn-success btn-sm"  onclick="placeOrder()" data-intro='If you happy with it place the order'>Place Order</button>
-                            
+                            <button class="btn btn-success btn-sm"  onclick="shareDesign()" data-intro='Share your link with others'>Share Design</button>
                         </div>
                     </div>
                 </div>

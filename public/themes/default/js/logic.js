@@ -768,6 +768,10 @@ function blast(){
         
     }
 
+    function shareDesign(){
+        
+    }
+
     function addText(v){
         var c = document.getElementById("textCanvas");
         var ctx2d = c.getContext("2d");
