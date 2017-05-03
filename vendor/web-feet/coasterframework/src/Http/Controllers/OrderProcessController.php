@@ -138,18 +138,15 @@ class OrderProcessController extends Controller
 
         \Stripe\Stripe::setApiKey(Config::get('shop.stripe_sk'));
 
-
-\Stripe\Customer::retrieve("cus_Aa7qTjGOlenp4G");
-
-        $tocken = $data['token'];
+        $token = $data['token'];
         $amount = $data['tot'];
         $email = $data['email'];
-        $emailCheck = \Stripe\Customer::where('email', $email)->value('email');
+        $emailCheck = User::where('email', $email)->first();
 
         
 
         // If the email doesn't exist in the database create new customer and user record
-        if (!isset($emailCheck)) {
+        if (is_null($emailCheck) || empty($emailCheck->stripe_customer_id)) {
             // Create a new Stripe customer
             try {
                 $customer = \Stripe\Customer::create([
@@ -162,8 +159,22 @@ class OrderProcessController extends Controller
 
             $customerID = $customer->id;
 
+            if(is_null($emailCheck)){
+                $new_user = new User;
+                $new_user->email = $email;
+                $new_user->name = 'Stripe User';
+                $new_user->role_id = 5;
+                $new_user->password = Hash::make('123456');
+                $new_user->stripe_customer_id = $customerID;
+                $new_user->save();
+
+            }else{
+                $emailCheck->stripe_customer_id = $customerID;
+                $emailCheck->save();
+            }
+
         } else {
-            $customerID = \Stripe\Customer::find('email', $email)->value('id');
+            $customerID = $emailCheck->stripe_customer_id;
         }
 
         // Charging the Customer with the selected amount
@@ -184,7 +195,7 @@ class OrderProcessController extends Controller
 
         $transaction = $order->placeTransaction(
                 $gateway                = 'stripe',
-                $tocken                 = $tocken,
+                $token                  = $token,
                 $transactionId          = $charge->id,
                 $detail                 = 'Stripe Customer ID:'.$customerID
         );
