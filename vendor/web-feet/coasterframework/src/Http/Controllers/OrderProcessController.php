@@ -201,7 +201,7 @@ class OrderProcessController extends Controller
                 $detail                 = $customerID
         );
 
-        return json_encode(['status'=>'successful', 'message'=> 'Your purchase was successful!']);
+        return json_encode(['status'=>'successful', 'message'=> 'You have successfully placed the order. You will receive a confirmation email with order details shortly. Thank you.!']);
 
     }
 
