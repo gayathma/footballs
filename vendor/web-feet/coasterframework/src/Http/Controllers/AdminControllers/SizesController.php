@@ -8,6 +8,7 @@ use CoasterCms\Models\Page;
 use App\Size;
 use Request;
 use Response;
+use Validator;
 use View;
 
 class SizesController extends Controller
@@ -19,20 +20,38 @@ class SizesController extends Controller
     public function getIndex()
     {
         $sizes = Size::all();
-        $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item');
+        $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item')->render().View::make('coaster::modals.sizes.add')->render();
         $this->layoutData['content'] = View::make('coaster::pages.sizes', array('sizes' => $sizes, 'can_add' => Auth::action('sizes.add'), 'can_delete' => Auth::action('sizes.delete'), 'can_edit' => Auth::action('sizes.edit')));
+
     }
 
 
-    public function postDelete($orderId = 0)
+    public function postDelete($sizeId = 0)
     {
-        $error = 'Order with # '.$orderId.' not found';
-        if ($order = Order::find($orderId)) {
-            return json_encode($order->delete());
+        $error = 'Size with ID '.$sizeId.' not found';
+        if ($size = Size::find($sizeId)) {
+            return json_encode($size->delete());
         }
 
         return Response::make($error, 500);
     }
+
+    public function postAdd()
+    {
+        $v = Validator::make(Request::all(), array(
+            'size' => 'required'
+        ));
+        if ($v->passes()) {
+            $size = new Size;
+            $size->size = Request::input('size');
+            $size->save();
+
+            return $size->id;
+        }
+        return 0;
+    }
+
+
 
     
 

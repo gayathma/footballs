@@ -4,8 +4,10 @@
     </div>
     <div class="col-sm-6 text-right">
         @if ($can_add == true)
-            <a href="{{ route('coaster.admin.sizes.add') }}" class="btn btn-warning addButton"><i class="fa fa-plus"></i> &nbsp;
-                Add Size</a>
+            <div class="col-lg-2 col-md-3 col-sm-3 text-right">
+                <button type="button" class="btn btn-warning addButton" id="addSize"><i class="fa fa-plus"></i> &nbsp; Add Size
+                </button>
+            </div>
         @endif
     </div>
 </div>
@@ -35,7 +37,7 @@
                         @endif
                         @if ($can_delete)
                             <i class="glyphicon glyphicon-remove itemTooltip" title="Remove Size"
-                               data-name="{!! $size->id !!}"></i>
+                               data-name="{!! $size->size !!}"></i>
                         @endif
                     </td>
                 @endif
@@ -47,13 +49,34 @@
 
 @section('scripts')
     <script type="text/javascript">
-
-
         $(document).ready(function () {
-
             watch_for_delete('.glyphicon-remove', 'size', function (el) {
                 var size_id = el.parent().attr('data-uid');
                     return 'size_' + size_id;
+            });
+
+            $('#addSize').click(function () {
+                $('#addSizeModal').modal('show');
+            });
+
+            $('#addSizeModal .add').click(function () {
+                if ($('#size').val() == "") {
+                    $('#size').parent().parent().addClass('has-error');
+                }
+                else {
+                    $('#addSizeModal').modal('hide');
+                    $.ajax({
+                        url: route('coaster.admin.sizes.add'),
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {size: $('#size').val()},
+                        success: function (data) {
+                            location.reload();
+                        }
+                    });
+                    $('#size').parent().parent().removeClass('has-error');
+                    $('#size').val('');
+                }
             });
         });
 

@@ -2,8 +2,8 @@
 
 Route::post('/process-order', 'CoasterCms\Http\Controllers\OrderProcessController@postOrder');
 Route::post('/complete-order', 'CoasterCms\Http\Controllers\OrderProcessController@postPayment');
-Route::post('/editor/share', 'CoasterCms\Http\Controllers\OrderProcessController@postShare');
-Route::get('/share?id={token}', 'CoasterCms\Http\Controllers\OrderProcessController@generatePage');
+Route::post('/share', 'CoasterCms\Http\Controllers\OrderProcessController@postShare');
+Route::get('/editor?id={token}', 'CoasterCms\Http\Controllers\OrderProcessController@generatePage');
 
 
 // Files override to enable hosting secure docs
