@@ -639,14 +639,18 @@ function blast(){
                         contentType: "application/x-www-form-urlencoded",
                         data: JSON.stringify(orderComplete),
                         success: function (msg) {
+                            var json=JSON.parse(msg);
                             console.log(msg);
                             $('#confirmModal').modal('hide');
-                            // Open Checkout with further options:
-                           
-                              
-                             // e.preventDefault();
-                            //alert("Order successfully placed. A confirmation email is sent to given email address.");
-
+                            if(json.status=="successful"){
+                                $('#message').text(json.message);
+                                $('#orderConfirm').modal('show');
+                            }else if(json.status=="error"){
+                                $('#message').text(json.message);
+                                $('#orderConfirm').modal('show');
+                            }
+                            
+                            
                         },
                         error:function(msg){
                             console.log(msg);
