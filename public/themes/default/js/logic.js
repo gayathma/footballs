@@ -768,6 +768,27 @@ function blast(){
         
     }
 
+    function shareDesign(){
+        $.ajax({
+                        url: "/sharae-design",
+                        type: 'POST',
+                        cache: false,
+                        contentType: "application/x-www-form-urlencoded",
+                        data: JSON.stringify(football),
+                        success: function (msg) {
+                            console.log(msg);
+                          
+
+                        },
+                        error:function(msg){
+                            console.log(msg);
+                            
+                        }
+                    });
+
+
+    }
+
     function addText(v){
         var c = document.getElementById("textCanvas");
         var ctx2d = c.getContext("2d");
