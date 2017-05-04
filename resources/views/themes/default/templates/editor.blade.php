@@ -42,22 +42,29 @@
 <script type="text/javascript">
     
 
-
+var base_url="<?php echo URL::to('/editor');?>";
 var sharingball=<?php 
 
     $share_id = Request::get('id');
     $share = null;
     if(!is_null($share_id)){
-        $share = \App\Share::find($share_id)->toArray();
-        $share['logo_one'] = Storage::disk('uploads')->url('share/sh_'.$share_id.'/'.$share['logo_one']);
-        $share['logo_two'] = public_path().'/uploads/share/sh_'.$share_id.'/'.$share['logo_two'];
+        $share = \App\Share::find($share_id);
+        $share->logo_one = URL::to('/').'/uploads/share/sh_'.$share_id.'/'.$share->logo_one;
+        $share->logo_two = URL::to('/').'/uploads/share/sh_'.$share_id.'/'.$share->logo_two;
         echo json_encode($share);
        
     }else{
-         echo '';
+         echo '""';
     }
 
 ?>;
+
+if(sharingball!=""){
+
+    sharingball.logo_one=sharingball.logo_one.replace(/\\/g, "");
+    sharingball.logo_two=sharingball.logo_two.replace(/\\/g, "");
+    console.log(sharingball);
+}
 
 
 
@@ -435,6 +442,26 @@ var sharingball=<?php
             </div>
             <div class="modal-body txt-center">
                 <p id="message"></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="sharingModel" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">We highly value collaboration when designing footballs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body txt-center">
+                 <p>Here is the link for your design. Share it with your friends.</p>
+                <p id="shareLink"></p>
 
             </div>
             <div class="modal-footer">

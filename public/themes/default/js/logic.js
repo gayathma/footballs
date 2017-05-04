@@ -200,32 +200,50 @@
 
           if (sharingball.logo_one != '') {
               $('.textSelect').hide();
-              var reader = new FileReader();
-              reader.onload = function(e) {
+            
+
+               var image = new Image();
+
+                image.onload = function () {
+                    var canvas = document.createElement('canvas');
+                    canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+                    canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+
+                    canvas.getContext('2d').drawImage(this, 0, 0);
+                     football.logo1 = canvas.toDataURL('image/png');
+                  logo1 = canvas.toDataURL('image/png');
+                  player.setLogo1(canvas.toDataURL('image/png'));
 
 
-                  var res = reader.result;
-                  football.logo1 = res;
-                  logo1 = res;
-                  player.setLogo1(res);
+                   
+                };
+            image.src = sharingball.logo_one;
 
-              }
 
-              reader.readAsDataURL(sharingball.logo_one);
+              
           }
 
           if (sharingball.logo_two != '') {
               $('.textSelect').hide();
-              var reader = new FileReader();
-              reader.onload = function(e) {
-                  var res = reader.result;
-                  football.logo2 = res;
-                  logo2 = res;
-                  player.setLogo2(res);
 
-              }
+              var image = new Image();
 
-              reader.readAsDataURL(sharingball.logo_two);
+                image.onload = function () {
+                    var canvas = document.createElement('canvas');
+                    canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+                    canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+
+                    canvas.getContext('2d').drawImage(this, 0, 0);
+                     football.logo2 =canvas.toDataURL('image/png');
+                  logo2 = canvas.toDataURL('image/png');
+                  player.setLogo2(canvas.toDataURL('image/png'));
+
+
+                   
+                };
+            image.src = sharingball.logo_two;
+
+              
           }
 
       }, 500);
@@ -639,8 +657,6 @@
               //var c=cropper['getCroppedCanvas'](cropImgData.option, cropImgData.secondOption).toDataURL('image/png');
               var res = reader.result;
               //football.logo = res;
-
-
               //$('#modal').modal('hide');
               if (v == 1) {
                   football.logo1 = res;
@@ -687,6 +703,7 @@
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       token: function(token) {
+          $('.preloader').show(); 
           console.log(token);
           orderComplete.token = token.id;
           orderComplete.email = token.email;
@@ -698,6 +715,7 @@
               contentType: "application/x-www-form-urlencoded",
               data: JSON.stringify(orderComplete),
               success: function(msg) {
+                  $('.preloader').hide(); 
                   var json = JSON.parse(msg);
                   console.log(msg);
                   $('#confirmModal').modal('hide');
@@ -712,6 +730,7 @@
 
               },
               error: function(msg) {
+                  $('.preloader').hide(); 
                   console.log(msg);
                   $('#confirmModal').modal('hide');
                   alert("error occured. Try again later.");
@@ -842,10 +861,14 @@
           contentType: "application/x-www-form-urlencoded",
           data: JSON.stringify(football),
           success: function(msg) {
+        
+            $('#shareLink').text(base_url+'?id='+msg);
+            $('#sharingModel').modal('show');
               console.log(msg);
           },
           error: function(msg) {
-              console.log(msg);
+              $('#shareLink').text('Uh oh, Something went wrong. Please try again later');
+            $('#sharingModel').modal('show');
 
           }
       });
@@ -861,6 +884,7 @@
               if ($('#text1').val() != '') {
                   $('#addText1').modal('hide');
                   text1 = ctx2d.canvas.toDataURL('image/png');
+                  football.logo1=text1;
                   player.applyText(0);
                   $('.logoSelect').hide();
               }
@@ -871,6 +895,7 @@
               if ($('#text1').val() != '') {
                   $('#addText1').modal('hide');
                   text2 = ctx2d.canvas.toDataURL('image/png');
+                  football.logo2=text2;
                   player.applyText(1);
                   $('.logoSelect').hide();
               }
