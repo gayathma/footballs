@@ -39,16 +39,27 @@
        
 
 
+<script type="text/javascript">
+    
 
-<?php 
 
-$share_id = Request::get('id');
-$share = null;
-if(!is_null($share_id)){
-    $share = \App\Share::find($share_id);
-}
+var sharingball=<?php 
 
-?>
+    $share_id = Request::get('id');
+    $share = null;
+    if(!is_null($share_id)){
+        $share = \App\Share::find($share_id);
+        echo json_encode($share);
+       
+    }else{
+         echo '';
+    }
+
+?>;
+
+
+
+</script>
 <div class="container-fluid">
                 <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12 ball-selector" >

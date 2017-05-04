@@ -122,6 +122,7 @@ var APP = {
 			}
 
 			dispatch( events.init, arguments );
+			
 
 		};
 
