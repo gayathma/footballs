@@ -227,7 +227,7 @@ class OrderProcessController extends Controller
             $this->saveImages($data['logo2'], $folder.'/logo2.png');
         }
 
-        return redirect()->route('/editor?id='.$share->id);
+        return $share->id;
     }
 
 
