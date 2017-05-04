@@ -166,79 +166,79 @@
 
   ];
 
-    
 
-    if(sharingball!=''){
-        console.log(sharingball.design);
-        if(sharingball.design=='blast'){
-             blast();
-            blast();
-        }else if(sharingball.design=='swerve'){
-            swerve();
-            swerve();
-        }else if(sharingball.design=='prem'){
-            prem();
-            prem();
-        }else if(sharingball.design=='premium'){
-            premium();
-            premium();
-        }else if(sharingball.design=='world'){
-            world();
-            world();
-        }else if(sharingball.design=='flame'){
-            flame();
-            flame();
-        }
-        setTimeout(function(){
-            var temp = getPantoneColor(sharingball.layer_one_color);
-            football.layer1color = sharingball.layer_one_color;
-            player.setColor1(temp.split(',')[0], temp.split(',')[1], temp.split(',')[2]);
 
-            var temp2 = getPantoneColor(sharingball.layer_two_color);
-            football.layer2color = sharingball.layer_two_color;
-            player.setColor2(temp2.split(',')[0], temp2.split(',')[1], temp2.split(',')[2]);
+  if (sharingball != '') {
+      console.log(sharingball.design);
+      if (sharingball.design == 'blast') {
+          blast();
+          blast();
+      } else if (sharingball.design == 'swerve') {
+          swerve();
+          swerve();
+      } else if (sharingball.design == 'prem') {
+          prem();
+          prem();
+      } else if (sharingball.design == 'premium') {
+          premium();
+          premium();
+      } else if (sharingball.design == 'world') {
+          world();
+          world();
+      } else if (sharingball.design == 'flame') {
+          flame();
+          flame();
+      }
+      setTimeout(function() {
+          var temp = getPantoneColor(sharingball.layer_one_color);
+          football.layer1color = sharingball.layer_one_color;
+          player.setColor1(temp.split(',')[0], temp.split(',')[1], temp.split(',')[2]);
 
-            if(sharingball.logo_one!=''){
-                  $('.textSelect').hide();
-                  var reader = new FileReader();
-                  reader.onload = function(e) {
-                     
-                      
-                      var res = reader.result;
-                      football.logo1 = res;
-                      logo1 = res;
-                      player.setLogo1(res);
-                     
-                  }
+          var temp2 = getPantoneColor(sharingball.layer_two_color);
+          football.layer2color = sharingball.layer_two_color;
+          player.setColor2(temp2.split(',')[0], temp2.split(',')[1], temp2.split(',')[2]);
 
-                  reader.readAsDataURL(sharingball.logo_one);
-            }
+          if (sharingball.logo_one != '') {
+              $('.textSelect').hide();
+              var reader = new FileReader();
+              reader.onload = function(e) {
 
-             if(sharingball.logo_two!=''){
-                $('.textSelect').hide();
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    var res = reader.result;
-                    football.logo2 = res;
-                    logo2 = res;
-                    player.setLogo2(res);
-                     
-                }
 
-                reader.readAsDataURL(sharingball.logo_two);
+                  var res = reader.result;
+                  football.logo1 = res;
+                  logo1 = res;
+                  player.setLogo1(res);
+
               }
 
-        },500);
-       
-        
-    }else{
-        blast();
-        blast();
-    }
+              reader.readAsDataURL(sharingball.logo_one);
+          }
+
+          if (sharingball.logo_two != '') {
+              $('.textSelect').hide();
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                  var res = reader.result;
+                  football.logo2 = res;
+                  logo2 = res;
+                  player.setLogo2(res);
+
+              }
+
+              reader.readAsDataURL(sharingball.logo_two);
+          }
+
+      }, 500);
+
+
+  } else {
+      blast();
+      blast();
+  }
 
 
   console.log('asd');
-  
+
   genPallet(pallet);
   $('#logo1').on('change', function() {
       //$('#logoModal').modal('hide');
@@ -246,10 +246,10 @@
           var ext = $('#logo1').val().split('.').pop().toLowerCase();
           if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
               alert('invalid extension!');
-          }else{
+          } else {
               $('.textSelect').hide();
               readURL(this, 1);
-              
+
               //onCropClick(1);
               //document.getElementById('crop').onclick = function(){ onCropClick(1); } ;
           }
@@ -268,9 +268,9 @@
           if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
               alert('invalid extension!');
           } else {
-                $('.textSelect').hide();
-                readURL(this, 2);
-            
+              $('.textSelect').hide();
+              readURL(this, 2);
+
               //onCropClick(2);
               //document.getElementById('crop').onclick = function(){ onCropClick(2); } ;
 
@@ -296,7 +296,7 @@
               text2 = undefined;
               $('.logoSelect').show();
               $('.textSelect').show();
-              sharingball='';
+              sharingball = '';
           }
 
       } else {

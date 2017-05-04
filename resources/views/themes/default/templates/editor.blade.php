@@ -49,6 +49,8 @@ var sharingball=<?php
     $share = null;
     if(!is_null($share_id)){
         $share = \App\Share::find($share_id);
+        $share->logo_one = public_path().'/uploads/share/sh_'.$share_id.'/'.$share->logo_one;
+        $share->logo_two = public_path().'/uploads/share/sh_'.$share_id.'/'.$share->logo_two;
         echo json_encode($share);
        
     }else{
