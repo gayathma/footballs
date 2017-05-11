@@ -873,6 +873,7 @@ this.takeShot=function(v){
 			renderer.render(scene, camera);
 			if(v==1){
 				football.screenshot1=renderer.domElement.toDataURL();
+				$('#order-preview').attr('src',football.screenshot1);
 			}else{
 				football.screenshot2=renderer.domElement.toDataURL();
 			}

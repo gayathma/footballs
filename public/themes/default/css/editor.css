@@ -275,3 +275,23 @@
 	font-size: .8em;
 
 }
+
+.help{
+	 position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 50000;
+    width: 5vh;
+}
+
+.back{
+	position: ABSOLUTE;
+    left: 5px;
+    top: 5px;
+    z-index: 5000;
+}
+
+#order-preview{
+	    width: 100%;
+    margin-bottom: 10px;
+}

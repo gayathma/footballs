@@ -41,7 +41,7 @@
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
                                                 <h3>Life is <span>about timing</span></h3>
                                                 <div class="promo-sub">Just play. <span>Have fun.</span> Enjoy the game</div>
-                                                <a href="#" class="read-more">Read More<i class="uk-icon-chevron-right"></i></a>
+                                                <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

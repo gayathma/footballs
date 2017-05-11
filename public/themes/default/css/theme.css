@@ -13963,26 +13963,7 @@ q {
   color: #a6a6a6;
   font-size: 15px;
 }
-.about-team-page-top-wrap .top-banner:before {
-  content: '\201c';
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 370px;
-  line-height: 260px;
-  font-weight: bold;
-  font-family: 'Work Sans';
-}
-.about-team-page-top-wrap .top-banner:after {
-  content: '\201d';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 370px;
-  line-height: 0;
-  font-weight: bold;
-  font-family: 'Work Sans';
-}
+
 .about-team-page-top-wrap .top-banner .inner {
   text-align: center;
   font-size: 32px;

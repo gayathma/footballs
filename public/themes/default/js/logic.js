@@ -985,7 +985,7 @@
       var size = $('#size').val();
       var sizeLabel = $('#size option:selected').text();
       var count = $('#count').val();
-
+      var isAdded=false;
       $.each(productDetails, function(index, value) {
 
           if (value.product_name == quality) {
@@ -1006,7 +1006,17 @@
 
                               var subtot = parseFloat(obj * count).toFixed(2);
                               orderCount++;
-                              $('#orderBody').append('<tr><td colspan="1">' + orderCount + '</td><td colspan="2" value="' + size + '">' + sizeLabel + '</td><td colspan="3">' + quality + '</td><td colspan="1">' + count + '</td><td colspan="1">£' + subtot + '</td><td style="display:none">' + value.id + '</td><td><span class="rm">X</span></td></tr>');
+                               $('#orderBody > tr').each(function() {
+                                   if($(this).find('td:nth-child(2)').attr('value')==size && $(this).find('td:nth-child(3)').text()==quality){
+                                     isAdded=true;
+                                     $(this).find('td:nth-child(4)').text(parseInt($(this).find('td:nth-child(4)').text())+parseInt(count));
+                                     var t=(parseFloat($(this).find('td:nth-child(5)').text().split('£')[1])+parseFloat(subtot)).toFixed(2);
+                                     $(this).find('td:nth-child(5)').text('£'+t);
+
+                                   }
+
+                              });
+                              if(!isAdded)$('#orderBody').append('<tr><td colspan="1">' + orderCount + '</td><td colspan="2" value="' + size + '">' + sizeLabel + '</td><td colspan="3">' + quality + '</td><td colspan="1">' + count + '</td><td colspan="1">£' + subtot + '</td><td style="display:none">' + value.id + '</td><td><span class="rm">X</span></td></tr>');
                               total += parseFloat(subtot);
                               total = parseFloat(total);
                               $('#total').text('£' + total.toFixed(2));

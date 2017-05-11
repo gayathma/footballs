@@ -43,6 +43,7 @@
     
 
 var base_url="<?php echo URL::to('/editor');?>";
+var home_page="<?php echo URL::to('/');?>";
 var sharingball=<?php 
 
     $share_id = Request::get('id');
@@ -66,14 +67,19 @@ if(sharingball!=""){
     console.log(sharingball);
 }
 
+function goBack(){
+    window.location=home_page;
+}
+
 
 
 </script>
+<button class="btn btn-success btn-sm back" onclick="goBack()">Back</button>
 <div class="container-fluid">
                 <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12 ball-selector" >
 
-                <p><button class="btn btn-success btn-sm" >Back</button>Choose your preferred design</p>
+                <p>Choose your preferred design</p>
                 <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast" data-intro='Hello There, Get started with your design by selecting a football.'/>
                 <img src="/themes/default/img/flame.png" onclick="flame()" class="bttn flame"/>
                 <img src="/themes/default/img/prem.png" onclick="prem()" class="bttn prem"/>
@@ -122,6 +128,7 @@ if(sharingball!=""){
 <div id="labelHolder">
     <label id="lblStatus">Select a Football</label>
 </div>
+<img src="/themes/default/img/help.png" class="help"/>
 
 
 
@@ -225,11 +232,11 @@ if(sharingball!=""){
                                     <th colspan="1"></th>
                                     <th colspan="1"></th>
                                 </tr>
-                            </thead>
+                            </thead>>
+
                             <tbody id="orderBody">
                                
-                            </tbody>
-
+                            </tbody
                              <tfoot >
                                <tr>
                                    <td colspan="7">Total</td>
@@ -441,6 +448,7 @@ if(sharingball!=""){
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body txt-center">
+                <img src="" id="order-preview"/>
                 <p id="message"></p>
 
             </div>
@@ -500,6 +508,12 @@ setTimeout(function(){
     $('.preloader').hide();
     introJs().start();
 },2000);
+
+$(document).ready(function(){
+    $('.help').click(function(){
+        introJs().start();
+    });
+});
 
 </script>
 
