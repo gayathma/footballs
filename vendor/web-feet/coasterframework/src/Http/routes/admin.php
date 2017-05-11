@@ -149,6 +149,13 @@ Route::group(['prefix' => $adminUrl, 'middleware' => ['web', 'coaster.admin'], '
     Route::post('sizes/add', ['uses' => 'SizesController@postAdd', 'as' => $routeNamePrefix . 'sizes.add.post']);
     Route::post('sizes/delete/{sizeId?}', ['uses' => 'SizesController@postDelete', 'as' => $routeNamePrefix . 'sizes.delete']);
 
+    Route::get('products', ['uses' => 'ProductsController@getIndex', 'as' => $routeNamePrefix . 'products']);
+    Route::get('products/edit/{productId?}/{action?}', ['uses' => 'ProductsController@getEdit', 'as' => $routeNamePrefix . 'products.edit'])->where(['productId' => '\w+', 'action' => '\w+']);
+    Route::post('products/edit/{productId?}/{action?}', ['uses' => 'ProductsController@postEdit', 'as' => $routeNamePrefix . 'products.edit.post'])->where(['productId' => '\w+', 'action' => '\w+']);
+    Route::get('products/add', ['uses' => 'ProductsController@getAdd', 'as' => $routeNamePrefix . 'products.add']);
+    Route::post('products/add', ['uses' => 'ProductsController@postAdd', 'as' => $routeNamePrefix . 'products.add.post']);
+    Route::post('products/delete/{productId?}', ['uses' => 'ProductsController@postDelete', 'as' => $routeNamePrefix . 'products.delete']);
+
 });
 
 // catch invalid admin routes
