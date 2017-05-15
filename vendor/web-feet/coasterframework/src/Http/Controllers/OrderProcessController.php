@@ -25,6 +25,7 @@ use View;
 use Auth;
 use Storage;
 use ZipArchive;
+use Mail;
 
 class OrderProcessController extends Controller
 {
@@ -200,6 +201,18 @@ class OrderProcessController extends Controller
                 $transactionId          = $charge->id,
                 $detail                 = $customerID
         );
+
+        //E- mail function
+        $subject = 'New Order | ID '.$order->id;
+        $body    = 'Please find attached zip file with order details';
+        $name = 'Gayathma';
+        Mail::queue('themes.default.emails.default', [
+                'body' => $body
+            ], function ($message) use ($email, $name, $subject, $order) {
+                $message->to($email, $name)->subject($subject)
+                        ->cc('gayathma3@gmail.com', 'Gayathma')->subject($subject)
+                        ->attach(storage_path('app').'/footballzip/order_'.$order->id.'.zip');
+            });
 
         return json_encode(['status'=>'successful', 'message'=> 'You have successfully placed the order. You will receive a confirmation email with order details shortly. Thank you.!']);
 
