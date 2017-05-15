@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 03, 2017 at 07:48 AM
+-- Generation Time: May 16, 2017 at 12:14 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -124,7 +124,8 @@ INSERT INTO `admin_actions` (`id`, `controller_id`, `action`, `inherit`, `edit_b
 (79, 3, 'edit', 0, 0, 'Edit Group Settings', NULL, '2017-04-06 02:10:40', '2017-04-06 02:10:40'),
 (80, 18, 'index', -1, 0, 'Ajax Search', NULL, '2017-04-06 02:10:50', '2017-04-06 02:10:50'),
 (81, 19, 'index', 0, 0, 'Show All Orders', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
-(82, 20, 'index', 0, 0, 'Show All Item Sizes', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
+(82, 20, 'index', 0, 0, 'Show All Item Sizes', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
+(83, 21, 'index', 0, 0, 'Show All Products', NULL, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,8 @@ INSERT INTO `admin_controllers` (`id`, `controller`, `role_name`, `role_order`, 
 (17, 'search', 'Search log', 4, 3, '2017-04-06 02:10:40', '2017-04-06 02:10:40'),
 (18, 'adminsearch', 'Admin Search', 0, 2, '2017-04-06 02:10:50', '2017-04-06 02:10:50'),
 (19, 'orders', 'Orders', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
-(20, 'sizes', 'Sizes', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
+(20, 'sizes', 'Sizes', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25'),
+(21, 'products', 'Products', 1, 1, '2017-04-06 02:10:25', '2017-04-06 02:10:25');
 
 -- --------------------------------------------------------
 
@@ -216,7 +218,11 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 (27, 1, 'Updated page ''Share'' (Page ID 7)', '2017-05-02 23:56:05', '2017-05-02 23:56:05'),
 (28, 1, 'Updated page ''Share'' (Page ID 7)', '2017-05-02 23:56:28', '2017-05-02 23:56:28'),
 (29, 1, 'Updated page ''Share'' (Page ID 7)', '2017-05-03 00:18:17', '2017-05-03 00:18:17'),
-(30, 1, 'Updated page ''Share'' (Page ID 7)', '2017-05-03 00:18:33', '2017-05-03 00:18:33');
+(30, 1, 'Updated page ''Share'' (Page ID 7)', '2017-05-03 00:18:33', '2017-05-03 00:18:33'),
+(31, 1, 'Added page ''PLEDGE A BALL'' (Page ID 8)', '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
+(32, 1, 'Updated page ''PLEDGE A BALL'' (Page ID 8)', '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(33, 1, 'Size ID ''5'' deleted', '2017-05-15 16:11:29', '2017-05-15 16:11:29'),
+(34, 1, 'Size ID ''6'' deleted', '2017-05-15 16:38:50', '2017-05-15 16:38:50');
 
 -- --------------------------------------------------------
 
@@ -252,7 +258,8 @@ INSERT INTO `admin_menu` (`id`, `action_id`, `parent`, `order`, `icon`, `item_na
 (9, 62, 0, 9, 'fa fa-tint', 'Theme', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
 (10, 64, 0, 9, 'fa fa-bluetooth-b', 'Beacons', '', '2017-04-06 02:10:26', '2017-04-06 02:10:26'),
 (11, 81, 0, 2, 'fa fa-shopping-cart', 'Orders', NULL, NULL, NULL),
-(14, 82, 0, 2, 'fa fa-th-large', 'Item Sizes', NULL, NULL, NULL);
+(14, 82, 0, 2, 'fa fa-th-large', 'Item Sizes', NULL, NULL, NULL),
+(15, 83, 0, 2, 'fa fa-shopping-cart', 'Products', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -285,7 +292,9 @@ INSERT INTO `backups` (`id`, `log_id`, `primary_id`, `model`, `data`, `created_a
 (8, 20, 6, '\\CoasterCms\\Models\\User', 'O:22:"CoasterCms\\Models\\User":24:{s:8:"\0*\0table";s:5:"users";s:9:"\0*\0hidden";a:2:{i:0;s:8:"password";i:1;s:14:"remember_token";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:14:{s:2:"id";i:6;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$XwmMVjj9gubZLTERIn.qD.cqWgL8mFKtJvTKxJjXgbDo2ICK7Dy/O";s:5:"email";s:16:"asdsd@asdasd.com";s:4:"name";s:5:"asdas";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:49:34";s:10:"updated_at";s:19:"2017-05-02 04:49:34";}s:11:"\0*\0original";a:14:{s:2:"id";i:6;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$XwmMVjj9gubZLTERIn.qD.cqWgL8mFKtJvTKxJjXgbDo2ICK7Dy/O";s:5:"email";s:16:"asdsd@asdasd.com";s:4:"name";s:5:"asdas";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:49:34";s:10:"updated_at";s:19:"2017-05-02 04:49:34";}s:12:"\0*\0relations";a:1:{s:4:"role";O:26:"CoasterCms\\Models\\UserRole":26:{s:8:"\0*\0table";s:10:"user_roles";s:44:"\0CoasterCms\\Models\\UserRole\0_allowed_actions";N;s:49:"\0CoasterCms\\Models\\UserRole\0_allowed_page_actions";N;s:46:"\0CoasterCms\\Models\\UserRole\0_processed_actions";N;s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:11:"\0*\0original";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:20:"\0*\0rememberTokenName";s:14:"remember_token";}', '2017-05-02 20:57:08', '2017-05-02 20:57:08'),
 (9, 21, 4, '\\CoasterCms\\Models\\User', 'O:22:"CoasterCms\\Models\\User":24:{s:8:"\0*\0table";s:5:"users";s:9:"\0*\0hidden";a:2:{i:0;s:8:"password";i:1;s:14:"remember_token";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:14:{s:2:"id";i:4;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$BsBHUxt.I7smRIv/wvMwxOuCJtXMzr9eqxUdxQJVRPf3ojhd65dAq";s:5:"email";s:15:"chuta@gmail.com";s:4:"name";s:5:"chuta";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:47:36";s:10:"updated_at";s:19:"2017-05-02 04:47:36";}s:11:"\0*\0original";a:14:{s:2:"id";i:4;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$BsBHUxt.I7smRIv/wvMwxOuCJtXMzr9eqxUdxQJVRPf3ojhd65dAq";s:5:"email";s:15:"chuta@gmail.com";s:4:"name";s:5:"chuta";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:47:36";s:10:"updated_at";s:19:"2017-05-02 04:47:36";}s:12:"\0*\0relations";a:1:{s:4:"role";O:26:"CoasterCms\\Models\\UserRole":26:{s:8:"\0*\0table";s:10:"user_roles";s:44:"\0CoasterCms\\Models\\UserRole\0_allowed_actions";N;s:49:"\0CoasterCms\\Models\\UserRole\0_allowed_page_actions";N;s:46:"\0CoasterCms\\Models\\UserRole\0_processed_actions";N;s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:11:"\0*\0original";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:20:"\0*\0rememberTokenName";s:14:"remember_token";}', '2017-05-02 20:57:12', '2017-05-02 20:57:12'),
 (10, 22, 5, '\\CoasterCms\\Models\\User', 'O:22:"CoasterCms\\Models\\User":24:{s:8:"\0*\0table";s:5:"users";s:9:"\0*\0hidden";a:2:{i:0;s:8:"password";i:1;s:14:"remember_token";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:14:{s:2:"id";i:5;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$jDoxGaGUPNYfnE9JwqrFJe.pByCDcwJ6XXCLDF4hHp/60sBiK9dNq";s:5:"email";s:16:"asdsd@asdsad.com";s:4:"name";s:5:"asdad";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:48:37";s:10:"updated_at";s:19:"2017-05-02 04:48:37";}s:11:"\0*\0original";a:14:{s:2:"id";i:5;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$jDoxGaGUPNYfnE9JwqrFJe.pByCDcwJ6XXCLDF4hHp/60sBiK9dNq";s:5:"email";s:16:"asdsd@asdsad.com";s:4:"name";s:5:"asdad";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:48:37";s:10:"updated_at";s:19:"2017-05-02 04:48:37";}s:12:"\0*\0relations";a:1:{s:4:"role";O:26:"CoasterCms\\Models\\UserRole":26:{s:8:"\0*\0table";s:10:"user_roles";s:44:"\0CoasterCms\\Models\\UserRole\0_allowed_actions";N;s:49:"\0CoasterCms\\Models\\UserRole\0_allowed_page_actions";N;s:46:"\0CoasterCms\\Models\\UserRole\0_processed_actions";N;s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:11:"\0*\0original";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:20:"\0*\0rememberTokenName";s:14:"remember_token";}', '2017-05-02 20:57:22', '2017-05-02 20:57:22'),
-(11, 25, 10, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:11:"\0*\0original";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-05-02 23:09:03', '2017-05-02 23:09:03');
+(11, 25, 10, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:11:"\0*\0original";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-05-02 23:09:03', '2017-05-02 23:09:03'),
+(12, 33, 5, '\\App\\Size', 'O:8:"App\\Size":23:{s:8:"\0*\0table";s:9:"item_size";s:11:"\0*\0fillable";a:1:{i:0;s:4:"size";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:4:{s:2:"id";i:5;s:4:"size";s:4:"gdfg";s:10:"created_at";s:19:"2017-05-15 21:41:25";s:10:"updated_at";s:19:"2017-05-15 21:41:25";}s:11:"\0*\0original";a:4:{s:2:"id";i:5;s:4:"size";s:4:"gdfg";s:10:"created_at";s:19:"2017-05-15 21:41:25";s:10:"updated_at";s:19:"2017-05-15 21:41:25";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-15 16:11:29', '2017-05-15 16:11:29'),
+(13, 34, 6, '\\App\\Size', 'O:8:"App\\Size":23:{s:8:"\0*\0table";s:9:"item_size";s:11:"\0*\0fillable";a:1:{i:0;s:4:"size";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:11:"\0*\0original";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-15 16:38:50', '2017-05-15 16:38:50');
 
 -- --------------------------------------------------------
 
@@ -1293,7 +1302,9 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 3, '2017-05-01 14:51:37', '2017-05-01 14:51:37'),
-(2, 1, '2017-05-01 16:37:38', '2017-05-01 16:37:38');
+(2, 1, '2017-05-01 16:37:38', '2017-05-01 16:37:38'),
+(8, 10, '2017-05-02 22:51:34', '2017-05-02 22:51:34'),
+(9, 11, '2017-05-09 12:11:06', '2017-05-09 12:11:06');
 
 -- --------------------------------------------------------
 
@@ -1399,7 +1410,23 @@ INSERT INTO `items` (`id`, `user_id`, `cart_id`, `order_id`, `size_id`, `sku`, `
 (35, 1, NULL, 35, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-02 21:02:25', '2017-05-02 21:02:25'),
 (36, 1, NULL, 36, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-02 21:04:10', '2017-05-02 21:04:10'),
 (37, 3, NULL, 37, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-02 21:10:01', '2017-05-02 21:10:01'),
-(38, 3, NULL, 37, 1, 'Match', '29.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '2', '2017-05-02 21:10:01', '2017-05-02 21:10:01');
+(38, 3, NULL, 37, 1, 'Match', '29.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '2', '2017-05-02 21:10:01', '2017-05-02 21:10:01'),
+(39, 3, NULL, 38, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-02 22:26:39', '2017-05-02 22:26:39'),
+(40, 3, NULL, 38, 1, 'Elite', '34.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '3', '2017-05-02 22:26:39', '2017-05-02 22:26:39'),
+(41, 10, NULL, 39, 1, 'Training', '68.97', '0.00', '0.00', 'GBP', 3, 'App\\MyCustomProduct', '1', '2017-05-02 22:51:34', '2017-05-02 22:51:34'),
+(42, 3, NULL, 40, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-04 01:45:52', '2017-05-04 01:45:52'),
+(43, 3, NULL, 41, 1, 'Training', '49.98', '0.00', '0.00', 'GBP', 2, 'App\\MyCustomProduct', '1', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
+(44, 3, NULL, 41, 1, 'Match', '59.98', '0.00', '0.00', 'GBP', 2, 'App\\MyCustomProduct', '2', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
+(45, 3, NULL, 41, 1, 'Elite', '34.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '3', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
+(46, 10, NULL, 42, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-04 02:04:07', '2017-05-04 02:04:07'),
+(47, 10, NULL, 42, 2, 'Training', '74.97', '0.00', '0.00', 'GBP', 3, 'App\\MyCustomProduct', '1', '2017-05-04 02:04:07', '2017-05-04 02:04:07'),
+(48, 11, NULL, 43, 1, 'Training', '349.86', '0.00', '0.00', 'GBP', 14, 'App\\MyCustomProduct', '1', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(49, 11, NULL, 43, 1, 'Match', '209.93', '0.00', '0.00', 'GBP', 7, 'App\\MyCustomProduct', '2', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(50, 11, NULL, 43, 1, 'Elite', '174.95', '0.00', '0.00', 'GBP', 5, 'App\\MyCustomProduct', '3', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(51, 11, NULL, 43, 2, 'Match', '89.97', '0.00', '0.00', 'GBP', 3, 'App\\MyCustomProduct', '2', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(52, 11, NULL, 43, 2, 'Training', '191.92', '0.00', '0.00', 'GBP', 8, 'App\\MyCustomProduct', '1', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(53, 3, NULL, 44, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-10 01:45:02', '2017-05-10 01:45:02'),
+(54, 3, NULL, 45, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-15 04:11:40', '2017-05-15 04:11:41');
 
 -- --------------------------------------------------------
 
@@ -1621,7 +1648,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `team_name`, `statusCode`, `created_at`, `updated_at`) VALUES
-(37, 3, 'sdsdsd', 'pending', '2017-05-02 21:10:01', '2017-05-02 21:10:01');
+(37, 3, 'sdsdsd', 'pending', '2017-05-02 21:10:01', '2017-05-02 21:10:01'),
+(38, 3, 'ras team', 'pending', '2017-05-02 22:26:39', '2017-05-02 22:26:39'),
+(39, 10, 'raman team', 'pending', '2017-05-02 22:51:34', '2017-05-02 22:51:34'),
+(40, 3, 'team gaya', 'pending', '2017-05-04 01:45:52', '2017-05-04 01:45:52'),
+(41, 3, 'team rich', 'pending', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
+(42, 10, 'Team Gaya', 'pending', '2017-05-04 02:04:07', '2017-05-04 02:04:07'),
+(43, 11, 'mat mat', 'pending', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(44, 3, 'team shamain', 'pending', '2017-05-10 01:45:02', '2017-05-10 01:45:02'),
+(45, 3, 'hkhk', 'pending', '2017-05-15 04:11:40', '2017-05-15 04:11:40');
 
 -- --------------------------------------------------------
 
@@ -1684,7 +1719,8 @@ INSERT INTO `pages` (`id`, `template`, `parent`, `child_template`, `order`, `gro
 (4, 15, 0, 0, 3, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-04-23 23:14:29', '2017-04-23 23:30:16'),
 (5, 14, 3, 0, 0, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-04-23 23:14:29', '2017-04-23 23:30:16'),
 (6, 16, 0, 0, 4, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
-(7, 18, 0, 0, 5, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-05-02 23:27:19', '2017-05-02 23:27:19');
+(7, 18, 0, 0, 5, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
+(8, 20, 0, 0, 6, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-09 23:09:20', '2017-05-09 23:14:34');
 
 -- --------------------------------------------------------
 
@@ -1730,7 +1766,13 @@ INSERT INTO `page_blocks` (`id`, `language_id`, `page_id`, `block_id`, `content`
 (20, 1, 7, 8, 'Share', 1, '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
 (21, 1, 7, 1, '', 2, '2017-05-02 23:56:05', '2017-05-02 23:56:05'),
 (22, 1, 7, 2, '', 2, '2017-05-02 23:56:05', '2017-05-02 23:56:05'),
-(23, 1, 7, 3, '', 2, '2017-05-02 23:56:05', '2017-05-02 23:56:05');
+(23, 1, 7, 3, '', 2, '2017-05-02 23:56:05', '2017-05-02 23:56:05'),
+(24, 1, 8, 8, 'PLEDGE A BALL', 1, '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
+(25, 1, 8, 1, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(26, 1, 8, 2, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(27, 1, 8, 3, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(28, 1, 8, 43, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(29, 1, 8, 10, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34');
 
 -- --------------------------------------------------------
 
@@ -1883,7 +1925,8 @@ INSERT INTO `page_lang` (`id`, `page_id`, `language_id`, `url`, `name`, `live_ve
 (4, 4, 1, 'sitemap', 'Sitemap', 1, '2017-04-23 23:14:29', '2017-04-23 23:14:29'),
 (5, 5, 1, 'thank-you', 'Thank You', 1, '2017-04-23 23:14:29', '2017-04-23 23:14:29'),
 (6, 6, 1, 'editor', 'Editor', 1, '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
-(7, 7, 1, 'share', 'Share', 5, '2017-05-02 23:27:19', '2017-05-03 00:18:33');
+(7, 7, 1, 'share', 'Share', 5, '2017-05-02 23:27:19', '2017-05-03 00:18:33'),
+(8, 8, 1, 'pledge-a-ball', 'PLEDGE A BALL', 2, '2017-05-09 23:09:20', '2017-05-09 23:14:34');
 
 -- --------------------------------------------------------
 
@@ -1953,7 +1996,9 @@ INSERT INTO `page_search_data` (`id`, `language_id`, `page_id`, `block_id`, `sea
 (13, 1, 3, 10, '<div class="tm-bottom-a-box  ">\r\n<div class="uk-container uk-container-center">\r\n<section id="tm-bottom-a" class="tm-bottom-a uk-grid" data-uk-grid-match="{target:''&gt; div &gt; .uk-panel''}" data-uk-grid-margin="">\r\n<div class="uk-width-1-1 uk-row-first">\r\n<div class="uk-panel">\r\n<div class="contact-page">\r\n<div class="uk-grid">\r\n<div class="uk-width-1-1">\r\n<div class="contact-title">\r\n<h2>Nulla vehicula sem id nisl fringilla porta</h2>\r\n</div>\r\n<div class="contact-text">Aenean aliquam, dolor eu lacinia pellentesque, dui arcu condimentum nisl, quis sollicitudin mi lorem quis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis sapien a ante rutrum pulvinar quis ac tellus. Proin facilisis dui at mollis tincidunt. Sed dignissim orci non arcu luctus pretium. Donec at ex aliquet, porttitor lacus eget, ullamcorper quam. Integer pellentesque egestas arcu, nec molestie leo sollicitudin et</div>\r\n</div>\r\n<div class="uk-width-1-1">\r\n<div class="contact-socials-wrap">\r\n<ul class="contact-socials">\r\n<li><a href="#"><i class="uk-icon-facebook"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-twitter"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-google-plus"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-pinterest-p"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-youtube"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-instagram"></i></a></li>\r\n<li><a href="#"><i class="uk-icon-flickr"></i></a></li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n<div class="uk-grid" data-uk-grid-match="{target:''.contact-enquiries''}">\r\n<div class="uk-width-medium-1-3 uk-panel">\r\n<div style="min-height: 139px;" class="contact-enquiries">\r\n<div class="title">CLUB ENQUIRIES</div>\r\n<div class="phone"><i class="uk-icon-phone"></i>(846)-356-9322</div>\r\n<div class="mail"><i class="uk-icon-envelope"></i> <a href="malto:support@torbara.com"> support@torbara.com </a></div>\r\n<div class="location"><i class="uk-icon-map-marker"></i>9478 Chestnut Street, Woodstock, GA 30188</div>\r\n</div>\r\n</div>\r\n<div class="uk-width-medium-1-3 uk-panel">\r\n<div style="min-height: 139px;" class="contact-enquiries">\r\n<div class="title">MEDIA ENQUIRIES</div>\r\n<div class="phone"><i class="uk-icon-phone"></i>(748)-864-2151</div>\r\n<div class="mail"><i class="uk-icon-envelope"></i> <a href="malto:support@torbara.com"> support@torbara.com </a></div>\r\n<div class="location"><i class="uk-icon-map-marker"></i>217 Route 70, Lumberton, NC 28358</div>\r\n</div>\r\n</div>\r\n<div class="uk-width-medium-1-3 uk-panel">\r\n<div style="min-height: 139px;" class="contact-enquiries">\r\n<div class="title">HEAD OFFICE</div>\r\n<div class="phone"><i class="uk-icon-phone"></i>(846)-356-9322</div>\r\n<div class="mail"><i class="uk-icon-envelope"></i> <a href="malto:support@torbara.com"> support@torbara.com </a></div>\r\n<div class="location"><i class="uk-icon-map-marker"></i>241 Adams Street, Huntington, NY 11743</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</section>\r\n</div>\r\n</div>', '2017-04-24 01:34:54', '2017-04-24 01:34:54'),
 (14, 1, 3, 1, 'Contact', '2017-04-24 01:37:51', '2017-04-24 01:37:51'),
 (15, 1, 6, 0, 'Editor', '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
-(16, 1, 7, 0, 'Share', '2017-05-02 23:27:19', '2017-05-02 23:27:19');
+(16, 1, 7, 0, 'Share', '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
+(17, 1, 8, 0, 'PLEDGE A BALL', '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
+(18, 1, 8, 8, 'PLEDGE A BALL', '2017-05-09 23:14:34', '2017-05-09 23:14:34');
 
 -- --------------------------------------------------------
 
@@ -2008,7 +2053,9 @@ INSERT INTO `page_versions` (`id`, `page_id`, `version_id`, `template`, `label`,
 (14, 7, 2, '18', NULL, '23yptjew9wr', 1, '2017-05-02 23:56:05', '2017-05-02 23:56:05'),
 (15, 7, 3, '18', NULL, '210djfwsx8k', 1, '2017-05-02 23:56:28', '2017-05-02 23:56:28'),
 (16, 7, 4, '18', NULL, '1ce77awoost', 1, '2017-05-03 00:18:17', '2017-05-03 00:18:17'),
-(17, 7, 5, '18', NULL, 'lt4ofcpsmf', 1, '2017-05-03 00:18:33', '2017-05-03 00:18:33');
+(17, 7, 5, '18', NULL, 'lt4ofcpsmf', 1, '2017-05-03 00:18:33', '2017-05-03 00:18:33'),
+(18, 8, 1, '14', NULL, '1l984crkgbe', 1, '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
+(19, 8, 2, '20', NULL, '200xiuckzh0', 1, '2017-05-09 23:14:34', '2017-05-09 23:14:34');
 
 -- --------------------------------------------------------
 
@@ -2089,7 +2136,25 @@ CREATE TABLE `share` (
 --
 
 INSERT INTO `share` (`id`, `layer_one_color`, `layer_two_color`, `logo_one`, `logo_two`, `design`, `created_at`, `updated_at`) VALUES
-(1, 'dasd', 'dasd', 'dasd', 'dsadas', 'dasd', '2017-05-02 22:24:34', '2017-05-02 22:24:34');
+(1, 'dasd', 'dasd', 'dasd', 'dsadas', 'dasd', '2017-05-02 22:24:34', '2017-05-02 22:24:34'),
+(2, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-03 03:24:41', '2017-05-03 03:24:41'),
+(3, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-03 03:25:05', '2017-05-03 03:25:05'),
+(4, 'p2715', 'p3135', 'logo1.png', 'logo2.png', 'blast', '2017-05-03 04:38:25', '2017-05-03 04:38:25'),
+(5, 'p183', 'p2925', 'logo1.png', 'logo2.png', 'blast', '2017-05-03 05:06:45', '2017-05-03 05:06:45'),
+(6, 'p237', 'p2945', 'logo1.png', 'logo2.png', 'blast', '2017-05-03 14:55:16', '2017-05-03 14:55:16'),
+(7, 'p2665', 'p2925', 'logo1.png', 'logo2.png', 'prem', '2017-05-04 00:15:39', '2017-05-04 00:15:39'),
+(8, 'p184', 'p3135', 'logo1.png', 'logo2.png', 'prem', '2017-05-04 01:08:16', '2017-05-04 01:08:16'),
+(9, 'p2915', 'p4655', 'logo1.png', 'logo2.png', 'prem', '2017-05-04 01:33:11', '2017-05-04 01:33:11'),
+(10, 'p3125', 'p3435', 'logo1.png', 'logo2.png', 'prem', '2017-05-04 01:34:10', '2017-05-04 01:34:10'),
+(11, 'p2375', 'p305', 'logo1.png', 'logo2.png', 'flame', '2017-05-04 01:41:16', '2017-05-04 01:41:16'),
+(12, 'p2705', 'p305', 'logo1.png', 'logo2.png', 'blast', '2017-05-04 01:43:16', '2017-05-04 01:43:16'),
+(13, 'p3115', 'p2925', 'logo1.png', 'logo2.png', 'flame', '2017-05-04 01:44:59', '2017-05-04 01:44:59'),
+(14, 'p3125', 'p247', 'logo1.png', 'logo2.png', 'flame', '2017-05-04 01:57:24', '2017-05-04 01:57:24'),
+(15, 'p184', 'p105', 'logo1.png', 'logo2.png', 'world', '2017-05-04 01:58:31', '2017-05-04 01:58:31'),
+(16, 'p184', 'p105', 'logo1.png', 'logo2.png', 'world', '2017-05-04 01:58:47', '2017-05-04 01:58:47'),
+(17, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-04 02:10:56', '2017-05-04 02:10:56'),
+(18, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-09 12:16:39', '2017-05-09 12:16:39'),
+(19, 'p2705', 'p3135', 'logo1.png', 'logo2.png', 'blast', '2017-05-10 01:44:45', '2017-05-10 01:44:45');
 
 -- --------------------------------------------------------
 
@@ -2131,7 +2196,9 @@ INSERT INTO `templates` (`id`, `theme_id`, `label`, `template`, `child_template`
 (16, 2, 'Editor Template', 'editor', 0, 0, NULL, NULL),
 (17, 1, 'Editor Template', 'editor', 0, 0, NULL, NULL),
 (18, 2, 'Share Editor Template', 'shareeditor', 0, 0, NULL, NULL),
-(19, 1, 'Share Editor Template', 'shareeditor', 0, 0, NULL, NULL);
+(19, 1, 'Share Editor Template', 'shareeditor', 0, 0, NULL, NULL),
+(20, 2, 'Pledge Template', 'pledge', 0, 0, NULL, NULL),
+(21, 1, 'Pledge Template', 'pledge', 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2315,6 +2382,19 @@ CREATE TABLE `transactions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `order_id`, `gateway`, `transaction_id`, `detail`, `token`, `created_at`, `updated_at`) VALUES
+(3, 38, 'stripe', 'tok_1AFEbuEK9nHrfu3LGzJgjpNi', 'ch_1AFEbzEK9nHrfu3L1LJpliF0', 'cus_AaCasonRh8LsGf', '2017-05-02 22:27:06', '2017-05-02 22:27:06'),
+(4, 39, 'stripe', 'tok_1AFEzxEK9nHrfu3Ls7lDkmIR', 'ch_1AFF06EK9nHrfu3LcBCojiAS', 'cus_AaPpaJSrLrpeNK', '2017-05-02 22:52:01', '2017-05-02 22:52:01'),
+(5, 40, 'stripe', 'tok_1AFeCBEK9nHrfu3Lpk91jGtj', 'ch_1AFeCIEK9nHrfu3LX6IMEMDH', 'cus_AaCasonRh8LsGf', '2017-05-04 01:46:16', '2017-05-04 01:46:16'),
+(6, 41, 'stripe', 'tok_1AFeRJEK9nHrfu3LE2uXoEbm', 'ch_1AFeROEK9nHrfu3LKndhx6dB', 'cus_AaCasonRh8LsGf', '2017-05-04 02:01:52', '2017-05-04 02:01:52'),
+(7, 42, 'stripe', 'tok_1AFeTuEK9nHrfu3L79qwOqvO', 'ch_1AFeU1EK9nHrfu3L6hA8jpYT', 'cus_AaPpaJSrLrpeNK', '2017-05-04 02:04:35', '2017-05-04 02:04:35'),
+(8, 43, 'stripe', 'tok_1AHcKvEK9nHrfu3Lze91VRLc', 'ch_1AHcL3EK9nHrfu3LZC60LCB5', 'cus_Acs5JYCgYL15HP', '2017-05-09 12:11:31', '2017-05-09 12:11:31'),
+(9, 44, 'stripe', 'tok_1AHp2cEK9nHrfu3LLDmC9d71', 'ch_1AHp2kEK9nHrfu3L9n0lf9Vc', 'cus_Ad5Dbs6mfY3fBg', '2017-05-10 01:45:27', '2017-05-10 01:45:27');
+
 -- --------------------------------------------------------
 
 --
@@ -2345,7 +2425,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `active`, `password`, `email`, `name`, `stripe_customer_id`, `role_id`, `remember_token`, `tmp_code`, `tmp_code_created`, `blog_login`, `page_states`, `created_at`, `updated_at`) VALUES
 (1, 1, '$2y$10$Cs6VtHBSzfG3/j4gIv8.bOeWzaqHqY5n6Ph43fP5urD5wFDUq25fK', 'gayathma3@gmail.com', NULL, 'cus_AaCUKrVm0Xi0Wm', 1, 'e5DmQGIAnstEfsUsjGkoXsolbUxm2TYqbfRpV2WmhZKQurCvOCUqd3uNRci1', NULL, NULL, NULL, NULL, '2017-04-06 02:11:26', '2017-05-02 21:52:23'),
 (3, 1, '$2y$10$.eDUthVut6jcH08PeKGC2ORJ7n5gwRKBB59XxP8Cwrh2uP2oKnEki', 'shamaingdd@yahoo.com', 'fsdf', 'cus_AaCasonRh8LsGf', 5, NULL, NULL, NULL, NULL, NULL, '2017-04-30 17:14:37', '2017-05-02 21:10:38'),
-(9, 1, '$2y$10$1uceM8AkFDHUctzy0oVNo.zzIxZ73HLtl6tpAwzZeJKLh9.EAu9IG', 'sff@asdsd.dasdsad', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, '2017-05-02 20:57:42', '2017-05-02 20:57:42');
+(9, 1, '$2y$10$1uceM8AkFDHUctzy0oVNo.zzIxZ73HLtl6tpAwzZeJKLh9.EAu9IG', 'sff@asdsd.dasdsad', NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, '2017-05-02 20:57:42', '2017-05-02 20:57:42'),
+(10, 1, '$2y$10$5ZfQmeJ1ygQfCJO6d6mCtuBtjj13oKuIsJLt3aHoUJoKGNUhNanAe', 'shamain.kolourbox@gmail.com', 'raman', 'cus_AaPpaJSrLrpeNK', 5, NULL, NULL, NULL, NULL, NULL, '2017-05-02 22:51:34', '2017-05-02 22:51:58'),
+(11, 1, '$2y$10$3401fAt9u4tERDBXsTbTOOxrL84gOvuyW.caWT3Tcx6iQZHadGz0K', 'mat@gmail.com', 'mat mat', 'cus_Acs5JYCgYL15HP', 5, NULL, NULL, NULL, NULL, NULL, '2017-05-09 12:11:06', '2017-05-09 12:11:28'),
+(12, 1, '$2y$10$lYdqaf1zMKOqfz32L0HBd.LFJNdAJidr/09ord8NCEqot1Zjy66Nm', 'shamanigdd@yahoo.com', 'Stripe User', 'cus_Ad5Dbs6mfY3fBg', 5, NULL, NULL, NULL, NULL, NULL, '2017-05-10 01:45:25', '2017-05-10 01:45:25');
 
 -- --------------------------------------------------------
 
@@ -2795,27 +2878,27 @@ ALTER TABLE `user_roles_page_actions`
 -- AUTO_INCREMENT for table `admin_actions`
 --
 ALTER TABLE `admin_actions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `admin_controllers`
 --
 ALTER TABLE `admin_controllers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `backups`
 --
 ALTER TABLE `backups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
@@ -2855,7 +2938,7 @@ ALTER TABLE `block_video_cache`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `coupons`
 --
@@ -2870,12 +2953,12 @@ ALTER TABLE `form_submissions`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `item_size`
 --
 ALTER TABLE `item_size`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `languages`
 --
@@ -2890,7 +2973,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -2900,22 +2983,22 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `my_custom_products`
 --
 ALTER TABLE `my_custom_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `page_blocks`
 --
 ALTER TABLE `page_blocks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `page_blocks_default`
 --
@@ -2950,7 +3033,7 @@ ALTER TABLE `page_group_pages`
 -- AUTO_INCREMENT for table `page_lang`
 --
 ALTER TABLE `page_lang`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `page_publish_requests`
 --
@@ -2965,7 +3048,7 @@ ALTER TABLE `page_redirects`
 -- AUTO_INCREMENT for table `page_search_data`
 --
 ALTER TABLE `page_search_data`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `page_search_log`
 --
@@ -2975,7 +3058,7 @@ ALTER TABLE `page_search_log`
 -- AUTO_INCREMENT for table `page_versions`
 --
 ALTER TABLE `page_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `page_versions_schedule`
 --
@@ -2990,12 +3073,12 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `share`
 --
 ALTER TABLE `share`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `template_blocks`
 --
@@ -3015,12 +3098,12 @@ ALTER TABLE `theme_blocks`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --

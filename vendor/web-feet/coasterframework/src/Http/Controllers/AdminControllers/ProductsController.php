@@ -19,7 +19,7 @@ class ProductsController extends Controller
 
     public function getIndex()
     {
-        $products = Product::all();
+        $products = Product::all()->toArray();
         $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item')->render().View::make('coaster::modals.products.add')->render();
         $this->layoutData['content'] = View::make('coaster::pages.products', array('products' => $products, 'can_add' => Auth::action('products.add'), 'can_delete' => Auth::action('products.delete'), 'can_edit' => Auth::action('products.edit')));
 
@@ -49,10 +49,20 @@ class ProductsController extends Controller
             '50_5000_price' => 'required'
         ));
         if ($v->passes()) {
-            $product = Product::create(array_merge(Request::all(), [
-                    'sku' => Request::input('product_name'),
-                    'user_id' => Auth::user()->id
-                ]));
+            //dd(Request::all());die;
+            $product = new Product;
+            
+            $product['product_name'] = Request::input('product_name');
+            $product['1_2_price'] = Request::input('1_2_price');
+            $product['3_4_price'] = Request::input('3_4_price');
+            $product['5_9_price'] = Request::input('5_9_price');
+            $product['10_15_price'] = Request::input('10_15_price');
+            $product['16_24_price'] = Request::input('16_24_price');
+            $product['25_49_price'] = Request::input('25_49_price');
+            $product['50_5000_price'] = Request::input('50_5000_price');
+            $product['sku'] = Request::input('product_name');
+            $product['user_id'] = Auth::user()->id;
+            $product->save();
 
             return $product->id;
         }
