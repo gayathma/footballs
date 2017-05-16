@@ -219,7 +219,7 @@ function goBack(){
                     <div class="form-group text-left">
                     <div class="table-responsive">
                         <table class="table">
-                         <col width=100><col width=100><col width=100>
+                         <col width="100"><col width="100"><col width="100">
                             <thead>
                                 <tr>
                                     <th colspan="1">#</th>
@@ -232,12 +232,12 @@ function goBack(){
                                     <th colspan="1"></th>
                                     <th colspan="1"></th>
                                 </tr>
-                            </thead>>
+                            </thead>
 
                             <tbody id="orderBody">
                                
                             </tbody
-                             <tfoot >
+                             <tfoot>
                                <tr>
                                    <td colspan="7">Total</td>
                                     <td colspan="1" id="total"></td>
