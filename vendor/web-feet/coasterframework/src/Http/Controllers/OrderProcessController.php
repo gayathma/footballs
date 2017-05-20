@@ -205,12 +205,12 @@ class OrderProcessController extends Controller
         //E- mail function
         $subject = 'New Order | ID '.$order->id;
         $body    = 'Please find attached zip file with order details';
-        $name = 'Gayathma';
+        $name = $email;
         Mail::queue('themes.default.emails.default', [
                 'body' => $body
             ], function ($message) use ($email, $name, $subject, $order) {
                 $message->to($email, $name)->subject($subject)
-                        ->cc('gayathma3@gmail.com', 'Gayathma')->subject($subject)
+                        ->cc('gayathma3@gmail.com', $name)->subject($subject)
                         ->attach(storage_path('app').'/footballzip/order_'.$order->id.'.zip');
             });
 
