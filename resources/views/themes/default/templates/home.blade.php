@@ -26,7 +26,7 @@
                                     <div class="uk-position-cover uk-flex-middle">
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
-                                                <h3>CREATE AWESOME<span> FOOTBALL DESIGNS</span></h3>
+                                                <h3>CREATE YOUR DREAM FOOTBALL IN<span> 3D</span></h3>
                                                 <div class="promo-sub">Just play. <span>Have fun.</span> Enjoy the game</div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
@@ -40,7 +40,7 @@
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
                                                 <h3>Life is <span>about timing</span></h3>
-                                                <div class="promo-sub">Just play. <span>Have fun.</span> Enjoy the game</div>
+                                                <div class="promo-sub">Your design. <span>Your Football</span></div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -121,10 +121,9 @@
                                 <div class="uk-grid uk-grid-collapse" data-uk-grid-match="">
                                     <div class="uk-width-1-1">
                                         <div class="our-news-title">
-                                            <h3>Our <span>Services</span></h3>
+                                            <h3>Your Next <span>Football</span></h3>
                                         </div>
-                                        <div class="our-news-text">Nullam quis eros tellus. Duis sit amet neque nec orci feugiat tincidunt. Lorem ipsum dolor sit amet,
-                                            <br> consectetur adipiscing elit. Nulla sed turpis aliquet, pharetra enim sit amet, congue erat. </div>
+                                        <div class="our-news-text">1v1 personalised footballs are designed by you. Every football is made to order, in either <br>Training, Match or Elite quality, any quantity and any size. </div>
                                     </div>
 
                                     <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" >
@@ -139,12 +138,11 @@
                                             <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Footballers</a> 
+                                                    <a href="#">COACH & MANAGERS</a> 
                                                 </h4>
                                             </div>
                                             <div class="text">
-                                                <p>We can offer you the chance to totally personalise the football to suit your needs, which not only increases your professional image, but more importantly inspires the your players to perform and feel valued.
-</p>
+                                                <p>A professional image is vital and can say a lot about you as a coach or manager. 1v1 creates footballs that inspire players whilst enhancing your image. Make players feel valued.</p>
                                                 
                                             </div>
                                         </div>
@@ -164,7 +162,7 @@
                                              <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Schools</a>        
+                                                    <a href="#">Schools</a>        
                                                 </h4>
                                             </div>
                                             <div class="text">
@@ -187,7 +185,7 @@
                                              <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Businesses</a>        
+                                                    <a href="#">Businesses</a>        
                                                 </h4>
                                             </div>
                                             <div class="text">
@@ -211,7 +209,7 @@
                                              <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Charities</a>        
+                                                    <a href="#">Charities</a>        
                                                 </h4>
                                             </div>
                                             <div class="text">
@@ -235,7 +233,7 @@
                                              <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Gifts</a>        
+                                                    <a href="#">Gifts</a>        
                                                 </h4>
                                             </div>
                                             <div class="text">
@@ -260,7 +258,7 @@
                                              <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="news-single.html">Footgolf</a>        
+                                                    <a href="#">Footgolf</a>        
                                                 </h4>
                                             </div>
                                             <div class="text">
@@ -299,7 +297,7 @@
                                             </div>
                                         </div>
                                         <div class="uk-width-medium-8-10 uk-width-small-1-1 uk-push-1-10">
-                                            <div class="shop-text">Nullam quis eros tellus. Duis sit amet neque nec orci feugiat tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed turpis aliquet, pharetra enim sit amet, congue erat. </div>
+                                            <div class="shop-text">Professional football club academy to Grassroots Sunday football teams. Corporate branded footballs to a Charity football match. Tournament footballs to League final footballs. School footballs to specialist Footgolf footballs. Plus lets not forget about the most unique gift football for every football fan, young or old. </div>
                                         </div>
                                         <div class="uk-width-1-1 uk-text-center">
                                             <div class="sale-proposal">Save <span>33% OFF</span> for all new orders</div>
@@ -317,7 +315,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_1.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -330,7 +328,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_2.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -343,7 +341,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_3.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -356,7 +354,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_4.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -369,7 +367,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_5.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -382,7 +380,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_6.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -395,7 +393,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_7.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -407,7 +405,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_8.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -420,7 +418,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_9.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -433,7 +431,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_10.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -445,7 +443,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_11.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -457,7 +455,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_12.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -469,7 +467,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_13.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -481,7 +479,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_14.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -493,7 +491,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_15.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -505,7 +503,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_16.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -517,7 +515,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_17.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -529,7 +527,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_18.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -541,7 +539,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_19.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -553,7 +551,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_20.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>
@@ -565,7 +563,7 @@
 
                                                     <div class="image">
                                                         <div class="image_block">
-                                                            <a draggable="false" href="product.html">
+                                                            <a draggable="false" href="#">
                                                                 <img draggable="false" class="jshop_img" src="/themes/default/img/slider/thumb_21.jpg" alt="1vs1footballs client">
                                                             </a>
                                                         </div>

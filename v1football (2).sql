@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 16, 2017 at 12:14 AM
+-- Generation Time: May 20, 2017 at 06:46 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -222,7 +222,9 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 (31, 1, 'Added page ''PLEDGE A BALL'' (Page ID 8)', '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
 (32, 1, 'Updated page ''PLEDGE A BALL'' (Page ID 8)', '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
 (33, 1, 'Size ID ''5'' deleted', '2017-05-15 16:11:29', '2017-05-15 16:11:29'),
-(34, 1, 'Size ID ''6'' deleted', '2017-05-15 16:38:50', '2017-05-15 16:38:50');
+(34, 1, 'Size ID ''6'' deleted', '2017-05-15 16:38:50', '2017-05-15 16:38:50'),
+(35, 1, 'Added page ''Our Story'' (Page ID 9)', '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
+(36, 1, 'Items re-ordered in menu ''Main Menu''', '2017-05-19 23:15:05', '2017-05-19 23:15:05');
 
 -- --------------------------------------------------------
 
@@ -1516,9 +1518,9 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `page_id`, `order`, `sub_levels`, `custom_name`, `created_at`, `updated_at`) VALUES
 (1, 1, '1', 1, 0, '', '2017-04-23 23:14:30', '2017-04-23 23:14:30'),
-(5, 1, '8', 4, 1, '', '2017-04-23 23:14:30', '2017-04-23 23:14:30'),
-(6, 1, '9', 5, 1, '', '2017-04-23 23:14:30', '2017-04-23 23:14:30'),
-(7, 1, '6', 6, 0, '', '2017-04-26 22:35:44', '2017-04-26 22:35:44');
+(5, 1, '8', 2, 1, '', '2017-04-23 23:14:30', '2017-05-19 23:15:05'),
+(6, 1, '9', 4, 1, '', '2017-04-23 23:14:30', '2017-05-19 23:15:05'),
+(7, 1, '6', 3, 0, '', '2017-04-26 22:35:44', '2017-05-19 23:15:05');
 
 -- --------------------------------------------------------
 
@@ -1720,7 +1722,8 @@ INSERT INTO `pages` (`id`, `template`, `parent`, `child_template`, `order`, `gro
 (5, 14, 3, 0, 0, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-04-23 23:14:29', '2017-04-23 23:30:16'),
 (6, 16, 0, 0, 4, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
 (7, 18, 0, 0, 5, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
-(8, 20, 0, 0, 6, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-09 23:09:20', '2017-05-09 23:14:34');
+(8, 20, 0, 0, 6, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
+(9, 22, 0, 0, 7, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-19 23:14:50', '2017-05-19 23:14:50');
 
 -- --------------------------------------------------------
 
@@ -1772,7 +1775,8 @@ INSERT INTO `page_blocks` (`id`, `language_id`, `page_id`, `block_id`, `content`
 (26, 1, 8, 2, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
 (27, 1, 8, 3, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
 (28, 1, 8, 43, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
-(29, 1, 8, 10, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34');
+(29, 1, 8, 10, '', 2, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(30, 1, 9, 8, 'Our Story', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50');
 
 -- --------------------------------------------------------
 
@@ -1926,7 +1930,8 @@ INSERT INTO `page_lang` (`id`, `page_id`, `language_id`, `url`, `name`, `live_ve
 (5, 5, 1, 'thank-you', 'Thank You', 1, '2017-04-23 23:14:29', '2017-04-23 23:14:29'),
 (6, 6, 1, 'editor', 'Editor', 1, '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
 (7, 7, 1, 'share', 'Share', 5, '2017-05-02 23:27:19', '2017-05-03 00:18:33'),
-(8, 8, 1, 'pledge-a-ball', 'PLEDGE A BALL', 2, '2017-05-09 23:09:20', '2017-05-09 23:14:34');
+(8, 8, 1, 'pledge-a-ball', 'PLEDGE A BALL', 2, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
+(9, 9, 1, 'our-story', 'Our Story', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50');
 
 -- --------------------------------------------------------
 
@@ -1998,7 +2003,8 @@ INSERT INTO `page_search_data` (`id`, `language_id`, `page_id`, `block_id`, `sea
 (15, 1, 6, 0, 'Editor', '2017-04-26 22:35:44', '2017-04-26 22:35:44'),
 (16, 1, 7, 0, 'Share', '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
 (17, 1, 8, 0, 'PLEDGE A BALL', '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
-(18, 1, 8, 8, 'PLEDGE A BALL', '2017-05-09 23:14:34', '2017-05-09 23:14:34');
+(18, 1, 8, 8, 'PLEDGE A BALL', '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(19, 1, 9, 0, 'Our Story', '2017-05-19 23:14:50', '2017-05-19 23:14:50');
 
 -- --------------------------------------------------------
 
@@ -2055,7 +2061,8 @@ INSERT INTO `page_versions` (`id`, `page_id`, `version_id`, `template`, `label`,
 (16, 7, 4, '18', NULL, '1ce77awoost', 1, '2017-05-03 00:18:17', '2017-05-03 00:18:17'),
 (17, 7, 5, '18', NULL, 'lt4ofcpsmf', 1, '2017-05-03 00:18:33', '2017-05-03 00:18:33'),
 (18, 8, 1, '14', NULL, '1l984crkgbe', 1, '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
-(19, 8, 2, '20', NULL, '200xiuckzh0', 1, '2017-05-09 23:14:34', '2017-05-09 23:14:34');
+(19, 8, 2, '20', NULL, '200xiuckzh0', 1, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
+(20, 9, 1, '22', NULL, '1iavy87c2lc', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50');
 
 -- --------------------------------------------------------
 
@@ -2198,7 +2205,9 @@ INSERT INTO `templates` (`id`, `theme_id`, `label`, `template`, `child_template`
 (18, 2, 'Share Editor Template', 'shareeditor', 0, 0, NULL, NULL),
 (19, 1, 'Share Editor Template', 'shareeditor', 0, 0, NULL, NULL),
 (20, 2, 'Pledge Template', 'pledge', 0, 0, NULL, NULL),
-(21, 1, 'Pledge Template', 'pledge', 0, 0, NULL, NULL);
+(21, 1, 'Pledge Template', 'pledge', 0, 0, NULL, NULL),
+(22, 2, 'Our Story Template', 'ourstory', 0, 0, NULL, NULL),
+(23, 1, 'Our Story Template', 'ourstory', 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2888,7 +2897,7 @@ ALTER TABLE `admin_controllers`
 -- AUTO_INCREMENT for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
@@ -2958,7 +2967,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `item_size`
 --
 ALTER TABLE `item_size`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `languages`
 --
@@ -2983,7 +2992,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `my_custom_products`
 --
 ALTER TABLE `my_custom_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -2993,12 +3002,12 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `page_blocks`
 --
 ALTER TABLE `page_blocks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `page_blocks_default`
 --
@@ -3033,7 +3042,7 @@ ALTER TABLE `page_group_pages`
 -- AUTO_INCREMENT for table `page_lang`
 --
 ALTER TABLE `page_lang`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `page_publish_requests`
 --
@@ -3048,7 +3057,7 @@ ALTER TABLE `page_redirects`
 -- AUTO_INCREMENT for table `page_search_data`
 --
 ALTER TABLE `page_search_data`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `page_search_log`
 --
@@ -3058,7 +3067,7 @@ ALTER TABLE `page_search_log`
 -- AUTO_INCREMENT for table `page_versions`
 --
 ALTER TABLE `page_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `page_versions_schedule`
 --
@@ -3078,7 +3087,7 @@ ALTER TABLE `share`
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `template_blocks`
 --
