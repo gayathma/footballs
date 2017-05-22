@@ -33,7 +33,8 @@
                 @if ($can_edit || $can_delete)
                     <td data-uid="{!! $size->id !!}">
                         @if ($can_edit)
-                            <a class="glyphicon glyphicon-pencil itemTooltip" href="{{ route('coaster.admin.sizes.edit', ['sizeId' => $size->id]) }}" title="Edit Size"></a>
+                            <i class="editsize glyphicon glyphicon-pencil itemTooltip" data-name="{!! $size->size !!}"
+                                title="Edit Size"></i>&nbsp;
                         @endif
                         @if ($can_delete)
                             <i class="glyphicon glyphicon-remove itemTooltip" title="Remove Size"
@@ -49,6 +50,8 @@
 
 @section('scripts')
     <script type="text/javascript">
+        var selected_item;
+
         $(document).ready(function () {
             watch_for_delete('.glyphicon-remove', 'size', function (el) {
                 var size_id = el.parent().attr('data-uid');
@@ -77,6 +80,33 @@
                     $('#size').parent().parent().removeClass('has-error');
                     $('#size').val('');
                 }
+            });
+
+            $('.editsize').click(function () {
+                selected_item = $(this).parent().attr('data-uid');
+                $('#size_edit').val($(this).attr('data-name'));
+                $('#editSizeModal').modal('show');
+            });
+
+            $('#editSizeModal .change').click(function () {
+                if ($('#size_edit').val() == "") {
+                    $('#size_edit').parent().parent().addClass('has-error');
+                }
+                $.ajax({
+                    url: route('coaster.admin.sizes.edit'),
+                    type: 'POST',
+                    data: {id: selected_item, size: $('#size_edit').val()},
+                    success: function (r) {
+                        if (r % 1 === 0) {
+                            location.reload();
+                        }
+                        else {
+                            cms_alert('danger', 'Error updating size');
+                        }
+                    }
+                });
+                $('#size_edit').parent().parent().removeClass('has-error');
+                $('#size_edit').val('');
             });
         });
 

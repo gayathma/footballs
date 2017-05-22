@@ -45,7 +45,8 @@
                 @if ($can_edit || $can_delete)
                     <td data-uid="{!! $product['id'] !!}">
                         @if ($can_edit)
-                            <a class="glyphicon glyphicon-pencil itemTooltip" href="{{ route('coaster.admin.products.edit', ['productId' => $product['id']]) }}" title="Edit Product"></a>
+                            <i class="editproduct glyphicon glyphicon-pencil itemTooltip" data-name="{!! $product['product_name'] !!}"
+                              data-1_2_price="{!! $product['1_2_price'] !!}"   title="Edit Product"></i>&nbsp;
                         @endif
                         @if ($can_delete)
                             <i class="glyphicon glyphicon-remove itemTooltip" title="Remove Product"
@@ -61,6 +62,8 @@
 
 @section('scripts')
     <script type="text/javascript">
+        var selected_item;
+
         $(document).ready(function () {
             watch_for_delete('.glyphicon-remove', 'product', function (el) {
                 var product_id = el.parent().attr('data-uid');
@@ -128,6 +131,71 @@
 
                 }
             });
+
+            $('.editproduct').click(function () {
+                selected_item = $(this).parent().attr('data-uid');
+                $('#product_name_edit').val($(this).attr('data-name'));
+                $('#1_2_price_edit').val($(this).attr('data-1_2_price'));
+                $('#3_4_price_edit').val($(this).attr('data-3_4_price'));
+                $('#5_9_price_edit').val($(this).attr('data-5_9_price'));
+                $('#10_15_price_edit').val($(this).attr('data-10_15_price'));
+                $('#16_24_price_edit').val($(this).attr('data-16_24_price'));
+                $('#25_49_price_edit').val($(this).attr('data-25_49_price'));
+                $('#50_5000_price_edit').val($(this).attr('data-50_5000_price'));
+                $('#editProductModal').modal('show');
+            });
+
+            $('#editProductModal .change').click(function () {
+                if ($('#product_name_edit').val() == "") {
+                    $('#product_name_edit').parent().parent().addClass('has-error');
+                }else if ($('#1_2_price_edit').val() == "" || (!$.isNumeric($('#1_2_price_edit').val()))) {
+                    $('#1_2_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#3_4_price_edit').val() == "" || (!$.isNumeric($('#3_4_price_edit').val()))) {
+                    $('#3_4_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#5_9_price_edit').val() == "" || (!$.isNumeric($('#5_9_price_edit').val()))) {
+                    $('#5_9_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#10_15_price_edit').val() == "" || (!$.isNumeric($('#10_15_price_edit').val()))) {
+                    $('#10_15_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#16_24_price_edit').val() == "" || (!$.isNumeric($('#16_24_price_edit').val()))) {
+                    $('#16_24_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#25_49_price_edit').val() == "" || (!$.isNumeric($('#25_49_price_edit').val()))) {
+                    $('#25_49_price_edit').parent().parent().addClass('has-error');
+                }else if ($('#50_5000_price_edit').val() == "" || (!$.isNumeric($('#50_5000_price_edit').val()))) {
+                    $('#50_5000_price_edit').parent().parent().addClass('has-error');
+                }else {
+                    $.ajax({
+                        url: route('coaster.admin.sizes.edit'),
+                        type: 'POST',
+                        data: {id: selected_item, size: $('#size_edit').val()},
+                        success: function (r) {
+                            if (r % 1 === 0) {
+                                location.reload();
+                            }
+                            else {
+                                cms_alert('danger', 'Error updating size');
+                            }
+                        }
+                    });
+                    $('#product_name_edit').parent().parent().removeClass('has-error');
+                    $('#product_name_edit').val('');
+                    $('#1_2_price_edit').parent().parent().removeClass('has-error');
+                    $('#1_2_price_edit').val('');
+                    $('#3_4_price_edit').parent().parent().removeClass('has-error');
+                    $('#3_4_price_edit').val('');
+                    $('#5_9_price_edit').parent().parent().removeClass('has-error');
+                    $('#5_9_price_edit').val('');
+                    $('#10_15_price_edit').parent().parent().removeClass('has-error');
+                    $('#10_15_price_edit').val('');
+                    $('#16_24_price_edit').parent().parent().removeClass('has-error');
+                    $('#16_24_price_edit').val('');
+                    $('#25_49_price_edit').parent().parent().removeClass('has-error');
+                    $('#25_49_price_edit').val('');
+                    $('#50_5000_price_edit').parent().parent().removeClass('has-error');
+                    $('#50_5000_price_edit').val('');
+                }
+            });
+
+
         });
 
     </script>

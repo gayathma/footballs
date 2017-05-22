@@ -69,6 +69,38 @@ class ProductsController extends Controller
         return 0;
     }
 
+    public function postUpdate()
+    {
+        $v = Validator::make(Request::all(), array(
+            'product_name' => 'required',
+            '1_2_price' => 'required',
+            '3_4_price' => 'required',
+            '5_9_price' => 'required',
+            '10_15_price' => 'required',
+            '16_24_price' => 'required',
+            '25_49_price' => 'required',
+            '50_5000_price' => 'required'
+        ));
+        $productId = Request::input('id');
+        $product = Product::find($productId);
+
+        if (!empty($product)) {
+            $product['product_name'] = Request::input('product_name');
+            $product['1_2_price'] = Request::input('1_2_price');
+            $product['3_4_price'] = Request::input('3_4_price');
+            $product['5_9_price'] = Request::input('5_9_price');
+            $product['10_15_price'] = Request::input('10_15_price');
+            $product['16_24_price'] = Request::input('16_24_price');
+            $product['25_49_price'] = Request::input('25_49_price');
+            $product['50_5000_price'] = Request::input('50_5000_price');
+            $product['sku'] = Request::input('product_name');
+            $size->save();
+
+            return 1;
+        }
+        return null;
+    }
+
 
 
     

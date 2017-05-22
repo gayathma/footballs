@@ -20,7 +20,7 @@ class SizesController extends Controller
     public function getIndex()
     {
         $sizes = Size::all();
-        $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item')->render().View::make('coaster::modals.sizes.add')->render();
+        $this->layoutData['modals'] = View::make('coaster::modals.general.delete_item')->render().View::make('coaster::modals.sizes.add')->render().View::make('coaster::modals.sizes.edit')->render();
         $this->layoutData['content'] = View::make('coaster::pages.sizes', array('sizes' => $sizes, 'can_add' => Auth::action('sizes.add'), 'can_delete' => Auth::action('sizes.delete'), 'can_edit' => Auth::action('sizes.edit')));
 
     }
@@ -49,6 +49,23 @@ class SizesController extends Controller
             return $size->id;
         }
         return 0;
+    }
+
+    public function postUpdate()
+    {
+        $v = Validator::make(Request::all(), array(
+            'size' => 'required'
+        ));
+        $sizeId = Request::input('id');
+        $size = Size::find($sizeId);
+
+        if (!empty($size)) {
+            $size->size = Request::input('size');
+            $size->save();
+
+            return 1;
+        }
+        return null;
     }
 
 
