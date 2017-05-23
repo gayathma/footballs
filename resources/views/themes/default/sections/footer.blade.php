@@ -15,40 +15,12 @@
 <div id="offcanvas" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas">
-                    <li class="uk-parent uk-active"><a href="index-2.html">Home</a>
-                        <ul class="uk-nav-sub">
-                            <li><a class="yellow-scheme" href="index-2.html">Yellow Color Scheme</a>
-                            </li>
-                            <li><a class="blue-scheme" href="http://h-sportak.torbara.com/blue/index.html">Blue Color Scheme</a>
-                            </li>
-                            <li><a class="red-scheme" href="http://h-sportak.torbara.com/red/index.html">Red Color Scheme</a>
-                            </li>
-                            <li><a href="offline.html">Offline Page</a>
-                            </li>
-                            <li><a href="404.html">Error Page</a>
-                            </li>
-                        </ul>
+                    <li class="uk-parent uk-active"><a href="{{ url('/') }}">HOME</a>
                     </li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="uk-parent"><a href="#">Pages</a>
-                        <ul class="uk-nav-sub">
-                            <li><a href="players.html">Players</a>
-                            </li>
-                            <li><a href="gallery.html">Gallery</a>
-                            </li>
-                        </ul>
+                    <li><a href="{{ url('/pledge-a-ball') }}">PLEDGE A BALL</a></li>
+                    <li><a href="{{ url('/editor') }}">EDITOR</a>
                     </li>
-                    <li class="uk-parent"><a href="match-list.html">Match</a>
-                        <ul class="uk-nav-sub">
-                            <li><a href="results.html">Results</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="news.html">News</a>
-                    </li>
-                    <li><a href="category.html">Shop</a>
-                    </li>
-                    <li><a href="contact.html">Contact</a>
+                    <li><a href="{{ url('/our-story') }}">OUR STORY</a>
                     </li>
                 </ul>
             </div>
