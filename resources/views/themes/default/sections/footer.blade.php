@@ -12,6 +12,40 @@
     </div>
   
 </footer>-->
+<div class="bottom-wrapper">
+        <footer id="tm-footer" class="tm-footer">
+
+
+                <div class="uk-panel">
+                    <div class="uk-container uk-container-center">
+                        <div class="uk-grid">
+                            <div class="uk-width-1-1">
+                                <div class="footer-wrap">
+                                    <div class="foot-menu-wrap">
+                                        <ul class="nav menu">
+                                            <li class="item-165"><a href="about.html">About</a>
+                                            </li>
+                                            <li class="item-166"><a href="players.html">Players</a>
+                                            </li>
+                                            <li class="item-167"><a href="match-list.html">Match</a>
+                                            </li>
+                                            <li class="item-168"><a href="results.html">Results</a>
+                                            </li>
+                                            <li class="item-169"><a href="news.html">News</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="copyrights">Copyright © 2015 <a href="http://h-sportak.torbara.com/">Sportak Team</a>. All Rights Reserved.</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
 <div id="offcanvas" class="uk-offcanvas">
             <div class="uk-offcanvas-bar">
                 <ul class="uk-nav uk-nav-offcanvas">
