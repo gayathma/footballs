@@ -11108,7 +11108,7 @@ q {
   color: #4bbe41;
 }
 .va-main-next-match {
-  padding: 90px 0;
+  padding: 90px 0 0 0;
   background: url("../images/tr.png") 50% 0 #f8b900;
 }
 .va-single-next-match {
@@ -11566,8 +11566,8 @@ q {
 }
 /**************** FOOTER ****************/
 .bottom-wrapper {
-  padding: 90px 0 0 0;
-  background: url("../images/bottom-wrapper-bg.jpg") 50% 50%;
+  padding: 0px 0 0 0;
+  background: url("/themes/default/img/bottom-wrapper-bg.jpg") 50% 50%;
   background-size: cover;
 }
 .bottom-wrapper footer {
