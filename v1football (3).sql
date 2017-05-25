@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 24, 2017 at 10:53 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.8
+-- Host: localhost
+-- Generation Time: May 25, 2017 at 06:06 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `v1football`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_actions`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_actions` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `admin_actions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `controller_id` int(11) NOT NULL,
   `action` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `inherit` int(11) NOT NULL DEFAULT '0',
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `admin_actions` (
   `about` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin_actions`
@@ -133,15 +133,15 @@ INSERT INTO `admin_actions` (`id`, `controller_id`, `action`, `inherit`, `edit_b
 -- Table structure for table `admin_controllers`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_controllers` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `admin_controllers` (
+  `id` int(10) UNSIGNED NOT NULL,
   `controller` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role_order` int(11) NOT NULL,
   `role_section` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin_controllers`
@@ -176,13 +176,13 @@ INSERT INTO `admin_controllers` (`id`, `controller`, `role_name`, `role_order`, 
 -- Table structure for table `admin_logs`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_logs` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `admin_logs` (
+  `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
   `log` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin_logs`
@@ -227,7 +227,17 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 (36, 1, 'Items re-ordered in menu ''Main Menu''', '2017-05-19 23:15:05', '2017-05-19 23:15:05'),
 (37, 1, 'Renamed menu item ''Editor'' in ''Main Menu'' to Design', '2017-05-23 23:28:07', '2017-05-23 23:28:07'),
 (38, 1, 'Updated page ''Design'' (Page ID 6)', '2017-05-23 23:30:35', '2017-05-23 23:30:35'),
-(39, 1, 'Added page ''News'' (Page ID 10)', '2017-05-23 23:49:59', '2017-05-23 23:49:59');
+(39, 1, 'Added page ''News'' (Page ID 10)', '2017-05-23 23:49:59', '2017-05-23 23:49:59'),
+(40, 1, 'Added page ''News'' (Page ID 11)', '2017-05-24 22:16:49', '2017-05-24 22:16:49'),
+(41, 1, 'Updated page ''News'' (Page ID 11)', '2017-05-24 22:18:20', '2017-05-24 22:18:20'),
+(42, 1, 'Page ''News'' deleted (Page ID 11)', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(43, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-24 22:19:15', '2017-05-24 22:19:15'),
+(44, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-24 22:27:56', '2017-05-24 22:27:56'),
+(45, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(46, 1, 'Added page ''Team'' (Page ID 12)', '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(47, 1, 'Added page ''Terms & Conditions'' (Page ID 13)', '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(48, 1, 'Added page ''Privacy'' (Page ID 14)', '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(49, 1, 'Added page ''Ideas'' (Page ID 15)', '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -235,8 +245,8 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 -- Table structure for table `admin_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_menu` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `admin_menu` (
+  `id` int(10) UNSIGNED NOT NULL,
   `action_id` int(11) NOT NULL,
   `parent` int(11) NOT NULL,
   `order` int(11) NOT NULL,
@@ -245,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `admin_menu` (
   `item_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin_menu`
@@ -272,15 +282,15 @@ INSERT INTO `admin_menu` (`id`, `action_id`, `parent`, `order`, `icon`, `item_na
 -- Table structure for table `backups`
 --
 
-CREATE TABLE IF NOT EXISTS `backups` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `backups` (
+  `id` int(10) UNSIGNED NOT NULL,
   `log_id` int(11) NOT NULL,
   `primary_id` int(11) NOT NULL,
   `model` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `data` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `backups`
@@ -299,7 +309,14 @@ INSERT INTO `backups` (`id`, `log_id`, `primary_id`, `model`, `data`, `created_a
 (10, 22, 5, '\\CoasterCms\\Models\\User', 'O:22:"CoasterCms\\Models\\User":24:{s:8:"\0*\0table";s:5:"users";s:9:"\0*\0hidden";a:2:{i:0;s:8:"password";i:1;s:14:"remember_token";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:14:{s:2:"id";i:5;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$jDoxGaGUPNYfnE9JwqrFJe.pByCDcwJ6XXCLDF4hHp/60sBiK9dNq";s:5:"email";s:16:"asdsd@asdsad.com";s:4:"name";s:5:"asdad";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:48:37";s:10:"updated_at";s:19:"2017-05-02 04:48:37";}s:11:"\0*\0original";a:14:{s:2:"id";i:5;s:6:"active";i:1;s:8:"password";s:60:"$2y$10$jDoxGaGUPNYfnE9JwqrFJe.pByCDcwJ6XXCLDF4hHp/60sBiK9dNq";s:5:"email";s:16:"asdsd@asdsad.com";s:4:"name";s:5:"asdad";s:18:"stripe_customer_id";N;s:7:"role_id";i:5;s:14:"remember_token";N;s:8:"tmp_code";N;s:16:"tmp_code_created";N;s:10:"blog_login";N;s:11:"page_states";N;s:10:"created_at";s:19:"2017-05-02 04:48:37";s:10:"updated_at";s:19:"2017-05-02 04:48:37";}s:12:"\0*\0relations";a:1:{s:4:"role";O:26:"CoasterCms\\Models\\UserRole":26:{s:8:"\0*\0table";s:10:"user_roles";s:44:"\0CoasterCms\\Models\\UserRole\0_allowed_actions";N;s:49:"\0CoasterCms\\Models\\UserRole\0_allowed_page_actions";N;s:46:"\0CoasterCms\\Models\\UserRole\0_processed_actions";N;s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:11:"\0*\0original";a:6:{s:2:"id";i:5;s:4:"name";s:22:"Frontend Guest Account";s:5:"admin";i:0;s:11:"description";s:39:"Default Guest Account (no admin access)";s:10:"created_at";s:19:"2017-04-06 07:40:35";s:10:"updated_at";s:19:"2017-04-06 07:40:35";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:20:"\0*\0rememberTokenName";s:14:"remember_token";}', '2017-05-02 20:57:22', '2017-05-02 20:57:22'),
 (11, 25, 10, 'CoasterCms\\Models\\MenuItem', 'O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:11:"\0*\0original";a:8:{s:2:"id";i:10;s:7:"menu_id";i:1;s:7:"page_id";s:1:"4";s:5:"order";i:7;s:10:"sub_levels";i:0;s:11:"custom_name";N;s:10:"created_at";s:19:"2017-05-03 04:37:52";s:10:"updated_at";s:19:"2017-05-03 04:37:52";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:0;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}', '2017-05-02 23:09:03', '2017-05-02 23:09:03'),
 (12, 33, 5, '\\App\\Size', 'O:8:"App\\Size":23:{s:8:"\0*\0table";s:9:"item_size";s:11:"\0*\0fillable";a:1:{i:0;s:4:"size";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:4:{s:2:"id";i:5;s:4:"size";s:4:"gdfg";s:10:"created_at";s:19:"2017-05-15 21:41:25";s:10:"updated_at";s:19:"2017-05-15 21:41:25";}s:11:"\0*\0original";a:4:{s:2:"id";i:5;s:4:"size";s:4:"gdfg";s:10:"created_at";s:19:"2017-05-15 21:41:25";s:10:"updated_at";s:19:"2017-05-15 21:41:25";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-15 16:11:29', '2017-05-15 16:11:29'),
-(13, 34, 6, '\\App\\Size', 'O:8:"App\\Size":23:{s:8:"\0*\0table";s:9:"item_size";s:11:"\0*\0fillable";a:1:{i:0;s:4:"size";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:11:"\0*\0original";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-15 16:38:50', '2017-05-15 16:38:50');
+(13, 34, 6, '\\App\\Size', 'O:8:"App\\Size":23:{s:8:"\0*\0table";s:9:"item_size";s:11:"\0*\0fillable";a:1:{i:0;s:4:"size";}s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:11:"\0*\0original";a:4:{s:2:"id";i:6;s:4:"size";s:3:"ccx";s:10:"created_at";s:19:"2017-05-15 22:08:43";s:10:"updated_at";s:19:"2017-05-15 22:08:43";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-15 16:38:50', '2017-05-15 16:38:50'),
+(14, 42, 11, '\\CoasterCms\\Models\\Page', 'O:22:"CoasterCms\\Models\\Page":23:{s:8:"\0*\0table";s:5:"pages";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:15:{s:2:"id";i:11;s:8:"template";i:26;s:6:"parent";i:0;s:14:"child_template";i:0;s:5:"order";i:9;s:15:"group_container";i:0;s:28:"group_container_url_priority";i:0;s:16:"canonical_parent";i:0;s:4:"link";i:0;s:4:"live";i:1;s:7:"sitemap";i:1;s:10:"live_start";N;s:8:"live_end";N;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:15:{s:2:"id";i:11;s:8:"template";i:26;s:6:"parent";i:0;s:14:"child_template";i:0;s:5:"order";i:9;s:15:"group_container";i:0;s:28:"group_container_url_priority";i:0;s:16:"canonical_parent";i:0;s:4:"link";i:0;s:4:"live";i:1;s:7:"sitemap";i:1;s:10:"live_start";N;s:8:"live_end";N;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(15, 42, 0, '\\CoasterCms\\Models\\PageVersion', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:2:{i:0;O:29:"CoasterCms\\Models\\PageVersion":23:{s:8:"\0*\0table";s:13:"page_versions";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:9:{s:2:"id";i:23;s:7:"page_id";i:11;s:10:"version_id";i:1;s:8:"template";s:2:"12";s:5:"label";N;s:11:"preview_key";s:11:"14imp2pk2pz";s:7:"user_id";i:1;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:11:"\0*\0original";a:9:{s:2:"id";i:23;s:7:"page_id";i:11;s:10:"version_id";i:1;s:8:"template";s:2:"12";s:5:"label";N;s:11:"preview_key";s:11:"14imp2pk2pz";s:7:"user_id";i:1;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:1;O:29:"CoasterCms\\Models\\PageVersion":23:{s:8:"\0*\0table";s:13:"page_versions";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:9:{s:2:"id";i:24;s:7:"page_id";i:11;s:10:"version_id";i:2;s:8:"template";s:2:"26";s:5:"label";N;s:11:"preview_key";s:10:"orh780vch1";s:7:"user_id";i:1;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:9:{s:2:"id";i:24;s:7:"page_id";i:11;s:10:"version_id";i:2;s:8:"template";s:2:"26";s:5:"label";N;s:11:"preview_key";s:10:"orh780vch1";s:7:"user_id";i:1;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(16, 42, 0, '\\CoasterCms\\Models\\PageLang', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:1:{i:0;O:26:"CoasterCms\\Models\\PageLang":23:{s:8:"\0*\0table";s:9:"page_lang";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:11;s:7:"page_id";i:11;s:11:"language_id";i:1;s:3:"url";s:13:"news-articles";s:4:"name";s:4:"News";s:12:"live_version";i:2;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:11;s:7:"page_id";i:11;s:11:"language_id";i:1;s:3:"url";s:13:"news-articles";s:4:"name";s:4:"News";s:12:"live_version";i:2;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(17, 42, 0, '\\CoasterCms\\Models\\PageBlock', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:7:{i:0;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:35;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:8;s:7:"content";s:4:"News";s:7:"version";i:1;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:11:"\0*\0original";a:8:{s:2:"id";i:35;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:8;s:7:"content";s:4:"News";s:7:"version";i:1;s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:1;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:36;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:1;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:36;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:1;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:2;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:37;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:2;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:37;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:2;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:3;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:38;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:3;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:38;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:3;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:4;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:39;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:32;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:39;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:32;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:5;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:40;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:33;s:7:"content";s:125:"O:8:"stdClass":5:{s:7:"captcha";b:0;s:10:"email_from";s:0:"";s:8:"email_to";s:0:"";s:8:"template";i:0;s:7:"page_to";s:1:"2";}";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:40;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:33;s:7:"content";s:125:"O:8:"stdClass":5:{s:7:"captcha";b:0;s:10:"email_from";s:0:"";s:8:"email_to";s:0:"";s:8:"template";i:0;s:7:"page_to";s:1:"2";}";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}i:6;O:27:"CoasterCms\\Models\\PageBlock":23:{s:8:"\0*\0table";s:11:"page_blocks";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:41;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:10;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:11:"\0*\0original";a:8:{s:2:"id";i:41;s:11:"language_id";i:1;s:7:"page_id";i:11;s:8:"block_id";i:10;s:7:"content";s:0:"";s:7:"version";i:2;s:10:"created_at";s:19:"2017-05-25 03:48:20";s:10:"updated_at";s:19:"2017-05-25 03:48:20";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;}}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(18, 42, 0, '\\CoasterCms\\Models\\MenuItem', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:1:{i:0;O:26:"CoasterCms\\Models\\MenuItem":24:{s:8:"\0*\0table";s:10:"menu_items";s:13:"\0*\0connection";N;s:13:"\0*\0primaryKey";s:2:"id";s:10:"\0*\0keyType";s:3:"int";s:10:"\0*\0perPage";i:15;s:12:"incrementing";b:1;s:10:"timestamps";b:1;s:13:"\0*\0attributes";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:2:"11";s:5:"order";i:6;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:11:"\0*\0original";a:8:{s:2:"id";i:9;s:7:"menu_id";i:1;s:7:"page_id";s:2:"11";s:5:"order";i:6;s:10:"sub_levels";i:0;s:11:"custom_name";s:0:"";s:10:"created_at";s:19:"2017-05-25 03:46:49";s:10:"updated_at";s:19:"2017-05-25 03:46:49";}s:12:"\0*\0relations";a:0:{}s:9:"\0*\0hidden";a:0:{}s:10:"\0*\0visible";a:0:{}s:10:"\0*\0appends";a:0:{}s:11:"\0*\0fillable";a:0:{}s:10:"\0*\0guarded";a:1:{i:0;s:1:"*";}s:8:"\0*\0dates";a:0:{}s:13:"\0*\0dateFormat";N;s:8:"\0*\0casts";a:0:{}s:10:"\0*\0touches";a:0:{}s:14:"\0*\0observables";a:0:{}s:7:"\0*\0with";a:0:{}s:6:"exists";b:1;s:18:"wasRecentlyCreated";b:0;s:10:"\0*\0_logger";a:0:{}}}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(19, 42, 0, '\\CoasterCms\\Models\\UserRolePageAction', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:0:{}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59'),
+(20, 42, 0, '\\CoasterCms\\Models\\PageGroupPage', 'O:39:"Illuminate\\Database\\Eloquent\\Collection":1:{s:8:"\0*\0items";a:0:{}}', '2017-05-24 22:18:59', '2017-05-24 22:18:59');
 
 -- --------------------------------------------------------
 
@@ -307,8 +324,8 @@ INSERT INTO `backups` (`id`, `log_id`, `primary_id`, `model`, `data`, `created_a
 -- Table structure for table `blocks`
 --
 
-CREATE TABLE IF NOT EXISTS `blocks` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `blocks` (
+  `id` int(10) UNSIGNED NOT NULL,
   `category_id` int(11) NOT NULL,
   `label` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -319,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `blocks` (
   `note` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `blocks`
@@ -378,8 +395,8 @@ INSERT INTO `blocks` (`id`, `category_id`, `label`, `name`, `type`, `order`, `se
 -- Table structure for table `block_beacons`
 --
 
-CREATE TABLE IF NOT EXISTS `block_beacons` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_beacons` (
+  `id` int(10) UNSIGNED NOT NULL,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Kontakt',
   `unique_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `page_id` int(11) NOT NULL,
@@ -395,13 +412,13 @@ CREATE TABLE IF NOT EXISTS `block_beacons` (
 -- Table structure for table `block_category`
 --
 
-CREATE TABLE IF NOT EXISTS `block_category` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_category` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `order` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `block_category`
@@ -431,14 +448,14 @@ INSERT INTO `block_category` (`id`, `name`, `order`, `created_at`, `updated_at`)
 -- Table structure for table `block_form_rules`
 --
 
-CREATE TABLE IF NOT EXISTS `block_form_rules` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_form_rules` (
+  `id` int(10) UNSIGNED NOT NULL,
   `form_template` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `field` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rule` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `block_form_rules`
@@ -455,13 +472,13 @@ INSERT INTO `block_form_rules` (`id`, `form_template`, `field`, `rule`, `created
 -- Table structure for table `block_repeaters`
 --
 
-CREATE TABLE IF NOT EXISTS `block_repeaters` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_repeaters` (
+  `id` int(10) UNSIGNED NOT NULL,
   `block_id` int(11) NOT NULL,
   `blocks` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `block_repeaters`
@@ -476,14 +493,14 @@ INSERT INTO `block_repeaters` (`id`, `block_id`, `blocks`, `created_at`, `update
 -- Table structure for table `block_selectopts`
 --
 
-CREATE TABLE IF NOT EXISTS `block_selectopts` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_selectopts` (
+  `id` int(10) UNSIGNED NOT NULL,
   `block_id` int(11) NOT NULL,
   `option` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=783 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `block_selectopts`
@@ -1280,8 +1297,8 @@ INSERT INTO `block_selectopts` (`id`, `block_id`, `option`, `value`, `created_at
 -- Table structure for table `block_video_cache`
 --
 
-CREATE TABLE IF NOT EXISTS `block_video_cache` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `block_video_cache` (
+  `id` int(10) UNSIGNED NOT NULL,
   `videoId` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `videoInfo` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1294,12 +1311,12 @@ CREATE TABLE IF NOT EXISTS `block_video_cache` (
 -- Table structure for table `cart`
 --
 
-CREATE TABLE IF NOT EXISTS `cart` (
-`id` bigint(20) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+CREATE TABLE `cart` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `cart`
@@ -1317,8 +1334,8 @@ INSERT INTO `cart` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `coupons`
 --
 
-CREATE TABLE IF NOT EXISTS `coupons` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `coupons` (
+  `id` int(10) UNSIGNED NOT NULL,
   `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1337,15 +1354,15 @@ CREATE TABLE IF NOT EXISTS `coupons` (
 -- Table structure for table `form_submissions`
 --
 
-CREATE TABLE IF NOT EXISTS `form_submissions` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `form_submissions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `form_block_id` int(11) NOT NULL,
   `from_page_id` int(11) NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `sent` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `form_submissions`
@@ -1361,23 +1378,23 @@ INSERT INTO `form_submissions` (`id`, `form_block_id`, `from_page_id`, `content`
 -- Table structure for table `items`
 --
 
-CREATE TABLE IF NOT EXISTS `items` (
-`id` bigint(20) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `cart_id` bigint(20) unsigned DEFAULT NULL,
-  `order_id` bigint(20) unsigned DEFAULT NULL,
+CREATE TABLE `items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `cart_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
   `size_id` int(11) NOT NULL,
   `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` decimal(20,2) NOT NULL,
   `tax` decimal(20,2) NOT NULL DEFAULT '0.00',
   `shipping` decimal(20,2) NOT NULL DEFAULT '0.00',
   `currency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `quantity` int(10) unsigned NOT NULL,
+  `quantity` int(10) UNSIGNED NOT NULL,
   `class` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reference_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `items`
@@ -1439,12 +1456,12 @@ INSERT INTO `items` (`id`, `user_id`, `cart_id`, `order_id`, `size_id`, `sku`, `
 -- Table structure for table `item_size`
 --
 
-CREATE TABLE IF NOT EXISTS `item_size` (
-`id` bigint(20) unsigned NOT NULL,
+CREATE TABLE `item_size` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `item_size`
@@ -1462,12 +1479,12 @@ INSERT INTO `item_size` (`id`, `size`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `languages`
 --
 
-CREATE TABLE IF NOT EXISTS `languages` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `languages` (
+  `id` int(10) UNSIGNED NOT NULL,
   `language` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `languages`
@@ -1482,14 +1499,14 @@ INSERT INTO `languages` (`id`, `language`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `menus`
 --
 
-CREATE TABLE IF NOT EXISTS `menus` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `menus` (
+  `id` int(10) UNSIGNED NOT NULL,
   `label` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `max_sublevel` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `menus`
@@ -1504,8 +1521,8 @@ INSERT INTO `menus` (`id`, `label`, `name`, `max_sublevel`, `created_at`, `updat
 -- Table structure for table `menu_items`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_items` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `menu_items` (
+  `id` int(10) UNSIGNED NOT NULL,
   `menu_id` int(11) NOT NULL,
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
@@ -1513,7 +1530,7 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   `custom_name` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `menu_items`
@@ -1524,7 +1541,9 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `page_id`, `order`, `sub_levels`, `cu
 (5, 1, '8', 2, 1, '', '2017-04-23 23:14:30', '2017-05-19 23:15:05'),
 (6, 1, '9', 4, 1, '', '2017-04-23 23:14:30', '2017-05-19 23:15:05'),
 (7, 1, '6', 3, 0, '', '2017-04-26 22:35:44', '2017-05-23 23:28:07'),
-(8, 1, '10', 5, 0, '', '2017-05-23 23:49:59', '2017-05-23 23:49:59');
+(8, 1, '10', 5, 0, '', '2017-05-23 23:49:59', '2017-05-23 23:49:59'),
+(10, 1, '12', 6, 0, '', '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(11, 1, '15', 7, 0, '', '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -1532,11 +1551,11 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `page_id`, `order`, `sub_levels`, `cu
 -- Table structure for table `migrations`
 --
 
-CREATE TABLE IF NOT EXISTS `migrations` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -1609,8 +1628,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `my_custom_products`
 --
 
-CREATE TABLE IF NOT EXISTS `my_custom_products` (
-`id` bigint(20) unsigned NOT NULL,
+CREATE TABLE `my_custom_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `product_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `1_2_price` decimal(20,2) NOT NULL,
@@ -1620,10 +1639,10 @@ CREATE TABLE IF NOT EXISTS `my_custom_products` (
   `16_24_price` decimal(20,2) NOT NULL,
   `25_49_price` decimal(20,2) NOT NULL,
   `50_5000_price` decimal(20,2) NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `my_custom_products`
@@ -1640,14 +1659,14 @@ INSERT INTO `my_custom_products` (`id`, `product_name`, `sku`, `1_2_price`, `3_4
 -- Table structure for table `orders`
 --
 
-CREATE TABLE IF NOT EXISTS `orders` (
-`id` bigint(20) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `team_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `statusCode` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `orders`
@@ -1670,7 +1689,7 @@ INSERT INTO `orders` (`id`, `user_id`, `team_name`, `statusCode`, `created_at`, 
 -- Table structure for table `order_status`
 --
 
-CREATE TABLE IF NOT EXISTS `order_status` (
+CREATE TABLE `order_status` (
   `code` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1696,8 +1715,8 @@ INSERT INTO `order_status` (`code`, `name`, `description`, `created_at`, `update
 -- Table structure for table `pages`
 --
 
-CREATE TABLE IF NOT EXISTS `pages` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `pages` (
+  `id` int(10) UNSIGNED NOT NULL,
   `template` int(11) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL DEFAULT '0',
   `child_template` int(11) NOT NULL DEFAULT '0',
@@ -1712,7 +1731,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `live_end` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `pages`
@@ -1728,7 +1747,11 @@ INSERT INTO `pages` (`id`, `template`, `parent`, `child_template`, `order`, `gro
 (7, 18, 0, 0, 5, 0, 0, 0, 0, 1, 0, NULL, NULL, '2017-05-02 23:27:19', '2017-05-02 23:27:19'),
 (8, 20, 0, 0, 6, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
 (9, 22, 0, 0, 7, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
-(10, 26, 0, 0, 8, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-23 23:49:58', '2017-05-23 23:49:58');
+(10, 14, 0, 0, 8, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-23 23:49:58', '2017-05-24 22:19:15'),
+(12, 28, 0, 0, 9, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(13, 34, 0, 0, 10, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(14, 36, 0, 0, 11, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(15, 38, 0, 0, 12, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -1736,8 +1759,8 @@ INSERT INTO `pages` (`id`, `template`, `parent`, `child_template`, `order`, `gro
 -- Table structure for table `page_blocks`
 --
 
-CREATE TABLE IF NOT EXISTS `page_blocks` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_blocks` (
+  `id` int(10) UNSIGNED NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT '1',
   `page_id` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
@@ -1745,7 +1768,7 @@ CREATE TABLE IF NOT EXISTS `page_blocks` (
   `version` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_blocks`
@@ -1785,7 +1808,16 @@ INSERT INTO `page_blocks` (`id`, `language_id`, `page_id`, `block_id`, `content`
 (31, 1, 6, 1, '', 2, '2017-05-23 23:30:35', '2017-05-23 23:30:35'),
 (32, 1, 6, 2, '', 2, '2017-05-23 23:30:35', '2017-05-23 23:30:35'),
 (33, 1, 6, 3, '', 2, '2017-05-23 23:30:35', '2017-05-23 23:30:35'),
-(34, 1, 10, 8, 'News', 1, '2017-05-23 23:49:58', '2017-05-23 23:49:58');
+(34, 1, 10, 8, 'News', 1, '2017-05-23 23:49:58', '2017-05-23 23:49:58'),
+(42, 1, 10, 1, '', 2, '2017-05-24 22:19:15', '2017-05-24 22:19:15'),
+(43, 1, 10, 2, '', 2, '2017-05-24 22:19:15', '2017-05-24 22:19:15'),
+(44, 1, 10, 3, '', 2, '2017-05-24 22:19:15', '2017-05-24 22:19:15'),
+(45, 1, 10, 43, 'O:8:"stdClass":2:{s:4:"file";s:38:"/uploads/share/sh_18/5907b8ba66062.png";s:5:"title";s:0:"";}', 4, '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(46, 1, 10, 10, '<p>news</p>\r\n<p></p>\r\n<p>news</p>\r\n<p></p>\r\n<p>news</p>', 4, '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(47, 1, 12, 8, 'Team', 1, '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(48, 1, 13, 8, 'Terms & Conditions', 1, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(49, 1, 14, 8, 'Privacy', 1, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(50, 1, 15, 8, 'Ideas', 1, '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -1793,8 +1825,8 @@ INSERT INTO `page_blocks` (`id`, `language_id`, `page_id`, `block_id`, `content`
 -- Table structure for table `page_blocks_default`
 --
 
-CREATE TABLE IF NOT EXISTS `page_blocks_default` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_blocks_default` (
+  `id` int(10) UNSIGNED NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT '1',
   `block_id` int(11) NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
@@ -1809,15 +1841,15 @@ CREATE TABLE IF NOT EXISTS `page_blocks_default` (
 -- Table structure for table `page_blocks_repeater_data`
 --
 
-CREATE TABLE IF NOT EXISTS `page_blocks_repeater_data` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_blocks_repeater_data` (
+  `id` int(10) UNSIGNED NOT NULL,
   `row_key` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `version` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_blocks_repeater_data`
@@ -1846,13 +1878,13 @@ INSERT INTO `page_blocks_repeater_data` (`id`, `row_key`, `block_id`, `content`,
 -- Table structure for table `page_blocks_repeater_rows`
 --
 
-CREATE TABLE IF NOT EXISTS `page_blocks_repeater_rows` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_blocks_repeater_rows` (
+  `id` int(10) UNSIGNED NOT NULL,
   `repeater_id` int(11) NOT NULL,
   `row_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_blocks_repeater_rows`
@@ -1869,8 +1901,8 @@ INSERT INTO `page_blocks_repeater_rows` (`id`, `repeater_id`, `row_id`, `created
 -- Table structure for table `page_group`
 --
 
-CREATE TABLE IF NOT EXISTS `page_group` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `item_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `url_priority` int(11) NOT NULL DEFAULT '50',
@@ -1885,8 +1917,8 @@ CREATE TABLE IF NOT EXISTS `page_group` (
 -- Table structure for table `page_group_attributes`
 --
 
-CREATE TABLE IF NOT EXISTS `page_group_attributes` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_group_attributes` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `item_block_id` int(11) NOT NULL,
   `item_block_order_priority` int(11) NOT NULL DEFAULT '0',
@@ -1902,8 +1934,8 @@ CREATE TABLE IF NOT EXISTS `page_group_attributes` (
 -- Table structure for table `page_group_pages`
 --
 
-CREATE TABLE IF NOT EXISTS `page_group_pages` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_group_pages` (
+  `id` int(10) UNSIGNED NOT NULL,
   `page_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1916,8 +1948,8 @@ CREATE TABLE IF NOT EXISTS `page_group_pages` (
 -- Table structure for table `page_lang`
 --
 
-CREATE TABLE IF NOT EXISTS `page_lang` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_lang` (
+  `id` int(10) UNSIGNED NOT NULL,
   `page_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1925,7 +1957,7 @@ CREATE TABLE IF NOT EXISTS `page_lang` (
   `live_version` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_lang`
@@ -1941,7 +1973,11 @@ INSERT INTO `page_lang` (`id`, `page_id`, `language_id`, `url`, `name`, `live_ve
 (7, 7, 1, 'share', 'Share', 5, '2017-05-02 23:27:19', '2017-05-03 00:18:33'),
 (8, 8, 1, 'pledge-a-ball', 'PLEDGE A BALL', 2, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
 (9, 9, 1, 'our-story', 'Our Story', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
-(10, 10, 1, 'news', 'News', 1, '2017-05-23 23:49:58', '2017-05-23 23:49:58');
+(10, 10, 1, 'news', 'News', 4, '2017-05-23 23:49:58', '2017-05-24 22:28:32'),
+(12, 12, 1, 'team', 'Team', 1, '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(13, 13, 1, 'terms-conditions', 'Terms & Conditions', 1, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(14, 14, 1, 'privacy', 'Privacy', 1, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(15, 15, 1, 'ideas', 'Ideas', 1, '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -1949,8 +1985,8 @@ INSERT INTO `page_lang` (`id`, `page_id`, `language_id`, `url`, `name`, `live_ve
 -- Table structure for table `page_publish_requests`
 --
 
-CREATE TABLE IF NOT EXISTS `page_publish_requests` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_publish_requests` (
+  `id` int(10) UNSIGNED NOT NULL,
   `page_version_id` int(11) NOT NULL,
   `status` enum('awaiting','approved','denied','cancelled') COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -1966,8 +2002,8 @@ CREATE TABLE IF NOT EXISTS `page_publish_requests` (
 -- Table structure for table `page_redirects`
 --
 
-CREATE TABLE IF NOT EXISTS `page_redirects` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_redirects` (
+  `id` int(10) UNSIGNED NOT NULL,
   `redirect` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `to` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` int(11) NOT NULL DEFAULT '301',
@@ -1982,15 +2018,15 @@ CREATE TABLE IF NOT EXISTS `page_redirects` (
 -- Table structure for table `page_search_data`
 --
 
-CREATE TABLE IF NOT EXISTS `page_search_data` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_search_data` (
+  `id` int(10) UNSIGNED NOT NULL,
   `language_id` int(11) NOT NULL,
   `page_id` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
   `search_text` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_search_data`
@@ -2015,7 +2051,14 @@ INSERT INTO `page_search_data` (`id`, `language_id`, `page_id`, `block_id`, `sea
 (17, 1, 8, 0, 'PLEDGE A BALL', '2017-05-09 23:09:20', '2017-05-09 23:09:20'),
 (18, 1, 8, 8, 'PLEDGE A BALL', '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
 (19, 1, 9, 0, 'Our Story', '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
-(20, 1, 10, 0, 'News', '2017-05-23 23:49:58', '2017-05-23 23:49:58');
+(20, 1, 10, 0, 'News', '2017-05-23 23:49:58', '2017-05-23 23:49:58'),
+(23, 1, 10, 8, 'News', '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(24, 1, 10, 43, '5907b8ba66062.png', '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(25, 1, 10, 10, '<p>news</p>\r\n<p></p>\r\n<p>news</p>\r\n<p></p>\r\n<p>news</p>', '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(26, 1, 12, 0, 'Team', '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(27, 1, 13, 0, 'Terms & Conditions', '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(28, 1, 14, 0, 'Privacy', '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(29, 1, 15, 0, 'Ideas', '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -2023,8 +2066,8 @@ INSERT INTO `page_search_data` (`id`, `language_id`, `page_id`, `block_id`, `sea
 -- Table structure for table `page_search_log`
 --
 
-CREATE TABLE IF NOT EXISTS `page_search_log` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_search_log` (
+  `id` int(10) UNSIGNED NOT NULL,
   `term` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `count` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -2037,8 +2080,8 @@ CREATE TABLE IF NOT EXISTS `page_search_log` (
 -- Table structure for table `page_versions`
 --
 
-CREATE TABLE IF NOT EXISTS `page_versions` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_versions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `page_id` int(11) NOT NULL,
   `version_id` int(11) NOT NULL,
   `template` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -2047,7 +2090,7 @@ CREATE TABLE IF NOT EXISTS `page_versions` (
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `page_versions`
@@ -2075,7 +2118,14 @@ INSERT INTO `page_versions` (`id`, `page_id`, `version_id`, `template`, `label`,
 (19, 8, 2, '20', NULL, '200xiuckzh0', 1, '2017-05-09 23:14:34', '2017-05-09 23:14:34'),
 (20, 9, 1, '22', NULL, '1iavy87c2lc', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
 (21, 6, 2, '16', NULL, '2hqzczlbraa', 1, '2017-05-23 23:30:35', '2017-05-23 23:30:35'),
-(22, 10, 1, '26', NULL, 'ju8q0stm5k', 1, '2017-05-23 23:49:58', '2017-05-23 23:49:58');
+(22, 10, 1, '26', NULL, 'ju8q0stm5k', 1, '2017-05-23 23:49:58', '2017-05-23 23:49:58'),
+(25, 10, 2, '14', NULL, 'orh78176ie', 1, '2017-05-24 22:19:15', '2017-05-24 22:19:15'),
+(26, 10, 3, '14', NULL, 'qqddyggfkd', 1, '2017-05-24 22:27:56', '2017-05-24 22:27:56'),
+(27, 10, 4, '14', NULL, '1q6gr4jf9ij', 1, '2017-05-24 22:28:32', '2017-05-24 22:28:32'),
+(28, 12, 1, '28', NULL, 'sp9kotoz7z', 1, '2017-05-24 22:30:58', '2017-05-24 22:30:58'),
+(29, 13, 1, '34', NULL, '9rgetv76zd', 1, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
+(30, 14, 1, '36', NULL, '2lorqu055bb', 1, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
+(31, 15, 1, '38', NULL, 'ju8qecvkyk', 1, '2017-05-24 22:36:13', '2017-05-24 22:36:13');
 
 -- --------------------------------------------------------
 
@@ -2083,8 +2133,8 @@ INSERT INTO `page_versions` (`id`, `page_id`, `version_id`, `template`, `label`,
 -- Table structure for table `page_versions_schedule`
 --
 
-CREATE TABLE IF NOT EXISTS `page_versions_schedule` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `page_versions_schedule` (
+  `id` int(10) UNSIGNED NOT NULL,
   `page_version_id` int(11) NOT NULL,
   `live_from` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `repeat_in` int(11) NOT NULL DEFAULT '0',
@@ -2099,8 +2149,8 @@ CREATE TABLE IF NOT EXISTS `page_versions_schedule` (
 -- Table structure for table `settings`
 --
 
-CREATE TABLE IF NOT EXISTS `settings` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `settings` (
+  `id` int(10) UNSIGNED NOT NULL,
   `label` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -2108,7 +2158,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `hidden` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `settings`
@@ -2140,8 +2190,8 @@ INSERT INTO `settings` (`id`, `label`, `name`, `value`, `editable`, `hidden`, `c
 -- Table structure for table `share`
 --
 
-CREATE TABLE IF NOT EXISTS `share` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `share` (
+  `id` int(10) UNSIGNED NOT NULL,
   `layer_one_color` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `layer_two_color` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `logo_one` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2149,7 +2199,7 @@ CREATE TABLE IF NOT EXISTS `share` (
   `design` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `share`
@@ -2182,8 +2232,8 @@ INSERT INTO `share` (`id`, `layer_one_color`, `layer_two_color`, `logo_one`, `lo
 -- Table structure for table `templates`
 --
 
-CREATE TABLE IF NOT EXISTS `templates` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `templates` (
+  `id` int(10) UNSIGNED NOT NULL,
   `theme_id` int(11) NOT NULL,
   `label` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `template` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -2191,7 +2241,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `hidden` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `templates`
@@ -2244,13 +2294,13 @@ INSERT INTO `templates` (`id`, `theme_id`, `label`, `template`, `child_template`
 -- Table structure for table `template_blocks`
 --
 
-CREATE TABLE IF NOT EXISTS `template_blocks` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `template_blocks` (
+  `id` int(10) UNSIGNED NOT NULL,
   `template_id` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `template_blocks`
@@ -2331,7 +2381,22 @@ INSERT INTO `template_blocks` (`id`, `template_id`, `block_id`, `created_at`, `u
 (72, 12, 32, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
 (73, 12, 33, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
 (74, 13, 35, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
-(75, 14, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23');
+(75, 14, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
+(76, 26, 8, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(77, 26, 10, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(78, 26, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
+(79, 28, 8, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(80, 28, 10, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(81, 28, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
+(82, 34, 8, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(83, 34, 10, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(84, 34, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
+(85, 36, 8, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(86, 36, 10, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(87, 36, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23'),
+(88, 38, 8, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(89, 38, 10, '2017-04-23 23:14:22', '2017-04-23 23:14:22'),
+(90, 38, 43, '2017-04-23 23:14:23', '2017-04-23 23:14:23');
 
 -- --------------------------------------------------------
 
@@ -2339,12 +2404,12 @@ INSERT INTO `template_blocks` (`id`, `template_id`, `block_id`, `created_at`, `u
 -- Table structure for table `themes`
 --
 
-CREATE TABLE IF NOT EXISTS `themes` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `themes` (
+  `id` int(10) UNSIGNED NOT NULL,
   `theme` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `themes`
@@ -2360,8 +2425,8 @@ INSERT INTO `themes` (`id`, `theme`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `theme_blocks`
 --
 
-CREATE TABLE IF NOT EXISTS `theme_blocks` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `theme_blocks` (
+  `id` int(10) UNSIGNED NOT NULL,
   `theme_id` int(11) NOT NULL,
   `block_id` int(11) NOT NULL,
   `show_in_pages` int(11) NOT NULL DEFAULT '0',
@@ -2369,7 +2434,7 @@ CREATE TABLE IF NOT EXISTS `theme_blocks` (
   `show_in_global` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `theme_blocks`
@@ -2409,16 +2474,16 @@ INSERT INTO `theme_blocks` (`id`, `theme_id`, `block_id`, `show_in_pages`, `excl
 -- Table structure for table `transactions`
 --
 
-CREATE TABLE IF NOT EXISTS `transactions` (
-`id` bigint(20) unsigned NOT NULL,
-  `order_id` bigint(20) unsigned NOT NULL,
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
   `gateway` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `transaction_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `detail` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `transactions`
@@ -2439,8 +2504,8 @@ INSERT INTO `transactions` (`id`, `order_id`, `gateway`, `transaction_id`, `deta
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
   `active` int(11) NOT NULL DEFAULT '1',
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -2454,7 +2519,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `page_states` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -2474,14 +2539,14 @@ INSERT INTO `users` (`id`, `active`, `password`, `email`, `name`, `stripe_custom
 -- Table structure for table `user_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `user_roles` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `user_roles` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `admin` int(11) NOT NULL DEFAULT '1',
   `description` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user_roles`
@@ -2500,13 +2565,13 @@ INSERT INTO `user_roles` (`id`, `name`, `admin`, `description`, `created_at`, `u
 -- Table structure for table `user_roles_actions`
 --
 
-CREATE TABLE IF NOT EXISTS `user_roles_actions` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `user_roles_actions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `role_id` int(11) NOT NULL,
   `action_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user_roles_actions`
@@ -2572,8 +2637,8 @@ INSERT INTO `user_roles_actions` (`id`, `role_id`, `action_id`, `created_at`, `u
 -- Table structure for table `user_roles_page_actions`
 --
 
-CREATE TABLE IF NOT EXISTS `user_roles_page_actions` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `user_roles_page_actions` (
+  `id` int(10) UNSIGNED NOT NULL,
   `role_id` int(11) NOT NULL,
   `page_id` int(11) NOT NULL,
   `action_id` int(11) NOT NULL,
@@ -2590,301 +2655,323 @@ CREATE TABLE IF NOT EXISTS `user_roles_page_actions` (
 -- Indexes for table `admin_actions`
 --
 ALTER TABLE `admin_actions`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin_controllers`
 --
 ALTER TABLE `admin_controllers`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `backups`
 --
 ALTER TABLE `backups`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blocks`
 --
 ALTER TABLE `blocks`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_beacons`
 --
 ALTER TABLE `block_beacons`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_category`
 --
 ALTER TABLE `block_category`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_form_rules`
 --
 ALTER TABLE `block_form_rules`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_repeaters`
 --
 ALTER TABLE `block_repeaters`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_selectopts`
 --
 ALTER TABLE `block_selectopts`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `block_video_cache`
 --
 ALTER TABLE `block_video_cache`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `cart_user_id_unique` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cart_user_id_unique` (`user_id`);
 
 --
 -- Indexes for table `coupons`
 --
 ALTER TABLE `coupons`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `coupons_code_unique` (`code`), ADD KEY `coupons_code_expires_at_index` (`code`,`expires_at`), ADD KEY `coupons_code_active_index` (`code`,`active`), ADD KEY `coupons_code_active_expires_at_index` (`code`,`active`,`expires_at`), ADD KEY `coupons_sku_index` (`sku`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `coupons_code_unique` (`code`),
+  ADD KEY `coupons_code_expires_at_index` (`code`,`expires_at`),
+  ADD KEY `coupons_code_active_index` (`code`,`active`),
+  ADD KEY `coupons_code_active_expires_at_index` (`code`,`active`,`expires_at`),
+  ADD KEY `coupons_sku_index` (`sku`);
 
 --
 -- Indexes for table `form_submissions`
 --
 ALTER TABLE `form_submissions`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `items_sku_cart_id_size_id_unique` (`sku`,`cart_id`,`size_id`), ADD UNIQUE KEY `items_sku_order_id_size_id_unique` (`sku`,`order_id`,`size_id`), ADD KEY `items_cart_id_foreign` (`cart_id`), ADD KEY `items_user_id_sku_index` (`user_id`,`sku`), ADD KEY `items_user_id_sku_cart_id_index` (`user_id`,`sku`,`cart_id`), ADD KEY `items_user_id_sku_order_id_index` (`user_id`,`sku`,`order_id`), ADD KEY `items_reference_id_index` (`reference_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `items_sku_cart_id_size_id_unique` (`sku`,`cart_id`,`size_id`),
+  ADD UNIQUE KEY `items_sku_order_id_size_id_unique` (`sku`,`order_id`,`size_id`),
+  ADD KEY `items_cart_id_foreign` (`cart_id`),
+  ADD KEY `items_user_id_sku_index` (`user_id`,`sku`),
+  ADD KEY `items_user_id_sku_cart_id_index` (`user_id`,`sku`,`cart_id`),
+  ADD KEY `items_user_id_sku_order_id_index` (`user_id`,`sku`,`order_id`),
+  ADD KEY `items_reference_id_index` (`reference_id`);
 
 --
 -- Indexes for table `item_size`
 --
 ALTER TABLE `item_size`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `languages`
 --
 ALTER TABLE `languages`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menus`
 --
 ALTER TABLE `menus`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menu_items`
 --
 ALTER TABLE `menu_items`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `my_custom_products`
 --
 ALTER TABLE `my_custom_products`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `my_custom_products_product_name_unique` (`product_name`), ADD KEY `my_custom_products_user_id_foreign` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `my_custom_products_product_name_unique` (`product_name`),
+  ADD KEY `my_custom_products_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
- ADD PRIMARY KEY (`id`), ADD KEY `orders_statuscode_foreign` (`statusCode`), ADD KEY `orders_user_id_statuscode_index` (`user_id`,`statusCode`), ADD KEY `orders_id_user_id_statuscode_index` (`id`,`user_id`,`statusCode`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orders_statuscode_foreign` (`statusCode`),
+  ADD KEY `orders_user_id_statuscode_index` (`user_id`,`statusCode`),
+  ADD KEY `orders_id_user_id_statuscode_index` (`id`,`user_id`,`statusCode`);
 
 --
 -- Indexes for table `order_status`
 --
 ALTER TABLE `order_status`
- ADD PRIMARY KEY (`code`);
+  ADD PRIMARY KEY (`code`);
 
 --
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_blocks`
 --
 ALTER TABLE `page_blocks`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_blocks_default`
 --
 ALTER TABLE `page_blocks_default`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_blocks_repeater_data`
 --
 ALTER TABLE `page_blocks_repeater_data`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_blocks_repeater_rows`
 --
 ALTER TABLE `page_blocks_repeater_rows`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_group`
 --
 ALTER TABLE `page_group`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_group_attributes`
 --
 ALTER TABLE `page_group_attributes`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_group_pages`
 --
 ALTER TABLE `page_group_pages`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_lang`
 --
 ALTER TABLE `page_lang`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_publish_requests`
 --
 ALTER TABLE `page_publish_requests`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_redirects`
 --
 ALTER TABLE `page_redirects`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_search_data`
 --
 ALTER TABLE `page_search_data`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_search_log`
 --
 ALTER TABLE `page_search_log`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_versions`
 --
 ALTER TABLE `page_versions`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_versions_schedule`
 --
 ALTER TABLE `page_versions_schedule`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `share`
 --
 ALTER TABLE `share`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `templates`
 --
 ALTER TABLE `templates`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `template_blocks`
 --
 ALTER TABLE `template_blocks`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `themes`
 --
 ALTER TABLE `themes`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `theme_blocks`
 --
 ALTER TABLE `theme_blocks`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
- ADD PRIMARY KEY (`id`), ADD KEY `transactions_order_id_index` (`order_id`), ADD KEY `transactions_gateway_transaction_id_index` (`gateway`,`transaction_id`), ADD KEY `transactions_order_id_token_index` (`order_id`,`token`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `transactions_order_id_index` (`order_id`),
+  ADD KEY `transactions_gateway_transaction_id_index` (`gateway`,`transaction_id`),
+  ADD KEY `transactions_order_id_token_index` (`order_id`,`token`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `users_stripe_customer_id_unique` (`stripe_customer_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_stripe_customer_id_unique` (`stripe_customer_id`);
 
 --
 -- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user_roles_actions`
 --
 ALTER TABLE `user_roles_actions`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user_roles_page_actions`
 --
 ALTER TABLE `user_roles_page_actions`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -2894,247 +2981,247 @@ ALTER TABLE `user_roles_page_actions`
 -- AUTO_INCREMENT for table `admin_actions`
 --
 ALTER TABLE `admin_actions`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=84;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `admin_controllers`
 --
 ALTER TABLE `admin_controllers`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `backups`
 --
 ALTER TABLE `backups`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `block_beacons`
 --
 ALTER TABLE `block_beacons`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `block_category`
 --
 ALTER TABLE `block_category`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `block_form_rules`
 --
 ALTER TABLE `block_form_rules`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `block_repeaters`
 --
 ALTER TABLE `block_repeaters`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `block_selectopts`
 --
 ALTER TABLE `block_selectopts`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=783;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=783;
 --
 -- AUTO_INCREMENT for table `block_video_cache`
 --
 ALTER TABLE `block_video_cache`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `form_submissions`
 --
 ALTER TABLE `form_submissions`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `item_size`
 --
 ALTER TABLE `item_size`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `my_custom_products`
 --
 ALTER TABLE `my_custom_products`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `page_blocks`
 --
 ALTER TABLE `page_blocks`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `page_blocks_default`
 --
 ALTER TABLE `page_blocks_default`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_blocks_repeater_data`
 --
 ALTER TABLE `page_blocks_repeater_data`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `page_blocks_repeater_rows`
 --
 ALTER TABLE `page_blocks_repeater_rows`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `page_group`
 --
 ALTER TABLE `page_group`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_group_attributes`
 --
 ALTER TABLE `page_group_attributes`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_group_pages`
 --
 ALTER TABLE `page_group_pages`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_lang`
 --
 ALTER TABLE `page_lang`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `page_publish_requests`
 --
 ALTER TABLE `page_publish_requests`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_redirects`
 --
 ALTER TABLE `page_redirects`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_search_data`
 --
 ALTER TABLE `page_search_data`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `page_search_log`
 --
 ALTER TABLE `page_search_log`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `page_versions`
 --
 ALTER TABLE `page_versions`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `page_versions_schedule`
 --
 ALTER TABLE `page_versions_schedule`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `share`
 --
 ALTER TABLE `share`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `template_blocks`
 --
 ALTER TABLE `template_blocks`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=76;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 --
 -- AUTO_INCREMENT for table `themes`
 --
 ALTER TABLE `themes`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `theme_blocks`
 --
 ALTER TABLE `theme_blocks`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user_roles_actions`
 --
 ALTER TABLE `user_roles_actions`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `user_roles_page_actions`
 --
 ALTER TABLE `user_roles_page_actions`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -3143,33 +3230,33 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-ADD CONSTRAINT `cart_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cart_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `items`
 --
 ALTER TABLE `items`
-ADD CONSTRAINT `items_cart_id_foreign` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `items_cart_id_foreign` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `my_custom_products`
 --
 ALTER TABLE `my_custom_products`
-ADD CONSTRAINT `my_custom_products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `my_custom_products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-ADD CONSTRAINT `orders_statuscode_foreign` FOREIGN KEY (`statusCode`) REFERENCES `order_status` (`code`) ON UPDATE CASCADE,
-ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orders_statuscode_foreign` FOREIGN KEY (`statusCode`) REFERENCES `order_status` (`code`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transactions`
 --
 ALTER TABLE `transactions`
-ADD CONSTRAINT `transactions_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `transactions_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
