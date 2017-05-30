@@ -30,7 +30,8 @@
   var canvasData;
   var cropper;
   var cropImgData;
-  var pallet = [1205,
+  var pallet = 
+      [1205,
       1215,
       120,
       100,

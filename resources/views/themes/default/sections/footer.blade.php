@@ -23,19 +23,17 @@
                                 <div class="footer-wrap">
                                     <div class="foot-menu-wrap">
                                         <ul class="nav menu">
-                                            <li class="item-165"><a href="about.html">About</a>
+                                            <li class="item-165"><a href="<?php echo URL::to('/terms-conditions');?>">Terms & Conditions</a>
                                             </li>
-                                            <li class="item-166"><a href="players.html">Players</a>
+                                            <li class="item-167"><a href="<?php echo URL::to('/ideas');?>">Ideas</a>
                                             </li>
-                                            <li class="item-167"><a href="match-list.html">Match</a>
+                                            <li class="item-168"><a href="<?php echo URL::to('/faq');?>">FAQs</a>
                                             </li>
-                                            <li class="item-168"><a href="results.html">Results</a>
-                                            </li>
-                                            <li class="item-169"><a href="news.html">News</a>
+                                            <li class="item-169"><a href="<?php echo URL::to('/news');?>">News</a>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="copyrights">Copyright © 2015 <a href="http://h-sportak.torbara.com/">Sportak Team</a>. All Rights Reserved.</div>
+                                    <div class="copyrights">Copyright © 2017 <a href="<?php echo URL::to('/');?>">1v1Footballs Team</a>. All Rights Reserved.</div>
                                     <div class="clear"></div>
                                 </div>
                             </div>

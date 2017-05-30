@@ -130,6 +130,14 @@ function goBack(){
 </div>
 <img src="/themes/default/img/help.png" class="help"/>
 
+<div class="contact">
+<img src="/themes/default/img/contact.png" class="c_logo"/>
+
+</div>
+
+<div class="call">
+    <small>Need Help ?. Call us on.<phone>01433 424 352</phone></small>
+</div>
 
 
 <!-- Button trigger modal -->

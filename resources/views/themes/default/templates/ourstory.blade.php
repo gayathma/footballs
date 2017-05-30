@@ -27,7 +27,7 @@
 
         <div class="uk-container uk-container-center alt">
             <ul class="uk-breadcrumb">
-                <li><a href="index-2.html">Home</a>
+                <li><a href="<?php echo URL::to('/');?>">Home</a>
                 </li>
                 <li class="uk-active"><span>Our Story</span>
                 </li>
