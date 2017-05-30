@@ -3,7 +3,7 @@
 return [
 
     'name' => 'Coaster CMS',
-    'email' => 'info@example.com',
+    'email' => 'richard@1v1.org.uk',
     'version' => 'v5.3.34',
     'pages' => '0',
     'groups' => '0',

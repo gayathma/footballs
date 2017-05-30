@@ -1,4 +1,4 @@
 Thank you for contacting us, we will be in touch shortly.
 
-------------------------------
-{!! $body !!}
+Regards,
+1v1footballs Team.
