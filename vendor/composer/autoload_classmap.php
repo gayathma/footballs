@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddColumnForOrderTable' => $baseDir . '/database/migrations/2017_05_01_170751_add_column_for_order_table.php',
     'AddColumnForUserTable' => $baseDir . '/database/migrations/2017_05_03_022024_add_column_for_user_table.php',
+    'AddColumnsForOrderTable' => $baseDir . '/database/migrations/2017_05_31_104308_add_columns_for_order_table.php',
     'Amsgames\\LaravelShop\\MigrationCommand' => $vendorDir . '/amsgames/laravel-shop/src/Commands/MigrationCommand.php',
     'CreateMyCustomProductsTable' => $baseDir . '/database/migrations/2017_04_30_231330_create_my_custom_products_table.php',
     'CreateShareTable' => $baseDir . '/database/migrations/2017_05_03_032650_create_share_table.php',

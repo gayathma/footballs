@@ -94,7 +94,10 @@ class OrderProcessController extends Controller
 
             
             $order = $cart->placeOrder([
-                    'team_name' => $data['team']
+                    'team_name' => $data['team'],
+                    'shipping_address' => $data['shipping_address'],
+                    'comments' => $data['comments']
+
                 ]);
 
             $folder = 'footballs/order_'.$order->id;
@@ -203,11 +206,10 @@ class OrderProcessController extends Controller
         );
 
         //E- mail function
-        $subject = 'New Order | ID '.$order->id;
-        $body    = 'Please find attached zip file with order details';
+        $subject = 'Order #'.$order->id.' Confirmation - 1v1 Footballs';
         $name = $email;
-        Mail::queue('themes.default.emails.default', [
-                'body' => $body
+        Mail::queue('themes.default.emails.order', [
+                'order' => $order
             ], function ($message) use ($email, $name, $subject, $order) {
                 $message->to($email, $name)->subject($subject)
                         ->cc('gayathma3@gmail.com', $name)->subject($subject)

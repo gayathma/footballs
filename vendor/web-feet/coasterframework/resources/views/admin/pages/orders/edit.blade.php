@@ -19,6 +19,14 @@
         <td>{!! $order->team_name !!}</td>
     </tr>
     <tr>
+         <td>Shipping Address</td>
+        <td>{!! $order->shipping_addess !!}</td>
+    </tr>
+    <tr>
+         <td>Order Comments</td>
+        <td>{!! $order->comments !!}</td>
+    </tr>
+    <tr>
         <td>Items</td>
         <td>
             <?php 
