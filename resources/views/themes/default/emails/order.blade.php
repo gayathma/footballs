@@ -273,7 +273,44 @@ a[x-apple-data-detectors=true] {
                   
                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 0px;"><![endif]-->
 <div style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 0px;">
-    <div style="font-size:12px;line-height:14px;font-family:&quot;Trebuchet MS&quot;, &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, &quot;Lucida Sans&quot;, Tahoma, sans-serif;color:#ffffff;text-align:left;"><p style="margin: 0;font-size: 18px;line-height: 22px;text-align: left">Order Details<br></p><p style="margin: 0;font-size: 18px;line-height: 21px;text-align: left"><br><span style="font-size: 16px; line-height: 19px;">put order details here</span><br></p><p style="margin: 0;font-size: 18px;line-height: 21px;text-align: left"><br></p></div>
+    <div style="font-size:12px;line-height:14px;font-family:&quot;Trebuchet MS&quot;, &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, &quot;Lucida Sans&quot;, Tahoma, sans-serif;color:#ffffff;text-align:left;"><p style="margin: 0;font-size: 18px;line-height: 22px;text-align: left">Order Details<br></p><p style="margin: 0;font-size: 18px;line-height: 21px;text-align: left"><br><span style="font-size: 16px; line-height: 19px;">
+         <?php 
+            if(!is_null($order->items)):
+                ?>
+            <table class="table table-bordered">
+                 <tbody>
+                    <tr>
+                        <td>#</td>
+                        <td>Size</td>
+                        <td>Quality</td>
+                        <td>Quantity</td>
+                        <td>Amount</td>
+                    </tr>
+            <?php
+                $count = 0;
+                foreach ($order->items as $item):
+            ?>
+                    <tr>
+                        <td>{!! ++$count !!}</td>
+                    
+                        <td>{!! $item->size->size !!}</td>
+                   
+                        <td>{!! $item->sku !!}</td>
+                        
+                        <td>{!! $item->quantity !!}</td>
+                   
+                        <td>{!! $item->displayPrice !!}</td>
+                    </tr>
+
+                 <?php endforeach;?>
+                 <tr>
+                    <td colspan="4" align="center"><strong>Total Amount</strong></td>
+                    <td><strong>{!! $order->getDisplayTotalPriceAttribute() !!}</strong></td>
+                 </tr>
+                </tbody>
+            </table>
+            <?php endif;?>
+    </span><br></p><p style="margin: 0;font-size: 18px;line-height: 21px;text-align: left"><br></p></div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 
