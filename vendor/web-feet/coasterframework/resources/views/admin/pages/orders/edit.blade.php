@@ -20,7 +20,7 @@
     </tr>
     <tr>
          <td>Shipping Address</td>
-        <td>{!! $order->shipping_addess !!}</td>
+        <td>{!! $order->shipping_address !!}</td>
     </tr>
     <tr>
          <td>Order Comments</td>

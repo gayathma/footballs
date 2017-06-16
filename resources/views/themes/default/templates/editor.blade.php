@@ -19,7 +19,9 @@
 
     <link href="{!! PageBuilder::css('editor') !!}" rel="stylesheet">
      <link href="{!! PageBuilder::css('introjs.min') !!}" rel="stylesheet">
-  
+  <link href="{!! PageBuilder::css('jssocials') !!}" rel="stylesheet">
+   <link href="{!! PageBuilder::css('font-awesome.min') !!}" rel="stylesheet">
+   <link href="{!! PageBuilder::css('jssocials-theme-flat') !!}" rel="stylesheet">
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,7 +39,11 @@
  
 
        
-
+<style type="text/css">
+    #social{
+        display: table;
+    }
+</style>
 
 <script type="text/javascript">
     
@@ -190,6 +196,16 @@ function goBack(){
                     <div class="form-group text-left">
                         <label for="exampleInputEmail2">Email</label>
                         <input type="email" class="form-control" id="emailAdd" placeholder="ex : richard@1v1footballs.com" required>
+                    </div>
+                     <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Delivery Address</label>
+                        <input type="text" class="form-control" id="shipping_address" required>
+                       
+                    </div>
+                    <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Comments</label>
+                        <input type="text" class="form-control" id="comments" >
+                       
                     </div>
                     <hr/>
                      <div class="form-group text-left">
@@ -478,7 +494,7 @@ function goBack(){
             <div class="modal-body txt-center">
                  <p>Here is the link for your design. Share it with your friends.</p>
                 <p id="shareLink"></p>
-
+                <div id="social"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
@@ -508,6 +524,7 @@ function goBack(){
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script src="{!! PageBuilder::js('logic') !!}"></script>
 <script src="{!! PageBuilder::js('intro.min') !!}"></script>
+<script src="{!! PageBuilder::js('jssocials.min') !!}"></script>
 
 
 <script type="text/javascript">
@@ -521,6 +538,8 @@ $(document).ready(function(){
     $('.help').click(function(){
         introJs().start();
     });
+
+
 });
 
 </script>

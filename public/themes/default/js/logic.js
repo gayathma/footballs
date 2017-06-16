@@ -18,7 +18,9 @@
       name: '',
       team: '',
       order: '',
-      design: ''
+      design: '',
+      shipping_address:'',
+      comments:''
   };
   var logo1, logo2;
   var text1, text2;
@@ -483,7 +485,9 @@
               name: '',
               team: '',
               order: '',
-              design: ''
+              design: '',
+              shipping_address:'',
+              comments:''
           };
           console.log('s');
       }
@@ -753,8 +757,13 @@
       var email = $('#emailAdd').val();
       var name = $('#name').val();
       var team = $('#team').val();
+      var shipping_address = $('#shipping_address').val();
+      var comments = $('#comments').val();
 
       if (name != '' && name.length > 3) {
+        if(shipping_address != '' ){
+
+
           if (validateEmail(email)) {
 
               $('#orderBody tr').each(function() {
@@ -776,6 +785,8 @@
                   football.team = team;
                   football.order = orderObject;
                   football._tocken = $('#order_tocken').val();
+                  football.shipping_address = shipping_address;
+                  football.comments = comments;
 
                   $.ajax({
                       url: "/process-order",
@@ -822,6 +833,9 @@
 
               alert('Please enter email address to place the order');
           }
+        }else{
+          alert('Please enter delivery address to place the order');
+        }
 
       } else {
 
@@ -862,7 +876,20 @@
           contentType: "application/x-www-form-urlencoded",
           data: JSON.stringify(football),
           success: function(msg) {
-        
+         $("#social").jsSocials({
+           url: base_url+'?id='+msg,
+    text: "Share 1v1Footballs design",
+    showCount: false,
+    showLabel: true,
+    shares: [
+        { share: "twitter", via: "1v1Footballs", hashtags: "1v1Footballs" },
+        { share: "facebook", via: "1v1Footballs", hashtags: "1v1Footballs" },
+        { share: "linkedin", via: "1v1Footballs", hashtags: "1v1Footballs" },
+        "googleplus",
+        "pinterest"
+       
+    ]
+        });
             $('#shareLink').text(base_url+'?id='+msg);
             $('#sharingModel').modal('show');
               console.log(msg);

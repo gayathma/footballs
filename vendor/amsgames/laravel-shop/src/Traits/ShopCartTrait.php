@@ -266,6 +266,8 @@ trait ShopCartTrait
         $order = call_user_func( Config::get('shop.order') . '::create', [
             'user_id'       => $this->user_id,
             'team_name'       => $array['team_name'],
+            'shipping_address'       => $array['shipping_address'],
+            'comments'       => $array['comments'],
             'statusCode'    => $statusCode
         ]);
         // Map cart items into order
