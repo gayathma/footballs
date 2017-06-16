@@ -504,6 +504,8 @@ function goBack(){
 </div>
 
 
+
+
     <!-- /.container -->
 </section>
 
@@ -538,6 +540,7 @@ $(document).ready(function(){
     $('.help').click(function(){
         introJs().start();
     });
+    
 
 
 });

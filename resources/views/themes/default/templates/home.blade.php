@@ -757,6 +757,51 @@
 </form>
 </div>
 <!-- /.second -->
+<!-- Modal -->
+<div class="modal fade" id="registration" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Register your details to show your support to local children</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body txt-center">
+            First name°, Surname°. Club Name, Postcode/Area, Team name, Mobile°, Email°
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">First Name</label>
+                        <input type="text" class="form-control" id="firstname"  required>
+               </div>
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Last Name</label>
+                        <input type="text" class="form-control" id="lastName"  required>
+               </div>
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Club Name</label>
+                        <input type="text" class="form-control" id="clubName"  required>
+               </div>
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Postcode/Area</label>
+                        <input type="text" class="form-control" id="postcode"  required>
+               </div>
+                <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Team Name</label>
+                        <input type="text" class="form-control" id="teamName"  required>
+               </div>
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Mobile</label>
+                        <input type="text" class="form-control" id="mobile"  required>
+               </div>
+               <div class="form-group text-left">
+                        <label for="exampleInputEmail2">Email</label>
+                        <input type="email" class="form-control" id="email"  required>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
  <script>
                                     window.map = false;
@@ -789,7 +834,12 @@
             map: map
         });
     }
+$(document).ready(function(){
+   
+    $('#registration').modal('show');
 
+
+});
     // Testing the addMarker function
     function TestMarker() {
            CentralPark = new google.maps.LatLng(50.836865,-0.1451758);
