@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2017 at 03:41 PM
+-- Generation Time: Jun 25, 2017 at 05:33 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -246,7 +246,8 @@ INSERT INTO `admin_logs` (`id`, `user_id`, `log`, `created_at`, `updated_at`) VA
 (55, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-29 07:51:11', '2017-05-29 07:51:11'),
 (56, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-29 08:09:22', '2017-05-29 08:09:22'),
 (57, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-29 08:10:19', '2017-05-29 08:10:19'),
-(58, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-29 08:10:45', '2017-05-29 08:10:45');
+(58, 1, 'Updated page ''News'' (Page ID 10)', '2017-05-29 08:10:45', '2017-05-29 08:10:45'),
+(59, 1, 'Updated page ''Team'' (Page ID 12)', '2017-06-25 07:49:18', '2017-06-25 07:49:18');
 
 -- --------------------------------------------------------
 
@@ -1457,7 +1458,9 @@ INSERT INTO `items` (`id`, `user_id`, `cart_id`, `order_id`, `size_id`, `sku`, `
 (51, 11, NULL, 43, 2, 'Match', '89.97', '0.00', '0.00', 'GBP', 3, 'App\\MyCustomProduct', '2', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
 (52, 11, NULL, 43, 2, 'Training', '191.92', '0.00', '0.00', 'GBP', 8, 'App\\MyCustomProduct', '1', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
 (53, 3, NULL, 44, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-10 01:45:02', '2017-05-10 01:45:02'),
-(54, 3, NULL, 45, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-15 04:11:40', '2017-05-15 04:11:41');
+(54, 3, NULL, 45, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-05-15 04:11:40', '2017-05-15 04:11:41'),
+(55, 3, NULL, 46, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-06-04 09:07:16', '2017-06-04 09:07:17'),
+(56, 3, NULL, 47, 1, 'Training', '24.99', '0.00', '0.00', 'GBP', 1, 'App\\MyCustomProduct', '1', '2017-06-04 09:30:22', '2017-06-04 09:30:22');
 
 -- --------------------------------------------------------
 
@@ -1629,7 +1632,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (66, '2017_04_30_231330_create_my_custom_products_table', 2),
 (67, '2017_05_01_170751_add_column_for_order_table', 2),
 (68, '2017_05_03_022024_add_column_for_user_table', 3),
-(69, '2017_05_03_032650_create_share_table', 4);
+(69, '2017_05_03_032650_create_share_table', 4),
+(70, '2017_05_31_104308_add_columns_for_order_table', 5);
 
 -- --------------------------------------------------------
 
@@ -1672,6 +1676,8 @@ CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `team_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `shipping_address` text COLLATE utf8_unicode_ci,
+  `comments` text COLLATE utf8_unicode_ci,
   `statusCode` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1681,16 +1687,18 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `team_name`, `statusCode`, `created_at`, `updated_at`) VALUES
-(37, 3, 'sdsdsd', 'pending', '2017-05-02 21:10:01', '2017-05-02 21:10:01'),
-(38, 3, 'ras team', 'pending', '2017-05-02 22:26:39', '2017-05-02 22:26:39'),
-(39, 10, 'raman team', 'pending', '2017-05-02 22:51:34', '2017-05-02 22:51:34'),
-(40, 3, 'team gaya', 'pending', '2017-05-04 01:45:52', '2017-05-04 01:45:52'),
-(41, 3, 'team rich', 'pending', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
-(42, 10, 'Team Gaya', 'pending', '2017-05-04 02:04:07', '2017-05-04 02:04:07'),
-(43, 11, 'mat mat', 'pending', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
-(44, 3, 'team shamain', 'pending', '2017-05-10 01:45:02', '2017-05-10 01:45:02'),
-(45, 3, 'hkhk', 'pending', '2017-05-15 04:11:40', '2017-05-15 04:11:40');
+INSERT INTO `orders` (`id`, `user_id`, `team_name`, `shipping_address`, `comments`, `statusCode`, `created_at`, `updated_at`) VALUES
+(37, 3, 'sdsdsd', NULL, NULL, 'pending', '2017-05-02 21:10:01', '2017-05-02 21:10:01'),
+(38, 3, 'ras team', NULL, NULL, 'pending', '2017-05-02 22:26:39', '2017-05-02 22:26:39'),
+(39, 10, 'raman team', NULL, NULL, 'pending', '2017-05-02 22:51:34', '2017-05-02 22:51:34'),
+(40, 3, 'team gaya', NULL, NULL, 'pending', '2017-05-04 01:45:52', '2017-05-04 01:45:52'),
+(41, 3, 'team rich', NULL, NULL, 'pending', '2017-05-04 02:01:29', '2017-05-04 02:01:29'),
+(42, 10, 'Team Gaya', NULL, NULL, 'pending', '2017-05-04 02:04:07', '2017-05-04 02:04:07'),
+(43, 11, 'mat mat', NULL, NULL, 'pending', '2017-05-09 12:11:06', '2017-05-09 12:11:06'),
+(44, 3, 'team shamain', NULL, NULL, 'pending', '2017-05-10 01:45:02', '2017-05-10 01:45:02'),
+(45, 3, 'hkhk', NULL, NULL, 'pending', '2017-05-15 04:11:40', '2017-05-15 04:11:40'),
+(46, 3, 'team shamain', NULL, NULL, 'pending', '2017-06-04 09:07:17', '2017-06-04 09:07:17'),
+(47, 3, 'team shamain', 'no/22/a egodauyana moratuwa', 'this is a test comment', 'pending', '2017-06-04 09:30:22', '2017-06-04 09:30:22');
 
 -- --------------------------------------------------------
 
@@ -1757,7 +1765,7 @@ INSERT INTO `pages` (`id`, `template`, `parent`, `child_template`, `order`, `gro
 (8, 20, 0, 0, 6, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
 (9, 22, 0, 0, 7, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
 (10, 26, 0, 0, 8, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-23 23:49:58', '2017-05-29 08:09:22'),
-(12, 28, 0, 0, 9, 0, 0, 0, 0, 0, 0, NULL, NULL, '2017-05-24 22:30:58', '2017-05-29 06:34:39'),
+(12, 28, 0, 0, 9, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:30:58', '2017-06-25 07:49:18'),
 (13, 34, 0, 0, 10, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
 (14, 36, 0, 0, 11, 0, 0, 0, 0, 1, 1, NULL, NULL, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
 (15, 38, 0, 0, 12, 0, 0, 0, 0, 0, 0, NULL, NULL, '2017-05-24 22:36:13', '2017-05-29 06:34:52'),
@@ -1997,7 +2005,7 @@ INSERT INTO `page_lang` (`id`, `page_id`, `language_id`, `url`, `name`, `live_ve
 (8, 8, 1, 'pledge-a-ball', 'PLEDGE A BALL', 2, '2017-05-09 23:09:20', '2017-05-09 23:14:34'),
 (9, 9, 1, 'our-story', 'Our Story', 1, '2017-05-19 23:14:50', '2017-05-19 23:14:50'),
 (10, 10, 1, 'news', 'News', 10, '2017-05-23 23:49:58', '2017-05-29 08:10:45'),
-(12, 12, 1, 'team', 'Team', 2, '2017-05-24 22:30:58', '2017-05-29 06:34:39'),
+(12, 12, 1, 'team', 'Team', 3, '2017-05-24 22:30:58', '2017-06-25 07:49:18'),
 (13, 13, 1, 'terms-conditions', 'Terms & Conditions', 1, '2017-05-24 22:33:38', '2017-05-24 22:33:38'),
 (14, 14, 1, 'privacy', 'Privacy', 1, '2017-05-24 22:34:53', '2017-05-24 22:34:53'),
 (15, 15, 1, 'ideas', 'Ideas', 2, '2017-05-24 22:36:13', '2017-05-29 06:34:52'),
@@ -2160,7 +2168,8 @@ INSERT INTO `page_versions` (`id`, `page_id`, `version_id`, `template`, `label`,
 (37, 10, 7, '14', NULL, 'rptj2dcn9r', 1, '2017-05-29 07:51:11', '2017-05-29 07:51:11'),
 (38, 10, 8, '26', NULL, 'pqxcc7oyxh', 1, '2017-05-29 08:09:22', '2017-05-29 08:09:22'),
 (39, 10, 9, '26', NULL, '5q4flrg4zx', 1, '2017-05-29 08:10:19', '2017-05-29 08:10:19'),
-(40, 10, 10, '26', NULL, '12jqk3f6kg4', 1, '2017-05-29 08:10:45', '2017-05-29 08:10:45');
+(40, 10, 10, '26', NULL, '12jqk3f6kg4', 1, '2017-05-29 08:10:45', '2017-05-29 08:10:45'),
+(41, 12, 3, '28', NULL, 'lt59l53ut0', 1, '2017-06-25 07:49:18', '2017-06-25 07:49:18');
 
 -- --------------------------------------------------------
 
@@ -2259,7 +2268,31 @@ INSERT INTO `share` (`id`, `layer_one_color`, `layer_two_color`, `logo_one`, `lo
 (16, 'p184', 'p105', 'logo1.png', 'logo2.png', 'world', '2017-05-04 01:58:47', '2017-05-04 01:58:47'),
 (17, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-04 02:10:56', '2017-05-04 02:10:56'),
 (18, 'not selected any color for layer 1', 'not selected any color for layer 2', 'logo1.png', 'logo2.png', 'blast', '2017-05-09 12:16:39', '2017-05-09 12:16:39'),
-(19, 'p2705', 'p3135', 'logo1.png', 'logo2.png', 'blast', '2017-05-10 01:44:45', '2017-05-10 01:44:45');
+(19, 'p2705', 'p3135', 'logo1.png', 'logo2.png', 'blast', '2017-05-10 01:44:45', '2017-05-10 01:44:45'),
+(20, 'p184', 'p1675', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 01:42:11', '2017-06-16 01:42:11'),
+(21, 'p2945', 'p2915', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 01:43:26', '2017-06-16 01:43:26'),
+(22, 'p2715', 'p2685', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 01:46:28', '2017-06-16 01:46:28'),
+(23, 'p184', 'p1655', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 01:47:45', '2017-06-16 01:47:45'),
+(24, 'p2375', 'p2945', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 01:49:17', '2017-06-16 01:49:17'),
+(25, 'p2375', 'p2945', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:06:34', '2017-06-16 02:06:34'),
+(26, 'p184', 'p350', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:23:37', '2017-06-16 02:23:37'),
+(27, 'p2915', 'p2955', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:24:35', '2017-06-16 02:24:35'),
+(28, 'p3135', 'p3105', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:27:07', '2017-06-16 02:27:07'),
+(29, 'p2655', 'p2695', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:27:50', '2017-06-16 02:27:50'),
+(30, 'p183', 'p1817', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:29:59', '2017-06-16 02:29:59'),
+(31, 'p2655', 'p1817', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:30:19', '2017-06-16 02:30:19'),
+(32, 'p237', 'p2945', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:31:26', '2017-06-16 02:31:26'),
+(33, 'p183', 'p2665', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:32:08', '2017-06-16 02:32:08'),
+(34, 'p2655', 'p3145', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:32:54', '2017-06-16 02:32:54'),
+(35, 'p2375', 'p249', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:33:44', '2017-06-16 02:33:44'),
+(36, 'p238', 'p1817', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:37:24', '2017-06-16 02:37:24'),
+(37, 'p237', 'p248', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:39:57', '2017-06-16 02:39:57'),
+(38, 'p2375', 'p2955', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 02:42:49', '2017-06-16 02:42:49'),
+(39, 'p2905', 'p3145', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 08:19:37', '2017-06-16 08:19:37'),
+(40, 'p2715', 'p2695', 'logo1.png', 'logo2.png', 'blast', '2017-06-16 08:35:06', '2017-06-16 08:35:06'),
+(41, 'p2715', 'p2695', 'logo1.png', 'logo2.png', 'world', '2017-06-16 08:36:57', '2017-06-16 08:36:57'),
+(42, 'p237', 'p236', 'logo1.png', 'logo2.png', 'world', '2017-06-16 09:29:10', '2017-06-16 09:29:10'),
+(43, 'p305', 'p3035', 'logo1.png', 'logo2.png', 'blast', '2017-06-18 00:12:08', '2017-06-18 00:12:08');
 
 -- --------------------------------------------------------
 
@@ -2531,7 +2564,9 @@ INSERT INTO `transactions` (`id`, `order_id`, `gateway`, `transaction_id`, `deta
 (6, 41, 'stripe', 'tok_1AFeRJEK9nHrfu3LE2uXoEbm', 'ch_1AFeROEK9nHrfu3LKndhx6dB', 'cus_AaCasonRh8LsGf', '2017-05-04 02:01:52', '2017-05-04 02:01:52'),
 (7, 42, 'stripe', 'tok_1AFeTuEK9nHrfu3L79qwOqvO', 'ch_1AFeU1EK9nHrfu3L6hA8jpYT', 'cus_AaPpaJSrLrpeNK', '2017-05-04 02:04:35', '2017-05-04 02:04:35'),
 (8, 43, 'stripe', 'tok_1AHcKvEK9nHrfu3Lze91VRLc', 'ch_1AHcL3EK9nHrfu3LZC60LCB5', 'cus_Acs5JYCgYL15HP', '2017-05-09 12:11:31', '2017-05-09 12:11:31'),
-(9, 44, 'stripe', 'tok_1AHp2cEK9nHrfu3LLDmC9d71', 'ch_1AHp2kEK9nHrfu3L9n0lf9Vc', 'cus_Ad5Dbs6mfY3fBg', '2017-05-10 01:45:27', '2017-05-10 01:45:27');
+(9, 44, 'stripe', 'tok_1AHp2cEK9nHrfu3LLDmC9d71', 'ch_1AHp2kEK9nHrfu3L9n0lf9Vc', 'cus_Ad5Dbs6mfY3fBg', '2017-05-10 01:45:27', '2017-05-10 01:45:27'),
+(10, 46, 'stripe', 'tok_1AQzrMEK9nHrfu3LsWGicozt', 'ch_1AQzrSEK9nHrfu3LlklyD0gN', 'cus_AaCasonRh8LsGf', '2017-06-04 09:07:43', '2017-06-04 09:07:43'),
+(11, 47, 'stripe', 'tok_1AR0DqEK9nHrfu3LMVJ4eEwT', 'ch_1AR0DvEK9nHrfu3LBNpo5RPM', 'cus_AaCasonRh8LsGf', '2017-06-04 09:30:57', '2017-06-04 09:30:57');
 
 -- --------------------------------------------------------
 
@@ -3026,7 +3061,7 @@ ALTER TABLE `admin_controllers`
 -- AUTO_INCREMENT for table `admin_logs`
 --
 ALTER TABLE `admin_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `admin_menu`
 --
@@ -3091,7 +3126,7 @@ ALTER TABLE `form_submissions`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `item_size`
 --
@@ -3116,7 +3151,7 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `my_custom_products`
 --
@@ -3126,7 +3161,7 @@ ALTER TABLE `my_custom_products`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -3196,7 +3231,7 @@ ALTER TABLE `page_search_log`
 -- AUTO_INCREMENT for table `page_versions`
 --
 ALTER TABLE `page_versions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `page_versions_schedule`
 --
@@ -3211,7 +3246,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `share`
 --
 ALTER TABLE `share`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `templates`
 --
@@ -3236,7 +3271,7 @@ ALTER TABLE `theme_blocks`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `users`
 --
