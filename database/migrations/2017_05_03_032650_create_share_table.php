@@ -31,6 +31,6 @@ class CreateShareTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('share');
     }
 }

@@ -14,6 +14,7 @@ use CoasterCms\Models\PageVersionSchedule;
 use Exception;
 use CoasterCms\Models\User;
 use Illuminate\Routing\Controller;
+use App\Team;
 use App\Share;
 use App\Order;
 use App\Cart;
@@ -243,6 +244,25 @@ class OrderProcessController extends Controller
         }
 
         return $share->id;
+    }
+
+    public function postTeam(Request $request)
+    {
+        
+        Team::create([
+                'team_name' => $request::get('team_name'),
+                'age_group' => $request::get('age_group'),
+                'postcode' => $request::get('postcode'),
+                'first_name' => $request::get('first_name'),
+                'last_name' => $request::get('last_name'),
+                'position' => $request::get('position'),
+                'email' => $request::get('email'),
+                'phone' => $request::get('phone'),
+                'comments' => $request::get('comments'),
+                'code' => $request::get('code')
+            ]);
+
+        return true;
     }
 
 

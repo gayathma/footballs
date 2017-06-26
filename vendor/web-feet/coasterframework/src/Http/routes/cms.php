@@ -3,6 +3,7 @@
 Route::post('/process-order', 'CoasterCms\Http\Controllers\OrderProcessController@postOrder');
 Route::post('/complete-order', 'CoasterCms\Http\Controllers\OrderProcessController@postPayment');
 Route::post('/share', 'CoasterCms\Http\Controllers\OrderProcessController@postShare');
+Route::post('/team-save', 'CoasterCms\Http\Controllers\OrderProcessController@postTeam');
 Route::get('/editor?id={token}', 'CoasterCms\Http\Controllers\OrderProcessController@generatePage');
 
 
