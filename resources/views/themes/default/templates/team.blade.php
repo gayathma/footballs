@@ -29,7 +29,7 @@
 <div class="tm-bottom-a-box  ">
     <div class="uk-container uk-container-center">
         <section id="tm-bottom-a" class="tm-bottom-a uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
-            <form method="POST" action="{{ url('/team-save')}}" accept-charset="UTF-8" id="team">
+            <form method="POST"  accept-charset="UTF-8" id="team">
                 <?php echo csrf_field(); ?>
                 <div class="uk-width-1-1 uk-row-first">
                     <div class="uk-panel">
@@ -172,7 +172,24 @@
 </section>
 </div>
 </div>
+<script type="text/javascript">
 
+    $( "#team" ).submit(function( event ) {
+        $.ajax({
+            url: '/team-save',
+            data: $('#team').serialize(),
+            type: 'POST',
+            success: function (msg) {
+                cms_alert('success', 'The team has been successfully saved.');
+            },
+            error: function () {
+                cms_alert('danger', 'Error Occured');
+            }
+        });
+        event.preventDefault();
+    });
+    
+</script>
 
 
 
