@@ -262,7 +262,7 @@ class OrderProcessController extends Controller
                 'code' => $request::get('code')
             ]);
 
-        return true;
+        return 'Success';
     }
 
 
