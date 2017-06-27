@@ -29,13 +29,14 @@
 <div class="tm-bottom-a-box  ">
     <div class="uk-container uk-container-center">
         <section id="tm-bottom-a" class="tm-bottom-a uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
-            <form method="POST"  accept-charset="UTF-8" id="team">
-                <?php echo csrf_field(); ?>
+           
                 <div class="uk-width-1-1 uk-row-first">
                     <div class="uk-panel">
                         <div class="about-team-page-top-wrap">
                             <div class="uk-grid">
                                 <div class="uk-width-large-5-10 uk-width-small-1-1 left-part">
+                                 <form method="POST"  accept-charset="UTF-8" id="team">
+                <?php echo csrf_field(); ?>
                                     <div class="top-title">
                                        <h2>Fan That Can - <span>Grassroots Teams</span></h2>
                                    </div>
@@ -46,19 +47,19 @@
                                         <div class="aiContactSafe" id="aiContactSafe_contact_form">
                                             <div class="aiContactSafe" id="aiContactSafe_info"></div>
                                             <div class="aiContactSafe_row" id="aiContactSafe_row_aics_name">
-                                                <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_name"><label for="aics_name">Grassroots Team Name *</label></span>&nbsp;
+                                                <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_name"><label for="aics_name">Grassroots Team Name</label></span>&nbsp;
                                                     <label class="required_field">*</label>
                                                 </div>
                                                 <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('name') }}">
-                                                    <input name="team_name" id="team_name" class="textbox" placeholder="Team Name" value="" type="text">
+                                                    <input name="team_name" id="team_name" class="textbox" placeholder="Team Name" value="" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="aiContactSafe_row" id="aiContactSafe_row_aics_email">
-                                                <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_email"><label for="aics_email">Age Group</label></span>&nbsp;
+                                                <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_email"><label for="aics_email">Age Group</label></span>&nbsp;
                                                     <label class="required_field">*</label>
                                                 </div>
                                                 <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('email') }}">
-                                                   <select name="age_group" class="form-select">
+                                                   <select name="age_group" class="form-select" required>
                                                     <option value="Under 6's">Under 6's</option>
                                                     <option value="Under 7's">Under 7's</option>
                                                     <option value="Under 8's">Under 8's</option>
@@ -77,28 +78,28 @@
                                             </div>
                                         </div>
                                         <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                                            <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Post Code</label></span>&nbsp;
+                                            <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Post Code</label></span>&nbsp;
                                                 <label class="required_field">*</label>
                                             </div>
                                             <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                                               <input name="postcode" id="postcode" class="textbox" placeholder="Post Code" value="" type="text">
+                                               <input name="postcode" id="postcode" class="textbox" placeholder="Post Code" value="" type="text" required>
                                            </div>
                                        </div>
                                        <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                                        <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Contact Name</label></span>&nbsp;
+                                        <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Contact Name</label></span>&nbsp;
                                             <label class="required_field">*</label>
                                         </div>
                                         <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                                           <input name="first_name" id="first-name" class="textbox" placeholder="First Name" value="" type="text">
-                                           <input name="last_name" id="last-name" class="textbox" placeholder="Last Name" value="" type="text">
+                                           <input name="first_name" id="first-name" class="textbox" placeholder="First Name" value="" type="text" required>
+                                           <input name="last_name" id="last-name" class="textbox" placeholder="Last Name" value="" type="text" required>
                                        </div>
                                    </div>
                                    <div class="aiContactSafe_row" id="aiContactSafe_row_aics_email">
-                                    <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_email"><label for="aics_email">Position</label></span>&nbsp;
+                                    <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_email"><label for="aics_email">Position</label></span>&nbsp;
                                         <label class="required_field">*</label>
                                     </div>
                                     <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('email') }}">
-                                       <select name="position" class="form-select">
+                                       <select name="position" class="form-select" required>
                                         <option value="Team Manager">Team Manager</option>
                                         <option value="Team Coach">Team Coach</option>
                                         <option value="Club Secretary">Club Secretary</option>
@@ -110,44 +111,45 @@
                                 </div>
                             </div>
                             <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                               <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Email</label></span>&nbsp;
+                               <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Email</label></span>&nbsp;
                                 <label class="required_field">*</label>
                             </div>
                             <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                               <input name="email" id="email" class="textbox" placeholder="example@example.com" value="" type="text">
+                               <input name="email" id="email" class="textbox" placeholder="example@example.com" value="" type="text" required>
                            </div>
                        </div>
                        <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                           <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Phone Number</label></span>&nbsp;
+                           <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Phone Number</label></span>&nbsp;
                             <label class="required_field">*</label>
                         </div>
                         <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                           <input name="phone" id="phone" class="textbox" placeholder="phone number" value="" type="text">
+                           <input name="phone" id="phone" class="textbox" placeholder="phone number" value="" type="text" required>
                        </div>
                    </div>
 
                <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Any further details you would like to add</label></span>&nbsp;
+                <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Any further details you would like to add</label></span>&nbsp;
                     <label class="required_field">*</label>
                 </div>
                 <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                <textarea name="comments" id="comments" cols="40" rows="10" class="editbox" placeholder="Message"></textarea>
+                <textarea name="comments" id="comments" cols="40" rows="10" class="editbox" placeholder="Message" required></textarea>
                 </div>
             </div>
             <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                           <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Enter Code Given (Optional)</label></span>&nbsp;
+                           <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message">Enter Code Given (Optional)</label></span>&nbsp;
                            
                         </div>
                         <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                           <input name="code" id="code" class="textbox" placeholder="phone number" value="" type="text">
+                           <input name="code" id="code" class="textbox" placeholder="Code" value="" type="text">
                        </div>
                    </div>
                     <div class="aiContactSafe_row" id="aiContactSafe_row_aics_message">
-                           <div class="aiContactSafe_contact_form_field_label_left"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message"></label></span>&nbsp;
+                           <div class="aiContactSafe_contact_form_field_label_left lbl"><span class="aiContactSafe_label" id="aiContactSafe_label_aics_message"><label for="aics_message"></label></span>&nbsp;
                            
                         </div>
+
                         <div class="aiContactSafe_contact_form_field_right {{ FormMessage::get_class('message') }}">
-                            <input id="aiContactSafeSendButton" type="submit" value="Shoot">
+                            <input id="aiContactSafeSendButton" type="submit" value="Shoot" class="donate-btn">
                        </div>
                    </div>
         </div>
@@ -155,6 +157,7 @@
 
 
     </div>
+    </form>
     </div>
     <div class="uk-width-large-5-10 uk-width-small-1-1">
         <div class="top-banner uk-cover-background uk-position-relative" style="height: 420px; background-image: url('/themes/default/img/our-story.jpg');">
@@ -162,35 +165,52 @@
             <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle inner">
 
             </div>
+
         </div>
+​<h4>Fan That Can - F.T.C</h4>
+<p>Our Fan That Can initiative has been developed to help Grassroots teams up and down the country with a set of fully personalised quality footballs.
+Every year teams are fighting a battle to secure funding to help them engage and develop the millions of boys and girls that want to play football.
+Its common knowledge that teams have been able to secure sponsorship for their team kits, yet the costs of essential equipment has had to come from a variety of self fundraising activities. We think everyone is in total agreement that the most important element is the actual Football, yet teams have been forced to opt for cheap low grade footballs, that don't enthuse a young player, nor last very long.
+
+Well, 1v1's Fan That Can is about to revolutionise how Grassroots teams can source their footballs.
+
+We are looking to get local individuals, Sole Trader, Partnerships, SME's, right the way through to the big Blue Chip companies, to show their support to their local team of children playing Grassroots football, and fund a set of 1v1 Personalised Footballs for their local School and Grassroots team.
+
+Its so simple;
+
+The Grassroot Teams simply register for our support.</p>
     </div>
     </div>
     </div>
     </div>
     </div>
-</form>
+
 </section>
 </div>
 </div>
-<script type="text/javascript">
 
+
+
+
+{!! PageBuilder::section('footer') !!}
+<script type="text/javascript">
+jQuery(function($) {
+  
     $( "#team" ).submit(function( event ) {
         $.ajax({
             url: '/team-save',
             data: $('#team').serialize(),
             type: 'POST',
             success: function (msg) {
-                cms_alert('success', 'The team has been successfully saved.');
+                alert('Success, The team has been successfully saved.');
             },
             error: function () {
-                cms_alert('danger', 'Error Occured');
+                alert('Error Occured');
             }
         });
         event.preventDefault();
     });
+});
+    
     
 </script>
-
-
-
-{!! PageBuilder::section('footer') !!}

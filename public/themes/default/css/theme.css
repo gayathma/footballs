@@ -15984,3 +15984,7 @@ table {
     background-size: 100% 525px;
 }
 
+.lbl{
+    margin: 6px 0px 6px 0px;
+    display: block;
+}
