@@ -149,6 +149,7 @@ Route::group(['prefix' => $adminUrl, 'middleware' => ['web', 'coaster.admin'], '
     Route::post('sizes/delete/{sizeId?}', ['uses' => 'SizesController@postDelete', 'as' => $routeNamePrefix . 'sizes.delete']);
 
     Route::get('teams', ['uses' => 'TeamsController@getIndex', 'as' => $routeNamePrefix . 'teams']);
+    Route::get('teams/csv', ['uses' => 'TeamsController@getCsv', 'as' => $routeNamePrefix . 'teams.csv']);
 
     Route::get('products', ['uses' => 'ProductsController@getIndex', 'as' => $routeNamePrefix . 'products']);
     Route::post('products/edit', ['uses' => 'ProductsController@postUpdate', 'as' => $routeNamePrefix . 'products.edit']);

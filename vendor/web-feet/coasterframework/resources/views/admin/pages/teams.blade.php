@@ -2,6 +2,12 @@
     <div class="col-sm-6">
         <h1>Teams List</h1>
     </div>
+    <div class="col-sm-6 text-right">
+        @if ($can_export)
+            <a href="{{ $export_link }}" class="btn btn-warning addButton" target="_blank"><i
+                        class="fa fa-share-square-o"></i> &nbsp; Export</a>
+        @endif
+    </div>
 </div>
 
 <div class="table-responsive">
@@ -18,6 +24,7 @@
             <th>Phone Number</th>
             <th>Code</th>
             <th>Comments</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>
@@ -33,8 +40,14 @@
                 <td>{!! $team->phone !!}</td>
                 <td>{!! $team->code !!}</td>
                 <td>{!! $team->comments !!}</td>
+                <td>{!! DateTimeHelper::display($team->created_at) !!}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    <div class="text-center">
+        @if(isset($teams))
+            {!! $teams->render() !!}
+        @endif
+    </div>
 </div>
