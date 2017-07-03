@@ -140,6 +140,7 @@ Route::group(['prefix' => $adminUrl, 'middleware' => ['web', 'coaster.admin'], '
     Route::post('orders/edit/{orderId?}/{action?}', ['uses' => 'OrdersController@postEdit', 'as' => $routeNamePrefix . 'orders.edit.post'])->where(['orderId' => '\w+', 'action' => '\w+']);
     Route::post('orders/delete/{orderId?}', ['uses' => 'OrdersController@postDelete', 'as' => $routeNamePrefix . 'orders.delete']);
     Route::get('orders/download/{orderId?}/{action?}', ['uses' => 'OrdersController@getDownload', 'as' => $routeNamePrefix . 'orders.download'])->where(['orderId' => '\w+', 'action' => '\w+']);
+    Route::get('orders/csv', ['uses' => 'OrdersController@getCsv', 'as' => $routeNamePrefix . 'orders.csv']);
 
 
     Route::get('sizes', ['uses' => 'SizesController@getIndex', 'as' => $routeNamePrefix . 'sizes']);

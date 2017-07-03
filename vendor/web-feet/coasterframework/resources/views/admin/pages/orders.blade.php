@@ -2,6 +2,12 @@
     <div class="col-sm-6">
         <h1>Orders List</h1>
     </div>
+    <div class="col-sm-6 text-right">
+        @if ($can_export)
+            <a href="{{ $export_link }}" class="btn btn-warning addButton" target="_blank"><i
+                        class="fa fa-share-square-o"></i> &nbsp; Export</a>
+        @endif
+    </div>
 
 </div>
 
