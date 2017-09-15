@@ -281,8 +281,8 @@ return [
     */
     'callback_redirect_route' => '/',
 
-    'stripe_pk' => 'pk_live_0evdfOd3EydEgKzj7pY7l4jI',
+    'stripe_pk' => '',
 
-    'stripe_sk' => 'sk_live_7Tz0kAVpN5fNvU4vG5mrNKzr',
+    'stripe_sk' => '',
 
 ];

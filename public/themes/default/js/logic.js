@@ -728,7 +728,7 @@ var orderComplete = {
   tot: ''
 }
 var handler = StripeCheckout.configure({
-  key: 'pk_live_0evdfOd3EydEgKzj7pY7l4jI',
+  key: '',
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   token: function(token) {

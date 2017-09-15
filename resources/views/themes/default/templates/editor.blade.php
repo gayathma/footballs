@@ -105,7 +105,7 @@ function goBack(){
                             <button class="btn btn-success btn-sm"  onclick="showColor2()" data-intro='Select the secondary colour.'>Secondary Colour</button>
                             <label class="btn btn-success btn-file logoSelect btn-sm" data-intro='You can add a logo and make sure to upload it in PNG format for best results.'>Add Primary Logo <input id="logo1" type="file" hidden ></label>
                             <label class="btn btn-success btn-file logoSelect btn-sm">Add Secondary Logo<input id="logo2" type="file" hidden ></label>
-                            <button class="btn btn-success textSelect btn-sm" onclick="addText(0)" data-intro='Or you can add a text.'>Enter Primary Text</button>
+                            <button class="btn btn-success textSelect btn-sm" onclick="addText(0)" data-intro='Or you can add text.'>Enter Primary Text</button>
                             <button class="btn btn-success textSelect btn-sm" onclick="addText(1)">Enter Secondary Text</button>
                             <!--<button id="logoSelect" class="btn btn-success btn-sm"  onclick="showLogoModal()">Add Logo</button>
                             <button id="textSelect" class="btn btn-success btn-sm"  onclick="showTextModal()">Add Text</button>-->
