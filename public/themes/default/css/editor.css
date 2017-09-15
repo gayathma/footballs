@@ -74,7 +74,7 @@
 		}
 
 		.container-fluid{
-			background-color: #ffffff;
+			background-color: #4bbe41!important
 		}
 
 		#image{
@@ -174,7 +174,7 @@
 		}
 		.btn-success {
 			color: #000!important;
-			background-color: #ffffff!important;
+			background-color: #4bbe41!important;
 			border-color: #000000!important;
 		}
 
@@ -199,7 +199,12 @@
 		}
 		
 .canvas-holder{
-			margin-top: -80px;
+			    margin-top: -19vh;
+		}
+
+		.cart{
+			    width: 3vh;
+    margin: 1vh;
 		}
 
 		body{
@@ -288,7 +293,7 @@
 	position: ABSOLUTE;
     left: 5px;
     top: 5px;
-    z-index: 5000;
+    z-index: 200;
 }
 
 #order-preview{
@@ -310,11 +315,11 @@
 }
 
 .call{
-	    position: absolute;
+	position: absolute;
     left: 0;
     right: 0;
     bottom: 12px;
-    z-index: 50000;
+    z-index: 200;
     width: 100%;
     text-align: CENTER;
     font-size: .8em;

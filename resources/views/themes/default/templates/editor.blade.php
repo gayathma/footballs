@@ -80,13 +80,13 @@ function goBack(){
 
 
 </script>
-<button class="btn btn-success btn-sm back" onclick="goBack()">Back</button>
+<button class="btn btn-success btn-sm back" onclick="goBack()">Home</button>
 <div class="container-fluid">
                 <div class="row">
 <div class="col-md-12 col-sm-12 col-xs-12 ball-selector" >
 
                 <p>Choose your preferred design</p>
-                <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast" data-intro='Hello There, Get started with your design by selecting a football.'/>
+                <img src="/themes/default/img/blast.png" onclick="blast()" class="bttn blast" data-intro='To get started, choose one of these 6 football designs'/>
                 <img src="/themes/default/img/flame.png" onclick="flame()" class="bttn flame"/>
                 <img src="/themes/default/img/prem.png" onclick="prem()" class="bttn prem"/>
                 <img src="/themes/default/img/swerve.png" onclick="swerve()" class="bttn swerve"/>
@@ -109,10 +109,12 @@ function goBack(){
                             <button class="btn btn-success textSelect btn-sm" onclick="addText(1)">Enter Secondary Text</button>
                             <!--<button id="logoSelect" class="btn btn-success btn-sm"  onclick="showLogoModal()">Add Logo</button>
                             <button id="textSelect" class="btn btn-success btn-sm"  onclick="showTextModal()">Add Text</button>-->
-                            <button class="btn btn-success btn-sm"  id="reset" data-intro='You can always start fresh by resetting'>Reset Options</button>
-                            <button class="btn btn-success btn-sm"  onclick="player.centerBall()" data-intro='Get a better view by centering out'>Center Ball</button>
-                            <button class="btn btn-success btn-sm"  onclick="placeOrder()" data-intro='If you happy with it place the order'>Place Order</button>
-                            <button class="btn btn-success btn-sm"  onclick="shareDesign()" data-intro='Share your link with others'>Share Design</button>
+                            <button class="btn btn-success btn-sm"  id="reset" data-intro='Start again as many times as you like'>Reset</button>
+                            <button class="btn btn-success btn-sm"  onclick="player.centerBall()" data-intro='Get a better view by centering out'>Centre Ball</button>
+                            <img src="/themes/default/img/cart.png" onclick="placeOrder()" data-intro='Once you are happy with your design, proceed to purchase' class="cart"/>
+                      <!--       <button class="btn btn-success btn-sm"  onclick="placeOrder()" data-intro='If you happy with it place the order'>Place Order</button> -->
+                             <img src="/themes/default/img/shre.png" onclick="shareDesign()" data-intro='Share your unique design' class="cart"/>
+                            <!-- <button class="btn btn-success btn-sm"  onclick="shareDesign()" data-intro='Share your link with others'>Share Design</button>-->
                         </div>
                     </div>
                 </div>
@@ -540,7 +542,7 @@ $(document).ready(function(){
     $('.help').click(function(){
         introJs().start();
     });
-    
+
 
 
 });

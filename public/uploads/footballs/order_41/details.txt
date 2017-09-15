@@ -1,0 +1,6 @@
+Customer Name : Rich
+Customer email : shamaingdd@yahoo.com
+Team Name : team rich
+Layer one color : p237
+Layer two color : p295
+Design selected : blast

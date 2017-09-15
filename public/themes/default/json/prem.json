@@ -10,28 +10,28 @@
 	},
 	"camera": {
 		"metadata": {
-			"version": 4.4,
+			"version": 4.5,
 			"type": "Object",
 			"generator": "Object3D.toJSON"
 		},
 		"object": {
-			"uuid": "46C85073-CC92-4B3A-9EA8-A2A063A46AA5",
+			"uuid": "C9AABDFD-BA4B-402B-9479-2EEC7C6AF5DF",
 			"type": "PerspectiveCamera",
 			"name": "Camera",
-			"matrix": [0.764586,0,-0.644522,0,-0.384821,0.802193,-0.456507,0,0.517031,0.597065,0.613345,0,3.942673,4.552975,4.677125,1],
+			"matrix":  [0.764586,0,-0.644522,0,-0.384821,0.802193,-0.456507,0,0.517031,0.597065,0.613345,0,3.942673,4.552975,4.677125,1],
 			"fov": 50,
 			"zoom": 1,
 			"near": 0.1,
 			"far": 10000,
 			"focus": 10,
-			"aspect": 1.935484,
+			"aspect": 1.828442,
 			"filmGauge": 35,
 			"filmOffset": 0
 		}
 	},
 	"scene": {
 		"metadata": {
-			"version": 4.4,
+			"version": 4.5,
 			"type": "Object",
 			"generator": "Object3D.toJSON"
 		},
@@ -135,13 +135,14 @@
 				"emissive": 0,
 				"specular": 1118481,
 				"shininess": 30,
-				"opacity":0,
+				"opacity": 0,
 				"transparent": true,
 				"depthFunc": 3,
 				"depthTest": true,
 				"depthWrite": true,
 				"skinning": false,
-				"morphTargets": false
+				"morphTargets": false,
+				"dithering": false
 			},
 			{
 				"uuid": "D1B6D47F-5ECE-4D12-9DB6-AA7A895ABF14",
@@ -151,13 +152,14 @@
 				"emissive": 0,
 				"specular": 1118481,
 				"shininess": 30,
-				"opacity":0,
+				"opacity": 0,
 				"transparent": true,
 				"depthFunc": 3,
 				"depthTest": true,
 				"depthWrite": true,
 				"skinning": false,
-				"morphTargets": false
+				"morphTargets": false,
+				"dithering": false
 			},
 			{
 				"uuid": "EDF8916B-BAAC-4F7F-9622-92A4B00A0169",
@@ -167,13 +169,14 @@
 				"emissive": 0,
 				"specular": 1118481,
 				"shininess": 30,
-				"map": "23B20B81-6461-4422-8A80-B6DA61B097BA",
+				"map": "F0E8E6B7-DA58-4A64-A8FF-9B1160798AE2",
 				"transparent": true,
 				"depthFunc": 3,
 				"depthTest": true,
 				"depthWrite": true,
 				"skinning": false,
-				"morphTargets": false
+				"morphTargets": false,
+				"dithering": false
 			},
 			{
 				"uuid": "99E17A30-DE66-4436-B2F1-FF89D2D2DB2F",
@@ -183,13 +186,14 @@
 				"emissive": 0,
 				"specular": 1118481,
 				"shininess": 30,
-				"map": "ACCB2C5C-65CF-4A1F-A52D-A999095AB016",
+				"map": "DB3032F2-3290-4591-8353-6F2C74BEA5DA",
 				"transparent": true,
 				"depthFunc": 3,
 				"depthTest": true,
 				"depthWrite": true,
 				"skinning": false,
-				"morphTargets": false
+				"morphTargets": false,
+				"dithering": false
 			},
 			{
 				"uuid": "AC08B088-74EC-49AD-A5C5-666B5E7895C0",
@@ -202,11 +206,12 @@
 				"depthTest": true,
 				"depthWrite": true,
 				"skinning": false,
-				"morphTargets": false
+				"morphTargets": false,
+				"dithering": false
 			}],
 		"textures": [
 			{
-				"uuid": "23B20B81-6461-4422-8A80-B6DA61B097BA",
+				"uuid": "F0E8E6B7-DA58-4A64-A8FF-9B1160798AE2",
 				"name": "",
 				"mapping": 300,
 				"repeat": [1,1],
@@ -216,10 +221,10 @@
 				"magFilter": 1006,
 				"anisotropy": 1,
 				"flipY": true,
-				"image": "D2BEF8DF-E06A-4072-BD46-39134C1DF061"
+				"image": "0BD0503E-C89E-4E3E-8EC6-ED3BDD11F670"
 			},
 			{
-				"uuid": "ACCB2C5C-65CF-4A1F-A52D-A999095AB016",
+				"uuid": "DB3032F2-3290-4591-8353-6F2C74BEA5DA",
 				"name": "",
 				"mapping": 300,
 				"repeat": [1,1],
@@ -229,15 +234,15 @@
 				"magFilter": 1006,
 				"anisotropy": 1,
 				"flipY": true,
-				"image": "CAE88C9F-53BA-4782-84B2-491664C0332B"
+				"image": "B5795291-A974-48AE-B771-66C972649A25"
 			}],
 		"images": [
 			{
-				"uuid": "D2BEF8DF-E06A-4072-BD46-39134C1DF061",
+				"uuid": "0BD0503E-C89E-4E3E-8EC6-ED3BDD11F670",
 				"url": "/themes/default/img/premc1.png"
 			},
 			{
-				"uuid": "CAE88C9F-53BA-4782-84B2-491664C0332B",
+				"uuid": "B5795291-A974-48AE-B771-66C972649A25",
 				"url": "/themes/default/img/premc2.png"
 			}],
 		"object": {
@@ -256,7 +261,7 @@
 							"uuid": "FA00C57D-0015-4F89-801C-92CB25E97D90",
 							"type": "Mesh",
 							"name": "logo2",
-							"matrix": [0.801208,0.492039,-0.340534,0,0.030775,0.534452,0.844638,0,0.597595,-0.687211,0.413065,0,0.014298,0.51587,0.858075,1],
+							"matrix": [-0.762571,-0.108522,0.637737,0,-0.576539,0.561139,-0.593906,0,-0.293408,-0.820577,-0.490476,0,-0.580693,0.572366,-0.581059,1],
 							"geometry": "20087766-1478-4FD3-A6E7-79F1D261F34F",
 							"material": "D1B6D47F-5ECE-4D12-9DB6-B67A895ABF14"
 						},
@@ -264,7 +269,7 @@
 							"uuid": "196FFB5C-DE9E-49F8-AD56-61F9103D339D",
 							"type": "Mesh",
 							"name": "logo1",
-							"matrix": [0.810106,0.473263,-0.34605,0,-0.039691,-0.544619,-0.837744,0,-0.584939,0.692396,-0.422415,0,-0.001805,-0.533825,-0.851012,1],
+							"matrix": [0.786146,0.078781,-0.612999,0,0.539843,-0.57043,0.619016,0,-0.300906,-0.81756,-0.49097,0,0.577461,-0.579072,0.578031,1],
 							"geometry": "11890193-2294-470E-9389-2631AD86D9C4",
 							"material": "D1B6D47F-5ECE-4D12-9DB6-AA7A895ABF14"
 						},

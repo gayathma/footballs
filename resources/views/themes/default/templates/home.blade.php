@@ -15,7 +15,7 @@
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
                                                 <h3>Your<span> Winning Football</span></h3>
-                                                <div class="promo-sub">TRY OUR<span> ALL NEW</span> 3D DESIGNER</div>
+                                                <div class="promo-sub"><span class="sub-text">TRY OUR<span> ALL NEW</span> 3D DESIGNER</span></div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -27,7 +27,7 @@
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
                                                 <h3>CREATE YOUR DREAM FOOTBALL IN<span> 3D</span></h3>
-                                                <div class="promo-sub">Just play. <span>Have fun.</span> Enjoy the game</div>
+                                                <div class="promo-sub"><span class="sub-text">Just play. <span>Have fun.</span> Enjoy the game</span></div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -40,7 +40,7 @@
                                         <div class="uk-container uk-container-center uk-position-cover">
                                             <div class="va-promo-text uk-width-6-10 uk-push-4-10">
                                                 <h3>Life is <span>about timing</span></h3>
-                                                <div class="promo-sub">Your design. <span>Your Football</span></div>
+                                                <div class="promo-sub"><span class="sub-text">Your design. <span>Your Football</span></span></div>
                                                 <a href="<?php echo URL::to('/editor');?>" class="read-more">START DESIGNING<i class="uk-icon-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -138,11 +138,11 @@
                                             <div class="date"></div>
                                             <div class="name">
                                                 <h4>
-                                                    <a href="#">COACH & MANAGERS</a> 
+                                                    <a href="#">TEAMS</a> 
                                                 </h4>
                                             </div>
                                             <div class="text">
-                                                <p>A professional image is vital and can say a lot about you as a coach or manager. 1v1 creates footballs that inspire players whilst enhancing your image. Make players feel valued.</p>
+                                                <p>1v1 creates footballs that inspire players whilst enhancing your team’s image. Make players feel valued. Lose fewer footballs. Get your footballs sponsored.</p>
                                                 
                                             </div>
                                         </div>
@@ -151,11 +151,11 @@
 
 
                                     <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" >
-                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/schools.jpg); min-height: 280px;">
+                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/1v1footballs_School_footballs.jpg); min-height: 280px;">
 
 
                                             
-                                               <img class="uk-invisible" src="/themes/default/img/schools.jpg" alt="">
+                                               <img class="uk-invisible" src="/themes/default/img/1v1footballs_School_footballs.jpg" alt="">
 
                                         </div>
                                         <div style="min-height: 280px;" class="info">
@@ -174,11 +174,11 @@
                                     </article>
 
                                     <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" >
-                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/business.jpg); min-height: 280px;">
+                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/1v1footballs_branded_footballs.jpg); min-height: 280px;">
 
 
                                             
-                                               <img class="uk-invisible" src="/themes/default/img/business.jpg" alt="">
+                                               <img class="uk-invisible" src="/themes/default/img/1v1footballs_branded_footballs.jpg" alt="">
 
                                         </div>
                                         <div style="min-height: 280px;" class="info">
@@ -222,11 +222,11 @@
                                     </article>
 
                                      <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" >
-                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/gifts.jpg); min-height: 280px;">
+                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/themes/default/img/1v1footballs_gifts_personalised_footballs.jpg); min-height: 280px;">
 
 
                                             
-                                               <img class="uk-invisible" src="/themes/default/img/gifts.jpg" alt="">
+                                               <img class="uk-invisible" src="/themes/default/img/1v1footballs_gifts_personalised_footballs.jpg" alt="">
 
                                         </div>
                                         <div style="min-height: 280px;" class="info">

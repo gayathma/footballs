@@ -138,7 +138,7 @@ var APP = {
 			controls = new THREE.TrackballControls( camera , renderer.domElement);
 			controls.rotateSpeed = 1.0;
 			controls.zoomSpeed = 1.2;
-			controls.panSpeed = 0.8;
+			//controls.panSpeed = 0.8;
 
 			controls.enableZoom  = true;
 			controls.enablePan  = false;
@@ -465,9 +465,8 @@ controls.reset();
 				camera.position.set(2.91565087418718,2.708466685437841, 2.8673651184034483);
 			}
 			if(football.design=="prem"){
-				camera.up.set(-0.42951540205004135,0.8848057884239542,0.18065225205692934);
-				camera.position.set(0.08530338004117863,2.665469970745831,4.545441138255291);
-
+				camera.up.set(-0.040519292486137275,0.9959332784546746,0.08046795513051);
+				camera.position.set(-2.824314173774465,3.2834502349767023,-3.002539920664631);
 			}
 
 			if(football.design=="swerve"){
